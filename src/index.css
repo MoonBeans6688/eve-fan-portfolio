@@ -6,16 +6,8 @@
 
 @font-face {
   font-family: 'Self Modern';
-  src: url('/fonts/SelfModern-Regular.woff2') format('woff2');
+  src: url('/fonts/Self_Modern.woff2') format('woff2');
   font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Self Modern';
-  src: url('/fonts/SelfModern-Bold.woff2') format('woff2');
-  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
