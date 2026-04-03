@@ -188,7 +188,7 @@ const HeroSection = () => {
         {/* ===== Orange "PRODUCT DESIGNER" sticker ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 784, top: 939, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
+          style={{ left: 784, top: 489, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
           {...makeDraggable("orange")}
         >
           <img src={stickerOrange} alt="Orange sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
