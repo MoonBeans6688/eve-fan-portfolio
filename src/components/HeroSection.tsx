@@ -164,7 +164,7 @@ const HeroSection = () => {
             className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
             style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%" }}
           >
-            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 36 }}>
+            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 44 }}>
               I make...
             </span>
             <LayoutGroup>
@@ -172,7 +172,7 @@ const HeroSection = () => {
                 ref={sloganRef}
                 layout
                 className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
-                style={{ fontSize: 72, maxWidth: "100%", overflow: "hidden" }}
+                style={{ fontSize: 88, maxWidth: "100%", overflow: "hidden" }}
               >
                 <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
                 <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
