@@ -195,7 +195,7 @@ const HeroSection = () => {
         >
           <img src={stickerOrange} alt="Orange sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
           <span
-            className="absolute inset-0 flex items-center justify-center font-mono text-[16px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center font-mono text-[22px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
             style={{ transform: "rotate(2deg)", paddingBottom: 14 }}
           >
             Product<br />Designer
