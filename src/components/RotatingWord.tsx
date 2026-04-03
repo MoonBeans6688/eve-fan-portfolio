@@ -16,7 +16,7 @@ const RotatingWord = ({ word, wordKey }: RotatingWordProps) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.28 }}
-          className="relative inline-block"
+          className="relative inline-block font-display tracking-tight text-foreground"
         >
           {word}
           <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 rounded" />

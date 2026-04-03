@@ -16,6 +16,9 @@ const WORD_PAIRS = [
   ["Human", "dehumanizing"],
 ];
 
+const DESIGN_W = 2880;
+const DESIGN_H = 2800;
+
 interface DraggableState {
   x: number;
   y: number;
@@ -30,12 +33,23 @@ const initDrag = (): DraggableState => ({
 
 const HeroSection = () => {
   const [pairIndex, setPairIndex] = useState(0);
+  const [scale, setScale] = useState(1);
+  const sloganRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setPairIndex((prev) => (prev + 1) % WORD_PAIRS.length);
     }, 3000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const update = () => {
+      setScale(Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H));
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
   const [adj1, adj2] = WORD_PAIRS[pairIndex];
@@ -78,179 +92,166 @@ const HeroSection = () => {
     setDrags((prev) => ({ ...prev, [id]: { ...prev[id], isDragging: false } }));
   }, []);
 
-  // Sticker render helper
-  const renderSticker = (
-    id: string,
-    src: string,
-    alt: string,
-    style: React.CSSProperties,
-    rotate: number,
-    hoverRotate: number,
-    sizeClass: string,
-    children?: React.ReactNode
-  ) => {
+  const makeDraggable = (id: string) => ({
+    onMouseDown: (e: React.MouseEvent) => handleMouseDown(e, id),
+    onMouseEnter: () => setHovers((p) => ({ ...p, [id]: true })),
+    onMouseLeave: () => setHovers((p) => ({ ...p, [id]: false })),
+  });
+
+  const dragStyle = (id: string, baseRotate: number, hoverRotate: number): React.CSSProperties => {
     const drag = drags[id];
     const isHover = hovers[id] && !drag.isDragging;
-    const rot = isHover ? hoverRotate : rotate;
-    return (
-      <div
-        key={id}
-        className="absolute select-none"
-        style={{
-          ...style,
-          transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
-          transition: drag.isDragging ? "none" : "transform 0.3s ease",
-          cursor: drag.isDragging ? "grabbing" : "grab",
-          filter: "drop-shadow(3px 5px 8px rgba(0,0,0,0.13))",
-        }}
-        onMouseDown={(e) => handleMouseDown(e, id)}
-        onMouseEnter={() => setHovers((p) => ({ ...p, [id]: true }))}
-        onMouseLeave={() => setHovers((p) => ({ ...p, [id]: false }))}
-      >
-        <img src={src} alt={alt} className={`${sizeClass} h-auto pointer-events-none`} draggable={false} />
-        {children}
-      </div>
-    );
+    const rot = isHover ? hoverRotate : baseRotate;
+    return {
+      transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
+      transition: drag.isDragging ? "none" : "transform 0.3s ease",
+      cursor: drag.isDragging ? "grabbing" : "grab",
+      filter: "drop-shadow(4px 6px 10px rgba(0,0,0,0.13))",
+    };
   };
+
+  // Big paper dimensions from PS
+  const PAPER_W = 2015;
+  const PAPER_H = 1456;
+  const PAPER_LEFT = 571;
+  const PAPER_TOP = 1102;
+
+  // Name paper scaled to 0.85x
+  const NAME_W = 682 * 0.85;
+  const NAME_H = 540 * 0.85;
+  const NAME_LEFT = 1897;
+  const NAME_TOP = 1066;
 
   return (
     <section
-      className="relative w-screen h-screen overflow-hidden"
+      className="relative w-screen h-screen overflow-hidden bg-background"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      {/* ===== Center paper card ===== */}
+      {/* Fixed design stage */}
       <div
-        className="absolute select-none"
-        style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", zIndex: 5 }}
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          width: DESIGN_W,
+          height: DESIGN_H,
+          transform: `translate(-50%, -50%) scale(${scale})`,
+          transformOrigin: "center center",
+        }}
       >
-        <div className="relative">
+        {/* ===== Big paper card (base layer) ===== */}
+        <div
+          className="absolute select-none"
+          style={{
+            left: PAPER_LEFT,
+            top: PAPER_TOP,
+            width: PAPER_W,
+            height: PAPER_H,
+            zIndex: 5,
+          }}
+        >
           <img
             src={gridPaper}
             alt=""
-            className="w-[clamp(420px,50vw,700px)] h-auto pointer-events-none"
+            className="w-full h-full pointer-events-none"
             draggable={false}
-            style={{ filter: "drop-shadow(2px 4px 12px rgba(0,0,0,0.08))" }}
+            style={{ filter: "drop-shadow(2px 4px 16px rgba(0,0,0,0.08))" }}
           />
           {/* Text overlay */}
           <div
             className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
-            style={{ paddingLeft: "12%", paddingRight: "8%", paddingTop: "2%" }}
+            style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%" }}
           >
-            <span className="font-display text-[clamp(14px,1.4vw,20px)] text-foreground/60 italic mb-1">
+            <span className="font-display text-[28px] text-foreground/60 italic mb-2">
               I make...
             </span>
             <LayoutGroup>
               <motion.div
+                ref={sloganRef}
                 layout
                 className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
-                style={{ fontSize: "clamp(22px, 3.2vw, 48px)", maxWidth: "100%", overflow: "hidden" }}
+                style={{ fontSize: 52, maxWidth: "100%", overflow: "hidden" }}
               >
                 <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
                 <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
-                  products for
+                  {" products for "}
                 </motion.span>
                 <RotatingWord word={adj2} wordKey={`adj2-${pairIndex}`} />
                 <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
-                  realities.
+                  {" realities."}
                 </motion.span>
               </motion.div>
             </LayoutGroup>
           </div>
         </div>
-      </div>
 
-      {/* ===== Stickers ===== */}
+        {/* ===== Orange "PRODUCT DESIGNER" sticker ===== */}
+        <div
+          className="absolute select-none"
+          style={{ left: 784, top: 939, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
+          {...makeDraggable("orange")}
+        >
+          <img src={stickerOrange} alt="Orange sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
+          <span
+            className="absolute inset-0 flex items-center justify-center font-mono text-[16px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
+            style={{ transform: "rotate(2deg)", paddingBottom: 14 }}
+          >
+            Product<br />Designer
+          </span>
+        </div>
 
-      {/* Orange scallop - top left */}
-      {renderSticker("orange", stickerOrange, "Orange sticker",
-        { left: "12vw", top: "18vh", zIndex: 6 },
-        -6, -12, "w-[clamp(120px,12vw,180px)]",
-        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] md:text-[11px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
-          style={{ transform: "rotate(2deg)", paddingBottom: "10px" }}>
-          Product<br />Designer
-        </span>
-      )}
+        {/* ===== Yellow star (bottom-left) ===== */}
+        <div
+          className="absolute select-none"
+          style={{ left: 230, top: 2096, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
+          {...makeDraggable("yellow")}
+        >
+          <img src={stickerYellow} alt="Yellow sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
+        </div>
 
-      {/* Yellow star - bottom left */}
-      {renderSticker("yellow", stickerYellow, "Yellow sticker",
-        { left: "10vw", bottom: "10vh", zIndex: 5 },
-        8, 14, "w-[clamp(170px,16vw,240px)]"
-      )}
+        {/* ===== Blue blob (bottom-right) ===== */}
+        <div
+          className="absolute select-none"
+          style={{ left: 1930, top: 2308, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
+          {...makeDraggable("blue")}
+        >
+          <img src={stickerBlue} alt="Blue sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
+        </div>
 
-      {/* Blue blob - bottom right */}
-      {renderSticker("blue", stickerBlue, "Blue sticker",
-        { right: "22vw", bottom: "12vh", zIndex: 5 },
-        -6, -10, "w-[clamp(150px,14vw,220px)]"
-      )}
+        {/* ===== Purple double-blob (right) ===== */}
+        <div
+          className="absolute select-none"
+          style={{ left: 2393, top: 1830, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
+          {...makeDraggable("purple")}
+        >
+          <img src={stickerPurple} alt="Purple sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
+        </div>
 
-      {/* Purple double circle - right mid */}
-      {renderSticker("purple", stickerPurple, "Purple sticker",
-        { right: "10vw", top: "52vh", zIndex: 5 },
-        4, 9, "w-[clamp(170px,16vw,260px)]"
-      )}
+        {/* ===== Name paper "Eve Fan" (ON TOP of big paper) ===== */}
+        <div
+          className="absolute select-none"
+          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...dragStyle("torn", 0, 6) }}
+          {...makeDraggable("torn")}
+        >
+          <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
+          <span
+            className="absolute inset-0 flex items-center justify-center font-display text-[40px] text-foreground/90 pointer-events-none"
+            style={{ transform: "rotate(-1deg)", paddingBottom: 16 }}
+          >
+            Eve Fan
+          </span>
+        </div>
 
-      {/* ===== Name tag group (torn paper + clip) - top right ===== */}
-      <div
-        className="absolute"
-        style={{ right: "12vw", top: "14vh", width: "clamp(200px,18vw,320px)", zIndex: 7 }}
-      >
-        {/* Torn paper (bottom layer) */}
-        {(() => {
-          const id = "torn";
-          const drag = drags[id];
-          const isHover = hovers[id] && !drag.isDragging;
-          const rot = isHover ? 10 : 6;
-          return (
-            <div
-              className="relative select-none"
-              style={{
-                zIndex: 7,
-                transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
-                transition: drag.isDragging ? "none" : "transform 0.3s ease",
-                cursor: drag.isDragging ? "grabbing" : "grab",
-                filter: "drop-shadow(3px 5px 8px rgba(0,0,0,0.13))",
-              }}
-              onMouseDown={(e) => handleMouseDown(e, id)}
-              onMouseEnter={() => setHovers((p) => ({ ...p, [id]: true }))}
-              onMouseLeave={() => setHovers((p) => ({ ...p, [id]: false }))}
-            >
-              <img src={stickerTorn} alt="Eve Fan" className="w-full h-auto pointer-events-none" draggable={false} />
-              <span className="absolute inset-0 flex items-center justify-center font-display text-[clamp(20px,2.2vw,36px)] text-foreground/90 pointer-events-none"
-                style={{ transform: "rotate(-1deg)", paddingBottom: "12px" }}>
-                Eve Fan
-              </span>
-            </div>
-          );
-        })()}
-
-        {/* Metal clip (top layer, overlapping paper top edge) */}
-        {(() => {
-          const id = "clip";
-          const drag = drags[id];
-          const isHover = hovers[id] && !drag.isDragging;
-          const rot = isHover ? 5 : 2;
-          return (
-            <div
-              className="absolute select-none"
-              style={{
-                left: "55%",
-                top: "-18px",
-                transform: `translateX(-50%) translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
-                transition: drag.isDragging ? "none" : "transform 0.3s ease",
-                cursor: drag.isDragging ? "grabbing" : "grab",
-                zIndex: 9,
-                filter: "drop-shadow(2px 3px 6px rgba(0,0,0,0.18))",
-              }}
-              onMouseDown={(e) => handleMouseDown(e, id)}
-              onMouseEnter={() => setHovers((p) => ({ ...p, [id]: true }))}
-              onMouseLeave={() => setHovers((p) => ({ ...p, [id]: false }))}
-            >
-              <img src={binderClip} alt="Binder clip" className="w-[clamp(50px,5vw,80px)] h-auto pointer-events-none" draggable={false} />
-            </div>
-          );
-        })()}
+        {/* ===== Metal clip (ABOVE name paper) ===== */}
+        <div
+          className="absolute select-none"
+          style={{ left: 2131, top: 865, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
+          {...makeDraggable("clip")}
+        >
+          <img src={binderClip} alt="Binder clip" className="w-full h-full pointer-events-none object-contain" draggable={false} />
+        </div>
       </div>
     </section>
   );
