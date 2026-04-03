@@ -110,17 +110,15 @@ const HeroSection = () => {
     };
   };
 
-  // Big paper dimensions from PS
   const PAPER_W = 2015;
   const PAPER_H = 1456;
   const PAPER_LEFT = 571;
-  const PAPER_TOP = 1102;
+  const PAPER_TOP = 652;
 
-  // Name paper scaled to 0.85x
   const NAME_W = 682 * 0.85;
   const NAME_H = 540 * 0.85;
   const NAME_LEFT = 1897;
-  const NAME_TOP = 1066;
+  const NAME_TOP = 616;
 
   return (
     <section
