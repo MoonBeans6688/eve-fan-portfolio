@@ -17,7 +17,7 @@ const WORD_PAIRS = [
 ];
 
 const DESIGN_W = 2880;
-const DESIGN_H = 2800;
+const DESIGN_H = 2400;
 
 interface DraggableState {
   x: number;
