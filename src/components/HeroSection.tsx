@@ -1,5 +1,6 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import StickerTrail from "./StickerTrail";
+import { motion, LayoutGroup } from "framer-motion";
+import RotatingWord from "./RotatingWord";
 import gridPaper from "@/assets/grid-paper.png";
 import stickerOrange from "@/assets/sticker-orange.png";
 import stickerBlue from "@/assets/sticker-blue.png";
@@ -9,10 +10,10 @@ import binderClip from "@/assets/binder-clip.png";
 import stickerTorn from "@/assets/sticker-torn.png";
 
 const WORD_PAIRS = [
-  ["Clear", "Messy"],
-  ["Honest", "Ambiguous"],
-  ["Fun", "Dull"],
-  ["Human", "Dehumanizing"],
+  ["Clear", "messy"],
+  ["Honest", "ambiguous"],
+  ["Fun", "dull"],
+  ["Human", "dehumanizing"],
 ];
 
 interface DraggableState {
@@ -27,37 +28,19 @@ const initDrag = (): DraggableState => ({
   x: 0, y: 0, isDragging: false, offsetX: 0, offsetY: 0,
 });
 
-interface StickerConfig {
-  id: string;
-  src: string;
-  alt: string;
-  className: string;
-  style: React.CSSProperties;
-  rotate: number;
-  hoverRotate: number;
-  children?: React.ReactNode;
-}
-
 const HeroSection = () => {
-  const heroRef = useRef<HTMLDivElement>(null);
   const [pairIndex, setPairIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
 
-  // Rotating word pairs
   useEffect(() => {
     const interval = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setPairIndex((prev) => (prev + 1) % WORD_PAIRS.length);
-        setVisible(true);
-      }, 280);
+      setPairIndex((prev) => (prev + 1) % WORD_PAIRS.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
 
-  const [adj, noun] = WORD_PAIRS[pairIndex];
+  const [adj1, adj2] = WORD_PAIRS[pairIndex];
 
-  // Draggable states for 6 stickers
+  // Draggable sticker states
   const [drags, setDrags] = useState<Record<string, DraggableState>>({
     orange: initDrag(),
     torn: initDrag(),
@@ -69,34 +52,22 @@ const HeroSection = () => {
   const [hovers, setHovers] = useState<Record<string, boolean>>({});
   const draggingRef = useRef<string | null>(null);
 
-  const handleMouseDown = useCallback(
-    (e: React.MouseEvent, id: string) => {
-      e.preventDefault();
-      e.stopPropagation();
-      draggingRef.current = id;
-      setDrags((prev) => ({
-        ...prev,
-        [id]: {
-          ...prev[id],
-          isDragging: true,
-          offsetX: e.clientX - prev[id].x,
-          offsetY: e.clientY - prev[id].y,
-        },
-      }));
-    },
-    []
-  );
+  const handleMouseDown = useCallback((e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    draggingRef.current = id;
+    setDrags((prev) => ({
+      ...prev,
+      [id]: { ...prev[id], isDragging: true, offsetX: e.clientX - prev[id].x, offsetY: e.clientY - prev[id].y },
+    }));
+  }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const id = draggingRef.current;
     if (!id) return;
     setDrags((prev) => ({
       ...prev,
-      [id]: {
-        ...prev[id],
-        x: e.clientX - prev[id].offsetX,
-        y: e.clientY - prev[id].offsetY,
-      },
+      [id]: { ...prev[id], x: e.clientX - prev[id].offsetX, y: e.clientY - prev[id].offsetY },
     }));
   }, []);
 
@@ -104,163 +75,182 @@ const HeroSection = () => {
     const id = draggingRef.current;
     if (!id) return;
     draggingRef.current = null;
-    setDrags((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], isDragging: false },
-    }));
+    setDrags((prev) => ({ ...prev, [id]: { ...prev[id], isDragging: false } }));
   }, []);
 
-  const stickerConfigs: StickerConfig[] = [
-    {
-      id: "orange",
-      src: stickerOrange,
-      alt: "Product Designer sticker",
-      className: "w-[130px] md:w-[160px]",
-      style: { left: "-90px", top: "20px" },
-      rotate: -12,
-      hoverRotate: -18,
-      children: (
-        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] md:text-[11px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
-          style={{ transform: "rotate(2deg)", paddingBottom: "10px" }}>
-          Product<br />Designer
-        </span>
-      ),
-    },
-    {
-      id: "torn",
-      src: stickerTorn,
-      alt: "Eve Fan note",
-      className: "w-[170px] md:w-[210px]",
-      style: { right: "-70px", top: "10px" },
-      rotate: 4,
-      hoverRotate: 8,
-      children: (
-        <span className="absolute inset-0 flex items-center justify-center font-display text-2xl md:text-3xl text-foreground/90 pointer-events-none"
-          style={{ transform: "rotate(-1deg)", paddingBottom: "12px" }}>
-          Eve Fan
-        </span>
-      ),
-    },
-    {
-      id: "clip",
-      src: binderClip,
-      alt: "Binder clip",
-      className: "w-[60px] md:w-[80px]",
-      style: { right: "-20px", top: "-60px" },
-      rotate: 2,
-      hoverRotate: 6,
-    },
-    {
-      id: "purple",
-      src: stickerPurple,
-      alt: "Purple sticker",
-      className: "w-[100px] md:w-[120px]",
-      style: { right: "-60px", bottom: "-30px" },
-      rotate: 5,
-      hoverRotate: 10,
-    },
-    {
-      id: "blue",
-      src: stickerBlue,
-      alt: "Blue sticker",
-      className: "w-[100px] md:w-[120px]",
-      style: { right: "30px", bottom: "-70px" },
-      rotate: -3,
-      hoverRotate: -8,
-    },
-    {
-      id: "yellow",
-      src: stickerYellow,
-      alt: "Yellow sticker",
-      className: "w-[100px] md:w-[130px]",
-      style: { left: "-60px", bottom: "-60px" },
-      rotate: 8,
-      hoverRotate: 14,
-    },
-  ];
+  // Sticker render helper
+  const renderSticker = (
+    id: string,
+    src: string,
+    alt: string,
+    style: React.CSSProperties,
+    rotate: number,
+    hoverRotate: number,
+    sizeClass: string,
+    children?: React.ReactNode
+  ) => {
+    const drag = drags[id];
+    const isHover = hovers[id] && !drag.isDragging;
+    const rot = isHover ? hoverRotate : rotate;
+    return (
+      <div
+        key={id}
+        className="absolute select-none"
+        style={{
+          ...style,
+          transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
+          transition: drag.isDragging ? "none" : "transform 0.3s ease",
+          cursor: drag.isDragging ? "grabbing" : "grab",
+          filter: "drop-shadow(3px 5px 8px rgba(0,0,0,0.13))",
+        }}
+        onMouseDown={(e) => handleMouseDown(e, id)}
+        onMouseEnter={() => setHovers((p) => ({ ...p, [id]: true }))}
+        onMouseLeave={() => setHovers((p) => ({ ...p, [id]: false }))}
+      >
+        <img src={src} alt={alt} className={`${sizeClass} h-auto pointer-events-none`} draggable={false} />
+        {children}
+      </div>
+    );
+  };
 
   return (
     <section
-      ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-screen h-screen overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
     >
-      <StickerTrail />
-
-      <div className="relative z-10 flex flex-col items-center">
+      {/* ===== Center paper card ===== */}
+      <div
+        className="absolute select-none"
+        style={{ left: "50%", top: "50%", transform: "translate(-50%, -50%)", zIndex: 5 }}
+      >
         <div className="relative">
-          {/* Grid paper - fixed center */}
-          <div className="relative select-none">
-            <img
-              src={gridPaper}
-              alt=""
-              className="w-[520px] md:w-[660px] h-auto pointer-events-none"
-              draggable={false}
-              style={{ filter: "drop-shadow(2px 4px 12px rgba(0,0,0,0.08))" }}
-            />
-            {/* Text overlay on paper */}
-            <div className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
-              style={{ paddingLeft: "14%", paddingRight: "8%", paddingTop: "2%" }}>
-              <span className="font-display text-base md:text-lg text-foreground/60 italic mb-1">
-                I make...
-              </span>
-              <h1 className="font-display text-[1.6rem] md:text-[2.4rem] leading-[1.2] tracking-tight text-foreground whitespace-nowrap">
-                <span className="inline-block relative">
-                  <span
-                    className="transition-opacity duration-[280ms]"
-                    style={{ opacity: visible ? 1 : 0, minWidth: "max-content", display: "inline-block" }}
-                  >
-                    {adj}
-                  </span>
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 rounded" />
-                </span>{" "}
-                Product For{" "}
-                <span className="inline-block relative">
-                  <span
-                    className="transition-opacity duration-[280ms]"
-                    style={{ opacity: visible ? 1 : 0, minWidth: "max-content", display: "inline-block" }}
-                  >
-                    {noun}
-                  </span>
-                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-red-500 rounded" />
-                </span>{" "}
-                Realities
-              </h1>
-            </div>
-          </div>
-          {/* Draggable stickers */}
-          {stickerConfigs.map((cfg) => {
-            const drag = drags[cfg.id];
-            const isHover = hovers[cfg.id] && !drag.isDragging;
-            const rot = isHover ? cfg.hoverRotate : cfg.rotate;
-            return (
-              <div
-                key={cfg.id}
-                className="absolute z-20 select-none"
-                style={{
-                  ...cfg.style,
-                  transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
-                  transition: drag.isDragging ? "none" : "transform 0.3s ease",
-                  cursor: drag.isDragging ? "grabbing" : "grab",
-                  filter: "drop-shadow(3px 5px 8px rgba(0,0,0,0.15))",
-                }}
-                onMouseDown={(e) => handleMouseDown(e, cfg.id)}
-                onMouseEnter={() => setHovers((p) => ({ ...p, [cfg.id]: true }))}
-                onMouseLeave={() => setHovers((p) => ({ ...p, [cfg.id]: false }))}
+          <img
+            src={gridPaper}
+            alt=""
+            className="w-[clamp(420px,50vw,700px)] h-auto pointer-events-none"
+            draggable={false}
+            style={{ filter: "drop-shadow(2px 4px 12px rgba(0,0,0,0.08))" }}
+          />
+          {/* Text overlay */}
+          <div
+            className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
+            style={{ paddingLeft: "12%", paddingRight: "8%", paddingTop: "2%" }}
+          >
+            <span className="font-display text-[clamp(14px,1.4vw,20px)] text-foreground/60 italic mb-1">
+              I make...
+            </span>
+            <LayoutGroup>
+              <motion.div
+                layout
+                className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
+                style={{ fontSize: "clamp(22px, 3.2vw, 48px)", maxWidth: "100%", overflow: "hidden" }}
               >
-                <img
-                  src={cfg.src}
-                  alt={cfg.alt}
-                  className={`${cfg.className} h-auto pointer-events-none`}
-                  draggable={false}
-                />
-                {cfg.children}
-              </div>
-            );
-          })}
+                <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
+                <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
+                  products for
+                </motion.span>
+                <RotatingWord word={adj2} wordKey={`adj2-${pairIndex}`} />
+                <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
+                  realities.
+                </motion.span>
+              </motion.div>
+            </LayoutGroup>
+          </div>
         </div>
+      </div>
+
+      {/* ===== Stickers ===== */}
+
+      {/* Orange scallop - top left */}
+      {renderSticker("orange", stickerOrange, "Orange sticker",
+        { left: "12vw", top: "18vh", zIndex: 6 },
+        -6, -12, "w-[clamp(120px,12vw,180px)]",
+        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] md:text-[11px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
+          style={{ transform: "rotate(2deg)", paddingBottom: "10px" }}>
+          Product<br />Designer
+        </span>
+      )}
+
+      {/* Yellow star - bottom left */}
+      {renderSticker("yellow", stickerYellow, "Yellow sticker",
+        { left: "10vw", bottom: "10vh", zIndex: 5 },
+        8, 14, "w-[clamp(170px,16vw,240px)]"
+      )}
+
+      {/* Blue blob - bottom right */}
+      {renderSticker("blue", stickerBlue, "Blue sticker",
+        { right: "22vw", bottom: "12vh", zIndex: 5 },
+        -6, -10, "w-[clamp(150px,14vw,220px)]"
+      )}
+
+      {/* Purple double circle - right mid */}
+      {renderSticker("purple", stickerPurple, "Purple sticker",
+        { right: "10vw", top: "52vh", zIndex: 5 },
+        4, 9, "w-[clamp(170px,16vw,260px)]"
+      )}
+
+      {/* ===== Name tag group (torn paper + clip) - top right ===== */}
+      <div
+        className="absolute"
+        style={{ right: "12vw", top: "14vh", width: "clamp(200px,18vw,320px)", zIndex: 7 }}
+      >
+        {/* Torn paper (bottom layer) */}
+        {(() => {
+          const id = "torn";
+          const drag = drags[id];
+          const isHover = hovers[id] && !drag.isDragging;
+          const rot = isHover ? 10 : 6;
+          return (
+            <div
+              className="relative select-none"
+              style={{
+                zIndex: 7,
+                transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
+                transition: drag.isDragging ? "none" : "transform 0.3s ease",
+                cursor: drag.isDragging ? "grabbing" : "grab",
+                filter: "drop-shadow(3px 5px 8px rgba(0,0,0,0.13))",
+              }}
+              onMouseDown={(e) => handleMouseDown(e, id)}
+              onMouseEnter={() => setHovers((p) => ({ ...p, [id]: true }))}
+              onMouseLeave={() => setHovers((p) => ({ ...p, [id]: false }))}
+            >
+              <img src={stickerTorn} alt="Eve Fan" className="w-full h-auto pointer-events-none" draggable={false} />
+              <span className="absolute inset-0 flex items-center justify-center font-display text-[clamp(20px,2.2vw,36px)] text-foreground/90 pointer-events-none"
+                style={{ transform: "rotate(-1deg)", paddingBottom: "12px" }}>
+                Eve Fan
+              </span>
+            </div>
+          );
+        })()}
+
+        {/* Metal clip (top layer, overlapping paper top edge) */}
+        {(() => {
+          const id = "clip";
+          const drag = drags[id];
+          const isHover = hovers[id] && !drag.isDragging;
+          const rot = isHover ? 5 : 2;
+          return (
+            <div
+              className="absolute select-none"
+              style={{
+                left: "55%",
+                top: "-18px",
+                transform: `translateX(-50%) translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
+                transition: drag.isDragging ? "none" : "transform 0.3s ease",
+                cursor: drag.isDragging ? "grabbing" : "grab",
+                zIndex: 9,
+                filter: "drop-shadow(2px 3px 6px rgba(0,0,0,0.18))",
+              }}
+              onMouseDown={(e) => handleMouseDown(e, id)}
+              onMouseEnter={() => setHovers((p) => ({ ...p, [id]: true }))}
+              onMouseLeave={() => setHovers((p) => ({ ...p, [id]: false }))}
+            >
+              <img src={binderClip} alt="Binder clip" className="w-[clamp(50px,5vw,80px)] h-auto pointer-events-none" draggable={false} />
+            </div>
+          );
+        })()}
       </div>
     </section>
   );
