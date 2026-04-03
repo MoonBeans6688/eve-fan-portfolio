@@ -164,7 +164,7 @@ const HeroSection = () => {
             className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
             style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%" }}
           >
-            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 36 }}>
+            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 44 }}>
               I make...
             </span>
             <LayoutGroup>
@@ -172,7 +172,7 @@ const HeroSection = () => {
                 ref={sloganRef}
                 layout
                 className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
-                style={{ fontSize: 72, maxWidth: "100%", overflow: "hidden" }}
+                style={{ fontSize: 88, maxWidth: "100%", overflow: "hidden" }}
               >
                 <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
                 <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
@@ -195,7 +195,7 @@ const HeroSection = () => {
         >
           <img src={stickerOrange} alt="Orange sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
           <span
-            className="absolute inset-0 flex items-center justify-center font-mono text-[16px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center font-mono text-[22px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
             style={{ transform: "rotate(2deg)", paddingBottom: 14 }}
           >
             Product<br />Designer
@@ -237,7 +237,7 @@ const HeroSection = () => {
         >
           <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
           <span
-            className="absolute inset-0 flex items-center justify-center font-display text-[40px] text-foreground/90 pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center font-display text-[56px] text-foreground/90 pointer-events-none"
             style={{ transform: "rotate(-1deg)", paddingBottom: 16 }}
           >
             Eve Fan
