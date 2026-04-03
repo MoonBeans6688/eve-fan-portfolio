@@ -115,32 +115,23 @@ const HeroSection = () => {
       id: "orange",
       src: stickerOrange,
       alt: "Product Designer sticker",
-      className: "w-[140px] md:w-[180px]",
-      style: { left: "-100px", top: "-60px" },
+      className: "w-[130px] md:w-[160px]",
+      style: { left: "-90px", top: "20px" },
       rotate: -12,
       hoverRotate: -18,
       children: (
-        <span className="absolute inset-0 flex items-center justify-center font-mono text-[10px] md:text-[12px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
+        <span className="absolute inset-0 flex items-center justify-center font-mono text-[9px] md:text-[11px] font-semibold tracking-[0.14em] text-foreground/90 uppercase leading-tight text-center pointer-events-none"
           style={{ transform: "rotate(2deg)", paddingBottom: "10px" }}>
           Product<br />Designer
         </span>
       ),
     },
     {
-      id: "clip",
-      src: binderClip,
-      alt: "Binder clip",
-      className: "w-[70px] md:w-[90px]",
-      style: { right: "40px", top: "-70px" },
-      rotate: 2,
-      hoverRotate: 6,
-    },
-    {
       id: "torn",
       src: stickerTorn,
       alt: "Eve Fan note",
-      className: "w-[180px] md:w-[220px]",
-      style: { right: "-60px", top: "-30px" },
+      className: "w-[170px] md:w-[210px]",
+      style: { right: "-70px", top: "10px" },
       rotate: 4,
       hoverRotate: 8,
       children: (
@@ -151,11 +142,20 @@ const HeroSection = () => {
       ),
     },
     {
+      id: "clip",
+      src: binderClip,
+      alt: "Binder clip",
+      className: "w-[60px] md:w-[80px]",
+      style: { right: "-20px", top: "-60px" },
+      rotate: 2,
+      hoverRotate: 6,
+    },
+    {
       id: "purple",
       src: stickerPurple,
       alt: "Purple sticker",
-      className: "w-[110px] md:w-[140px]",
-      style: { right: "-80px", bottom: "-20px" },
+      className: "w-[100px] md:w-[120px]",
+      style: { right: "-60px", bottom: "-30px" },
       rotate: 5,
       hoverRotate: 10,
     },
@@ -163,8 +163,8 @@ const HeroSection = () => {
       id: "blue",
       src: stickerBlue,
       alt: "Blue sticker",
-      className: "w-[110px] md:w-[140px]",
-      style: { right: "-50px", bottom: "-70px" },
+      className: "w-[100px] md:w-[120px]",
+      style: { right: "30px", bottom: "-70px" },
       rotate: -3,
       hoverRotate: -8,
     },
@@ -172,8 +172,8 @@ const HeroSection = () => {
       id: "yellow",
       src: stickerYellow,
       alt: "Yellow sticker",
-      className: "w-[110px] md:w-[140px]",
-      style: { left: "-70px", bottom: "-80px" },
+      className: "w-[100px] md:w-[130px]",
+      style: { left: "-60px", bottom: "-60px" },
       rotate: 8,
       hoverRotate: 14,
     },
@@ -196,21 +196,21 @@ const HeroSection = () => {
             <img
               src={gridPaper}
               alt=""
-              className="w-[480px] md:w-[620px] h-auto pointer-events-none"
+              className="w-[520px] md:w-[660px] h-auto pointer-events-none"
               draggable={false}
               style={{ filter: "drop-shadow(2px 4px 12px rgba(0,0,0,0.08))" }}
             />
             {/* Text overlay on paper */}
             <div className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
-              style={{ paddingLeft: "18%", paddingRight: "12%", paddingTop: "4%" }}>
-              <span className="font-display text-lg md:text-xl text-foreground/60 italic mb-1">
+              style={{ paddingLeft: "14%", paddingRight: "8%", paddingTop: "2%" }}>
+              <span className="font-display text-base md:text-lg text-foreground/60 italic mb-1">
                 I make...
               </span>
-              <h1 className="font-display text-[2.2rem] md:text-[3.2rem] leading-[1.15] tracking-tight text-foreground">
+              <h1 className="font-display text-[1.6rem] md:text-[2.4rem] leading-[1.2] tracking-tight text-foreground whitespace-nowrap">
                 <span className="inline-block relative">
                   <span
                     className="transition-opacity duration-[280ms]"
-                    style={{ opacity: visible ? 1 : 0 }}
+                    style={{ opacity: visible ? 1 : 0, minWidth: "max-content", display: "inline-block" }}
                   >
                     {adj}
                   </span>
@@ -220,7 +220,7 @@ const HeroSection = () => {
                 <span className="inline-block relative">
                   <span
                     className="transition-opacity duration-[280ms]"
-                    style={{ opacity: visible ? 1 : 0 }}
+                    style={{ opacity: visible ? 1 : 0, minWidth: "max-content", display: "inline-block" }}
                   >
                     {noun}
                   </span>
@@ -230,7 +230,6 @@ const HeroSection = () => {
               </h1>
             </div>
           </div>
-
           {/* Draggable stickers */}
           {stickerConfigs.map((cfg) => {
             const drag = drags[cfg.id];
