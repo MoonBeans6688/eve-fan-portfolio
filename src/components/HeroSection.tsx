@@ -237,7 +237,7 @@ const HeroSection = () => {
         >
           <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
           <span
-            className="absolute inset-0 flex items-center justify-center font-display text-[40px] text-foreground/90 pointer-events-none"
+            className="absolute inset-0 flex items-center justify-center font-display text-[56px] text-foreground/90 pointer-events-none"
             style={{ transform: "rotate(-1deg)", paddingBottom: 16 }}
           >
             Eve Fan

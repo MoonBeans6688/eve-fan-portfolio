@@ -23,7 +23,7 @@ const CustomCursor = () => {
     };
   }, []);
 
-  const size = hovering ? 28 : 12;
+  const size = hovering ? 36 : 18;
 
   return (
     <div
