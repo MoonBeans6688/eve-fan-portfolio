@@ -203,7 +203,7 @@ const HeroSection = () => {
         {/* ===== Yellow star (bottom-left) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 230, top: 2096, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
+          style={{ left: 230, top: 1646, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
           {...makeDraggable("yellow")}
         >
           <img src={stickerYellow} alt="Yellow sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
