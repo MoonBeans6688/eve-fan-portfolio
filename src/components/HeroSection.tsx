@@ -17,7 +17,7 @@ const WORD_PAIRS = [
 ];
 
 const DESIGN_W = 2880;
-const DESIGN_H = 2800;
+const DESIGN_H = 2400;
 
 interface DraggableState {
   x: number;
@@ -110,17 +110,15 @@ const HeroSection = () => {
     };
   };
 
-  // Big paper dimensions from PS
   const PAPER_W = 2015;
   const PAPER_H = 1456;
   const PAPER_LEFT = 571;
-  const PAPER_TOP = 1102;
+  const PAPER_TOP = 652;
 
-  // Name paper scaled to 0.85x
   const NAME_W = 682 * 0.85;
   const NAME_H = 540 * 0.85;
   const NAME_LEFT = 1897;
-  const NAME_TOP = 1066;
+  const NAME_TOP = 616;
 
   return (
     <section
@@ -164,7 +162,7 @@ const HeroSection = () => {
             className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
             style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%" }}
           >
-            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 44 }}>
+            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 48 }}>
               I make...
             </span>
             <LayoutGroup>
@@ -172,7 +170,7 @@ const HeroSection = () => {
                 ref={sloganRef}
                 layout
                 className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
-                style={{ fontSize: 88, maxWidth: "100%", overflow: "hidden" }}
+                style={{ fontSize: 96, maxWidth: "100%", overflow: "hidden" }}
               >
                 <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
                 <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
@@ -190,7 +188,7 @@ const HeroSection = () => {
         {/* ===== Orange "PRODUCT DESIGNER" sticker ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 784, top: 939, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
+          style={{ left: 784, top: 489, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
           {...makeDraggable("orange")}
         >
           <img src={stickerOrange} alt="Orange sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -205,7 +203,7 @@ const HeroSection = () => {
         {/* ===== Yellow star (bottom-left) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 230, top: 2096, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
+          style={{ left: 230, top: 1646, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
           {...makeDraggable("yellow")}
         >
           <img src={stickerYellow} alt="Yellow sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -214,7 +212,7 @@ const HeroSection = () => {
         {/* ===== Blue blob (bottom-right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 1930, top: 2308, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
+          style={{ left: 1930, top: 1858, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
           {...makeDraggable("blue")}
         >
           <img src={stickerBlue} alt="Blue sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -223,7 +221,7 @@ const HeroSection = () => {
         {/* ===== Purple double-blob (right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2393, top: 1830, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
+          style={{ left: 2393, top: 1380, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
           {...makeDraggable("purple")}
         >
           <img src={stickerPurple} alt="Purple sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -247,7 +245,7 @@ const HeroSection = () => {
         {/* ===== Metal clip (ABOVE name paper) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2131, top: 865, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
+          style={{ left: 2131, top: 415, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
           {...makeDraggable("clip")}
         >
           <img src={binderClip} alt="Binder clip" className="w-full h-full pointer-events-none object-contain" draggable={false} />
