@@ -9,7 +9,7 @@ interface PaperCanvasProps {
 
 const PENCIL_WIDTH = 94;
 const PENCIL_HEIGHT = 97;
-const PENCIL_SCALE = 1.65;
+const PENCIL_SCALE = 0.55;
 const TIP_X = 2 * PENCIL_SCALE;
 const TIP_Y = 96 * PENCIL_SCALE;
 
