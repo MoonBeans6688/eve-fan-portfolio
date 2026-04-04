@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import RotatingWord from "./RotatingWord";
+import PaperCanvas from "./PaperCanvas";
 import gridPaper from "@/assets/grid-paper.png";
 import stickerOrange from "@/assets/sticker-orange.png";
 import stickerBlue from "@/assets/sticker-blue.png";
