@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const CustomCursor = () => {
   const [pos, setPos] = useState({ x: -100, y: -100 });
   const [hovering, setHovering] = useState(false);
+  const [onCanvas, setOnCanvas] = useState(false);
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -12,7 +13,9 @@ const CustomCursor = () => {
     const onOver = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const clickable = target.closest("a, button, [role='button'], [data-clickable], .clickable");
+      const canvas = target.tagName === "CANVAS";
       setHovering(!!clickable);
+      setOnCanvas(canvas);
     };
 
     window.addEventListener("mousemove", onMove);
@@ -22,6 +25,8 @@ const CustomCursor = () => {
       window.removeEventListener("mouseover", onOver);
     };
   }, []);
+
+  if (onCanvas) return null;
 
   const size = hovering ? 36 : 18;
 
