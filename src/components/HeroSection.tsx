@@ -178,8 +178,8 @@ const HeroSection = () => {
             {/* Arrow + "for" annotation */}
             <div className="flex items-center justify-center gap-4 my-2" style={{ height: 110 }}>
               <svg width="36" height="96" viewBox="0 0 36 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="18" y1="0" x2="18" y2="80" stroke="#F97316" strokeWidth="4" />
-                <polygon points="8,76 18,96 28,76" fill="#F97316" />
+                <line x1="18" y1="0" x2="18" y2="80" stroke="#D42F2F" strokeWidth="4" />
+                <polygon points="8,76 18,96 28,76" fill="#D42F2F" />
               </svg>
               <span className="font-display italic text-foreground/60" style={{ fontSize: 44 }}>
                 for
