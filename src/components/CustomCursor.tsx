@@ -27,7 +27,7 @@ const CustomCursor = () => {
 
   return (
     <div
-      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full bg-primary transition-all duration-200 ease-out mix-blend-normal"
+      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full transition-all duration-200 ease-out mix-blend-normal"
       style={{
         width: size,
         height: size,
