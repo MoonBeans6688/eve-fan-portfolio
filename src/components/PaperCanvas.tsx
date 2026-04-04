@@ -6,9 +6,9 @@ interface PaperCanvasProps {
   height: number;
 }
 
-const PENCIL_SIZE = 36;
-const TIP_X = 4;
-const TIP_Y = 32;
+const PENCIL_SIZE = 96;
+const TIP_X = 8;
+const TIP_Y = 88;
 
 const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
