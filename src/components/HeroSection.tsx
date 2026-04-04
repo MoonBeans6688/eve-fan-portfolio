@@ -157,31 +157,44 @@ const HeroSection = () => {
             draggable={false}
             style={{ filter: "drop-shadow(2px 4px 16px rgba(0,0,0,0.08))" }}
           />
-          {/* Text overlay */}
+          {/* Text overlay — 3-part stacked composition */}
           <div
-            className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
-            style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%" }}
+            className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+            style={{ padding: "6% 8%" }}
           >
-            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 48 }}>
+            {/* "I make..." */}
+            <span className="font-display text-foreground/60 italic mb-6" style={{ fontSize: 42 }}>
               I make...
             </span>
-            <LayoutGroup>
-              <motion.div
-                ref={sloganRef}
-                layout
-                className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
-                style={{ fontSize: 96, maxWidth: "100%", overflow: "hidden" }}
-              >
-                <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
-                <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
-                  {" products for "}
-                </motion.span>
-                <RotatingWord word={adj2} wordKey={`adj2-${pairIndex}`} />
-                <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
-                  {" realities."}
-                </motion.span>
-              </motion.div>
-            </LayoutGroup>
+
+            {/* Line 1: adj1 + Product */}
+            <div className="flex items-baseline justify-center gap-[0.25em] mb-2" style={{ fontSize: 108 }}>
+              <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
+              <span className="font-display tracking-tight text-foreground whitespace-nowrap">
+                Product
+              </span>
+            </div>
+
+            {/* Arrow + "for" annotation */}
+            <div className="flex items-center justify-center gap-3 my-1" style={{ height: 80 }}>
+              {/* Vertical arrow (orange) */}
+              <svg width="28" height="72" viewBox="0 0 28 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="14" y1="0" x2="14" y2="60" stroke="#E8734A" strokeWidth="3" />
+                <polygon points="6,56 14,72 22,56" fill="#E8734A" />
+              </svg>
+              {/* "for" label */}
+              <span className="font-display italic text-foreground/50" style={{ fontSize: 32 }}>
+                for
+              </span>
+            </div>
+
+            {/* Line 3: adj2 + Realities */}
+            <div className="flex items-baseline justify-center gap-[0.25em] mt-2" style={{ fontSize: 108 }}>
+              <RotatingWord word={adj2} wordKey={`adj2-${pairIndex}`} />
+              <span className="font-display tracking-tight text-foreground whitespace-nowrap">
+                Realities.
+              </span>
+            </div>
           </div>
         </div>
 
