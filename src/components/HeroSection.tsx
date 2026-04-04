@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { motion, LayoutGroup } from "framer-motion";
+import { motion } from "framer-motion";
 import RotatingWord from "./RotatingWord";
 import gridPaper from "@/assets/grid-paper.png";
 import stickerOrange from "@/assets/sticker-orange.png";
