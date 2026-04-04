@@ -1,14 +1,17 @@
 import { useRef, useState, useCallback, useEffect } from "react";
 import pencilCursorImg from "@/assets/pencil-cursor.png";
+import PencilCursorPortal from "./PencilCursorPortal";
 
 interface PaperCanvasProps {
   width: number;
   height: number;
 }
 
-const PENCIL_SIZE = 64;
-const TIP_X = 4;
-const TIP_Y = 60;
+const PENCIL_WIDTH = 94;
+const PENCIL_HEIGHT = 97;
+const PENCIL_SCALE = 1.65;
+const TIP_X = 2 * PENCIL_SCALE;
+const TIP_Y = 96 * PENCIL_SCALE;
 
 const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -165,30 +168,17 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
         }}
       />
 
-      {/* DOM pencil cursor */}
-      {isHovering && (
-        <div
-          style={{
-            position: "fixed",
-            left: 0,
-            top: 0,
-            transform: `translate3d(${pencilPos.x - TIP_X}px, ${pencilPos.y - TIP_Y}px, 0)`,
-            pointerEvents: "none",
-            zIndex: 9999,
-            width: PENCIL_SIZE,
-            height: PENCIL_SIZE,
-          }}
-        >
-          <img
-            src={pencilCursorImg}
-            alt=""
-            width={PENCIL_SIZE}
-            height={PENCIL_SIZE}
-            draggable={false}
-            style={{ display: "block" }}
-          />
-        </div>
-      )}
+      <PencilCursorPortal
+        visible={isHovering}
+        x={pencilPos.x}
+        y={pencilPos.y}
+        imageSrc={pencilCursorImg}
+        width={PENCIL_WIDTH}
+        height={PENCIL_HEIGHT}
+        tipX={TIP_X}
+        tipY={TIP_Y}
+        scale={PENCIL_SCALE}
+      />
 
       {/* Clear button */}
       {hasStrokes && (
