@@ -9,7 +9,7 @@ interface PaperCanvasProps {
 
 const PENCIL_WIDTH = 94;
 const PENCIL_HEIGHT = 97;
-const PENCIL_SCALE = 1.65;
+const PENCIL_SCALE = 0.55;
 const TIP_X = 2 * PENCIL_SCALE;
 const TIP_Y = 96 * PENCIL_SCALE;
 
@@ -186,7 +186,7 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
           onClick={clearCanvas}
           className="absolute left-1/2 -translate-x-1/2 font-mono text-lg tracking-wide text-foreground/50 hover:text-foreground/80 transition-colors pointer-events-auto px-8 py-4 rounded-lg border border-foreground/10 hover:border-foreground/20 bg-background/40 backdrop-blur-sm"
           style={{
-            bottom: 88,
+            bottom: 98,
             zIndex: 3,
             cursor: "pointer",
             transform: "translateX(-50%) scale(1.5)",
