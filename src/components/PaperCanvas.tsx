@@ -194,11 +194,12 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
       {hasStrokes && (
         <button
           onClick={clearCanvas}
-          className="absolute left-1/2 -translate-x-1/2 font-mono text-sm tracking-wide text-foreground/50 hover:text-foreground/80 transition-colors pointer-events-auto px-4 py-2 rounded-md border border-foreground/10 hover:border-foreground/20 bg-background/40 backdrop-blur-sm"
+          className="absolute left-1/2 -translate-x-1/2 font-mono text-lg tracking-wide text-foreground/50 hover:text-foreground/80 transition-colors pointer-events-auto px-8 py-4 rounded-lg border border-foreground/10 hover:border-foreground/20 bg-background/40 backdrop-blur-sm"
           style={{
-            bottom: 48,
+            bottom: 58,
             zIndex: 3,
             cursor: "pointer",
+            transform: "translateX(-50%) scale(1.5)",
           }}
         >
           clear ✕
