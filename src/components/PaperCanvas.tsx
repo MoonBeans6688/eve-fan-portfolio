@@ -6,11 +6,16 @@ interface PaperCanvasProps {
   height: number;
 }
 
+const PENCIL_SIZE = 36;
+const TIP_X = 4;
+const TIP_Y = 32;
+
 const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isDrawing, setIsDrawing] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const [hasStrokes, setHasStrokes] = useState(false);
+  const [pencilPos, setPencilPos] = useState({ x: -200, y: -200 });
   const lastPoint = useRef<{ x: number; y: number } | null>(null);
 
   useEffect(() => {
@@ -24,6 +29,17 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
       ctx.scale(dpr, dpr);
     }
   }, [width, height]);
+
+  // Track mouse globally for smooth pencil movement
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      if (isHovering) {
+        setPencilPos({ x: e.clientX, y: e.clientY });
+      }
+    };
+    window.addEventListener("mousemove", onMove);
+    return () => window.removeEventListener("mousemove", onMove);
+  }, [isHovering]);
 
   const getPos = useCallback((e: React.MouseEvent<HTMLCanvasElement>) => {
     const canvas = canvasRef.current;
@@ -48,7 +64,6 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
         const x = from.x + (to.x - from.x) * t;
         const y = from.y + (to.y - from.y) * t;
 
-        // Main stroke — thicker
         ctx.beginPath();
         ctx.arc(
           x + (Math.random() - 0.5) * 1.8,
@@ -60,7 +75,6 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
         ctx.fillStyle = `rgba(212, 47, 47, ${0.6 + Math.random() * 0.3})`;
         ctx.fill();
 
-        // Secondary stroke for thickness
         if (Math.random() > 0.3) {
           ctx.beginPath();
           ctx.arc(
@@ -74,7 +88,6 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
           ctx.fill();
         }
 
-        // Grain particles
         if (Math.random() > 0.55) {
           ctx.beginPath();
           ctx.arc(
@@ -128,9 +141,6 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
     setHasStrokes(false);
   }, []);
 
-  // Pencil cursor: tip is at bottom-left of image, so hotspot near bottom-left
-  const pencilCursor = `url("${pencilCursorImg}") 4 28, crosshair`;
-
   return (
     <>
       <canvas
@@ -139,7 +149,7 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
         style={{
           width: "100%",
           height: "100%",
-          cursor: isHovering ? pencilCursor : undefined,
+          cursor: "none",
           zIndex: 2,
         }}
         onMouseDown={handleMouseDown}
@@ -149,19 +159,45 @@ const PaperCanvas = ({ width, height }: PaperCanvasProps) => {
           handleMouseUp();
           setIsHovering(false);
         }}
-        onMouseEnter={() => setIsHovering(true)}
+        onMouseEnter={(e) => {
+          setIsHovering(true);
+          setPencilPos({ x: e.clientX, y: e.clientY });
+        }}
       />
+
+      {/* DOM pencil cursor */}
+      {isHovering && (
+        <div
+          style={{
+            position: "fixed",
+            left: 0,
+            top: 0,
+            transform: `translate3d(${pencilPos.x - TIP_X}px, ${pencilPos.y - TIP_Y}px, 0)`,
+            pointerEvents: "none",
+            zIndex: 9999,
+            width: PENCIL_SIZE,
+            height: PENCIL_SIZE,
+          }}
+        >
+          <img
+            src={pencilCursorImg}
+            alt=""
+            width={PENCIL_SIZE}
+            height={PENCIL_SIZE}
+            draggable={false}
+            style={{ display: "block" }}
+          />
+        </div>
+      )}
+
       {/* Clear button */}
       {hasStrokes && (
         <button
           onClick={clearCanvas}
-          className="absolute font-mono text-[11px] tracking-wide text-foreground/40 hover:text-foreground/70 transition-colors pointer-events-auto"
+          className="absolute left-1/2 -translate-x-1/2 font-mono text-sm tracking-wide text-foreground/50 hover:text-foreground/80 transition-colors pointer-events-auto px-4 py-2 rounded-md border border-foreground/10 hover:border-foreground/20 bg-background/40 backdrop-blur-sm"
           style={{
-            bottom: 18,
-            right: 24,
+            bottom: 48,
             zIndex: 3,
-            background: "none",
-            border: "none",
             cursor: "pointer",
           }}
         >
