@@ -1,5 +1,5 @@
 import { useState, useRef, useCallback, useEffect } from "react";
-import { motion, LayoutGroup } from "framer-motion";
+import { motion } from "framer-motion";
 import RotatingWord from "./RotatingWord";
 import gridPaper from "@/assets/grid-paper.png";
 import stickerOrange from "@/assets/sticker-orange.png";
@@ -34,7 +34,7 @@ const initDrag = (): DraggableState => ({
 const HeroSection = () => {
   const [pairIndex, setPairIndex] = useState(0);
   const [scale, setScale] = useState(1);
-  const sloganRef = useRef<HTMLDivElement>(null);
+  
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -113,12 +113,12 @@ const HeroSection = () => {
   const PAPER_W = 2015;
   const PAPER_H = 1456;
   const PAPER_LEFT = 571;
-  const PAPER_TOP = 652;
+  const PAPER_TOP = 572;
 
   const NAME_W = 682 * 0.85;
   const NAME_H = 540 * 0.85;
   const NAME_LEFT = 1897;
-  const NAME_TOP = 616;
+  const NAME_TOP = 536;
 
   return (
     <section
@@ -157,38 +157,51 @@ const HeroSection = () => {
             draggable={false}
             style={{ filter: "drop-shadow(2px 4px 16px rgba(0,0,0,0.08))" }}
           />
-          {/* Text overlay */}
+          {/* Text overlay — 3-part stacked composition */}
           <div
-            className="absolute inset-0 flex flex-col items-start justify-center pointer-events-none"
-            style={{ paddingLeft: "10%", paddingRight: "10%", paddingTop: "1%" }}
+            className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+            style={{ padding: "6% 8%" }}
           >
-            <span className="font-display text-foreground/60 italic mb-4" style={{ fontSize: 48 }}>
+            {/* "I make..." */}
+            <span className="font-display text-foreground/60 italic mb-6" style={{ fontSize: 42 }}>
               I make...
             </span>
-            <LayoutGroup>
-              <motion.div
-                ref={sloganRef}
-                layout
-                className="inline-flex items-baseline flex-nowrap gap-[0.3em]"
-                style={{ fontSize: 96, maxWidth: "100%", overflow: "hidden" }}
-              >
-                <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
-                <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
-                  {" products for "}
-                </motion.span>
-                <RotatingWord word={adj2} wordKey={`adj2-${pairIndex}`} />
-                <motion.span layout className="font-display tracking-tight text-foreground whitespace-nowrap">
-                  {" realities."}
-                </motion.span>
-              </motion.div>
-            </LayoutGroup>
+
+            {/* Line 1: adj1 + Product */}
+            <div className="flex items-baseline justify-center gap-[0.25em] mb-2" style={{ fontSize: 108 }}>
+              <RotatingWord word={adj1} wordKey={`adj1-${pairIndex}`} />
+              <span className="font-display tracking-tight text-foreground whitespace-nowrap">
+                Product
+              </span>
+            </div>
+
+            {/* Arrow + "for" annotation */}
+            <div className="flex items-center justify-center gap-3 my-1" style={{ height: 80 }}>
+              {/* Vertical arrow (orange) */}
+              <svg width="28" height="72" viewBox="0 0 28 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <line x1="14" y1="0" x2="14" y2="60" stroke="#E8734A" strokeWidth="3" />
+                <polygon points="6,56 14,72 22,56" fill="#E8734A" />
+              </svg>
+              {/* "for" label */}
+              <span className="font-display italic text-foreground/50" style={{ fontSize: 32 }}>
+                for
+              </span>
+            </div>
+
+            {/* Line 3: adj2 + Realities */}
+            <div className="flex items-baseline justify-center gap-[0.25em] mt-2" style={{ fontSize: 108 }}>
+              <RotatingWord word={adj2} wordKey={`adj2-${pairIndex}`} />
+              <span className="font-display tracking-tight text-foreground whitespace-nowrap">
+                Realities.
+              </span>
+            </div>
           </div>
         </div>
 
         {/* ===== Orange "PRODUCT DESIGNER" sticker ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 784, top: 489, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
+          style={{ left: 784, top: 409, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
           {...makeDraggable("orange")}
         >
           <img src={stickerOrange} alt="Orange sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -203,7 +216,7 @@ const HeroSection = () => {
         {/* ===== Yellow star (bottom-left) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 230, top: 1646, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
+          style={{ left: 230, top: 1566, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
           {...makeDraggable("yellow")}
         >
           <img src={stickerYellow} alt="Yellow sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -212,7 +225,7 @@ const HeroSection = () => {
         {/* ===== Blue blob (bottom-right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 1930, top: 1858, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
+          style={{ left: 1930, top: 1778, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
           {...makeDraggable("blue")}
         >
           <img src={stickerBlue} alt="Blue sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -221,7 +234,7 @@ const HeroSection = () => {
         {/* ===== Purple double-blob (right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2393, top: 1380, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
+          style={{ left: 2393, top: 1300, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
           {...makeDraggable("purple")}
         >
           <img src={stickerPurple} alt="Purple sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -245,7 +258,7 @@ const HeroSection = () => {
         {/* ===== Metal clip (ABOVE name paper) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2131, top: 415, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
+          style={{ left: 2131, top: 335, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
           {...makeDraggable("clip")}
         >
           <img src={binderClip} alt="Binder clip" className="w-full h-full pointer-events-none object-contain" draggable={false} />
