@@ -258,7 +258,7 @@ const HeroSection = () => {
         {/* ===== Metal clip (ABOVE name paper) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2131, top: 415, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
+          style={{ left: 2131, top: 335, width: 383, height: 339, zIndex: 9, ...dragStyle("clip", 11.08, 16) }}
           {...makeDraggable("clip")}
         >
           <img src={binderClip} alt="Binder clip" className="w-full h-full pointer-events-none object-contain" draggable={false} />
