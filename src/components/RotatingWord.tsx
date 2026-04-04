@@ -19,7 +19,7 @@ const RotatingWord = ({ word, wordKey }: RotatingWordProps) => {
           className="relative inline-block font-display tracking-tight text-foreground"
         >
           {word}
-          <span className="absolute bottom-0 left-0 w-full h-[4px] bg-orange-500 rounded" />
+          <span className="absolute bottom-0 left-0 w-full h-[4px] rounded" style={{ background: "#D42F2F" }} />
         </motion.span>
       </AnimatePresence>
     </span>

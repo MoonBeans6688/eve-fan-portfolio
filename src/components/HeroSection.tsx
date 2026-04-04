@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
 import RotatingWord from "./RotatingWord";
+import PaperCanvas from "./PaperCanvas";
 import gridPaper from "@/assets/grid-paper.png";
 import stickerOrange from "@/assets/sticker-orange.png";
 import stickerBlue from "@/assets/sticker-blue.png";
@@ -141,7 +142,7 @@ const HeroSection = () => {
       >
         {/* ===== Big paper card (base layer) ===== */}
         <div
-          className="absolute select-none"
+          className="absolute"
           style={{
             left: PAPER_LEFT,
             top: PAPER_TOP,
@@ -153,13 +154,15 @@ const HeroSection = () => {
           <img
             src={gridPaper}
             alt=""
-            className="w-full h-full pointer-events-none"
+            className="w-full h-full pointer-events-none select-none"
             draggable={false}
             style={{ filter: "drop-shadow(2px 4px 16px rgba(0,0,0,0.08))" }}
           />
+          {/* Drawing canvas layer */}
+          <PaperCanvas width={PAPER_W} height={PAPER_H} />
           {/* Text overlay — 3-part stacked composition */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+            className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none"
             style={{ padding: "6% 8%" }}
           >
             {/* "I make..." */}
@@ -178,8 +181,8 @@ const HeroSection = () => {
             {/* Arrow + "for" annotation */}
             <div className="flex items-center justify-center gap-4 my-2" style={{ height: 110 }}>
               <svg width="36" height="96" viewBox="0 0 36 96" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line x1="18" y1="0" x2="18" y2="80" stroke="#F97316" strokeWidth="4" />
-                <polygon points="8,76 18,96 28,76" fill="#F97316" />
+                <line x1="18" y1="0" x2="18" y2="80" stroke="#D42F2F" strokeWidth="4" />
+                <polygon points="8,76 18,96 28,76" fill="#D42F2F" />
               </svg>
               <span className="font-display italic text-foreground/60" style={{ fontSize: 44 }}>
                 for
