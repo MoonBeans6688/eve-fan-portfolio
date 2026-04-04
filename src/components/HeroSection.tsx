@@ -10,10 +10,10 @@ import binderClip from "@/assets/binder-clip.png";
 import stickerTorn from "@/assets/sticker-torn.png";
 
 const WORD_PAIRS = [
-  ["Clear", "messy"],
-  ["Honest", "ambiguous"],
-  ["Fun", "dull"],
-  ["Human", "dehumanizing"],
+  ["Clear", "Messy"],
+  ["Honest", "Ambiguous"],
+  ["Fun", "Dull"],
+  ["Human", "Dehumanizing"],
 ];
 
 const DESIGN_W = 2880;
