@@ -234,7 +234,7 @@ const HeroSection = () => {
         {/* ===== Purple double-blob (right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2393, top: 1380, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
+          style={{ left: 2393, top: 1300, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
           {...makeDraggable("purple")}
         >
           <img src={stickerPurple} alt="Purple sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
