@@ -142,7 +142,7 @@ const HeroSection = () => {
       >
         {/* ===== Big paper card (base layer) ===== */}
         <div
-          className="absolute select-none"
+          className="absolute"
           style={{
             left: PAPER_LEFT,
             top: PAPER_TOP,
@@ -154,13 +154,15 @@ const HeroSection = () => {
           <img
             src={gridPaper}
             alt=""
-            className="w-full h-full pointer-events-none"
+            className="w-full h-full pointer-events-none select-none"
             draggable={false}
             style={{ filter: "drop-shadow(2px 4px 16px rgba(0,0,0,0.08))" }}
           />
+          {/* Drawing canvas layer */}
+          <PaperCanvas width={PAPER_W} height={PAPER_H} />
           {/* Text overlay — 3-part stacked composition */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+            className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none"
             style={{ padding: "6% 8%" }}
           >
             {/* "I make..." */}
