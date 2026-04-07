@@ -2,12 +2,12 @@ import WorkCard, { WorkItem } from "./WorkCard";
 
 const WORKS: WorkItem[] = [
   {
-    id: "project-1",
-    title: "Redesigning the Future of Learning",
-    description: "An AI-powered education platform that adapts to each student's pace and style.",
-    date: "2025",
-    tag: "Internship @ Google",
-    thumbnail: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80",
+    id: "insight-ai",
+    title: "Insight AI",
+    description: "An AI-powered e-commerce image generator that turns product shots into studio-quality visuals.",
+    date: "INTERN 2025",
+    tag: "",
+    thumbnail: "/images/insight-ai.gif",
     span: "wide",
   },
   {
@@ -59,13 +59,13 @@ const WORKS: WorkItem[] = [
 
 const WorksSection = () => {
   return (
-    <section className="pb-24">
-      <div className="mb-12 px-4">
-        <h2 className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
+    <section className="pb-24 px-6 md:px-12">
+      <div className="mb-10">
+        <h2 className="font-display text-3xl md:text-4xl text-foreground">
           Selected Works
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-0">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {WORKS.map((work, i) => (
           <WorkCard key={work.id} work={work} index={i} />
         ))}
