@@ -7,6 +7,7 @@ export interface WorkItem {
   date: string;
   tag: string;
   thumbnail: string;
+  video?: string;
   span: 'wide' | 'tall' | 'normal';
 }
 
