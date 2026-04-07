@@ -15,7 +15,7 @@ export default {
     extend: {
       fontFamily: {
         display: ["'Self Modern'", "Georgia", "serif"],
-        body: ["'Inter'", "system-ui", "sans-serif"],
+        body: ["'Figtree'", "system-ui", "sans-serif"],
         mono: ["'IBM Plex Mono'", "monospace"],
       },
       colors: {

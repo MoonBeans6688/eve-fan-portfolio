@@ -15,34 +15,22 @@ interface WorkCardProps {
   index: number;
 }
 
-const spanClasses: Record<WorkItem['span'], string> = {
-  wide: 'col-span-1 md:col-span-2',
-  tall: 'col-span-1 md:col-span-2 md:row-span-2',
-  normal: 'col-span-1',
-};
-
-const aspectClasses: Record<WorkItem['span'], string> = {
-  wide: 'aspect-[16/9]',
-  tall: 'aspect-[3/4]',
-  normal: 'aspect-square',
-};
-
 const WorkCard = ({ work, index }: WorkCardProps) => {
   return (
     <Link
       to={`/work/${work.id}`}
-      className={`clickable group block rounded-lg overflow-hidden bg-card ${spanClasses[work.span]}`}
+      className="clickable group block overflow-hidden"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className={`relative overflow-hidden ${aspectClasses[work.span]}`}>
+      <div className="relative overflow-hidden">
         <img
           src={work.thumbnail}
           alt={work.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
       </div>
-      <div className="px-5 py-4">
+      <div className="pt-4 pb-8">
         {work.date && (
           <span className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase block mb-1.5">
             {work.date}{work.tag ? ` · ${work.tag}` : ''}
