@@ -31,32 +31,29 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
   return (
     <Link
       to={`/work/${work.id}`}
-      className={`clickable group block ${spanClasses[work.span]}`}
+      className={`clickable group block rounded-lg overflow-hidden bg-card ${spanClasses[work.span]}`}
       style={{ animationDelay: `${index * 0.1}s` }}
     >
-      <div className={`relative overflow-hidden bg-muted ${aspectClasses[work.span]} transition-transform duration-300`}>
+      <div className={`relative overflow-hidden ${aspectClasses[work.span]}`}>
         <img
           src={work.thumbnail}
           alt={work.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/10 transition-colors duration-300" />
+        <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
       </div>
-      <div className="px-4 py-3">
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            <h3 className="font-display text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200 leading-tight mb-0.5 truncate">
-              {work.title}
-            </h3>
-            <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2">
-              {work.description}
-            </p>
-          </div>
-          <div className="text-right shrink-0">
-            <span className="font-mono text-[10px] text-muted-foreground block">{work.date}</span>
-            <span className="font-mono text-[10px] text-primary mt-0.5 block">{work.tag}</span>
-          </div>
-        </div>
+      <div className="px-5 py-4">
+        {work.date && (
+          <span className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase block mb-1.5">
+            {work.date}{work.tag ? ` · ${work.tag}` : ''}
+          </span>
+        )}
+        <h3 className="font-body font-semibold text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200 leading-tight mb-1">
+          {work.title}
+        </h3>
+        <p className="font-mono text-xs text-muted-foreground leading-relaxed line-clamp-2">
+          {work.description}
+        </p>
       </div>
     </Link>
   );
