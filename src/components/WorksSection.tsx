@@ -14,7 +14,7 @@ const WORKS: WorkItem[] = [
     id: "the-jar",
     title: "The Jar",
     description: "The Jar seals your risky late-night messages before they're sent—so you can choose with a clear head and learn what you were really feeling.",
-    date: "FigBuild2026 Winner",
+    date: "FigBuild 2026 Winner",
     tag: "Most Creative",
     thumbnail: "/videos/the-jar-poster.jpg",
     video: "/videos/the-jar-preview.mp4",
