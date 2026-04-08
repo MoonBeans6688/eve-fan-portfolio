@@ -9,6 +9,7 @@ export interface WorkItem {
   thumbnail: string;
   video?: string;
   span: 'wide' | 'tall' | 'normal';
+  sticker?: string;
 }
 
 interface WorkCardProps {
@@ -20,9 +21,17 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
   return (
     <Link
       to={`/work/${work.id}`}
-      className="clickable group block overflow-hidden"
+      className="clickable group block overflow-visible relative"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
+      {work.sticker && (
+        <img
+          src={work.sticker}
+          alt="sticker"
+          className="absolute -top-6 -right-6 w-32 z-10 pointer-events-none select-none"
+          style={{ transform: 'rotate(8deg)' }}
+        />
+      )}
       <div className="relative overflow-hidden">
         {work.video ? (
           <video
