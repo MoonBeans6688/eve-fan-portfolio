@@ -60,7 +60,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
         <h3 className="font-body text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200 leading-tight mb-1 font-medium">
           {work.title}
         </h3>
-        <p className="font-body text-xs text-muted-foreground leading-relaxed line-clamp-2">
+        <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-2">
           {work.description}
         </p>
       </div>
