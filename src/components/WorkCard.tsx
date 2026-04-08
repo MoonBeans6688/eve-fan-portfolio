@@ -28,7 +28,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
         <img
           src={work.sticker}
           alt="sticker"
-          className="absolute -top-6 -right-6 w-32 z-10 pointer-events-none select-none"
+          className="absolute -top-6 -right-6 w-48 z-10 pointer-events-none select-none"
           style={{ transform: 'rotate(8deg)' }}
         />
       )}
