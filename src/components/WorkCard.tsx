@@ -57,10 +57,10 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
             {work.date}{work.tag ? ` · ${work.tag}` : ''}
           </span>
         )}
-        <h3 className="font-body text-base md:text-lg text-foreground group-hover:text-primary transition-colors duration-200 leading-tight mb-1 font-medium">
+        <h3 className="font-body text-base text-foreground group-hover:text-primary transition-colors duration-200 leading-tight mb-1 font-medium md:text-xl">
           {work.title}
         </h3>
-        <p className="font-body text-sm text-muted-foreground leading-relaxed line-clamp-2">
+        <p className="font-body text-muted-foreground leading-relaxed line-clamp-2 text-base">
           {work.description}
         </p>
       </div>
