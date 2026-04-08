@@ -40,6 +40,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
             loop
             muted
             playsInline
+            preload="auto"
             className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
