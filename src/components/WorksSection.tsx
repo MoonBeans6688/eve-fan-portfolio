@@ -18,7 +18,8 @@ const WORKS: WorkItem[] = [
     tag: "Most Creative",
     thumbnail: "",
     video: "/videos/the-jar.mp4",
-    span: "wide",
+    span: "tall",
+    sticker: "/images/winner-sticker.png",
   },
   {
     id: "project-3",
@@ -59,6 +60,14 @@ const WORKS: WorkItem[] = [
 ];
 
 const WorksSection = () => {
+  // Split works into two columns for masonry layout
+  const leftCol: WorkItem[] = [];
+  const rightCol: WorkItem[] = [];
+  WORKS.forEach((work, i) => {
+    if (i % 2 === 0) leftCol.push(work);
+    else rightCol.push(work);
+  });
+
   return (
     <section className="pb-24 px-6 md:px-12">
       <div className="mb-10">
@@ -66,10 +75,17 @@ const WorksSection = () => {
           Selected Works
         </h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {WORKS.map((work, i) => (
-          <WorkCard key={work.id} work={work} index={i} />
-        ))}
+      <div className="flex flex-col md:flex-row gap-6">
+        <div className="flex-1 flex flex-col gap-6">
+          {leftCol.map((work, i) => (
+            <WorkCard key={work.id} work={work} index={i * 2} />
+          ))}
+        </div>
+        <div className="flex-1 flex flex-col gap-6">
+          {rightCol.map((work, i) => (
+            <WorkCard key={work.id} work={work} index={i * 2 + 1} />
+          ))}
+        </div>
       </div>
     </section>
   );
