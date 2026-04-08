@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useRef, useState, useEffect } from "react";
 
 export interface WorkItem {
   id: string;
@@ -8,6 +9,7 @@ export interface WorkItem {
   tag: string;
   thumbnail: string;
   video?: string;
+  poster?: string;
   span: 'wide' | 'tall' | 'normal';
   sticker?: string;
 }
@@ -18,6 +20,33 @@ interface WorkCardProps {
 }
 
 const WorkCard = ({ work, index }: WorkCardProps) => {
+  const ref = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Ensure video plays when it becomes visible
+  useEffect(() => {
+    if (inView && videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  }, [inView]);
+
   return (
     <Link
       to={`/work/${work.id}`}
@@ -32,17 +61,27 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
           style={{ transform: 'rotate(8deg)' }}
         />
       )}
-      <div className="relative overflow-hidden">
+      <div ref={ref} className="relative overflow-hidden">
         {work.video ? (
-          <video
-            src={work.video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+          inView ? (
+            <video
+              ref={videoRef}
+              src={work.video}
+              poster={work.poster}
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            work.poster ? (
+              <img src={work.poster} alt={work.title} className="w-full h-auto object-cover" />
+            ) : (
+              <div className="w-full aspect-video bg-muted" />
+            )
+          )
         ) : (
           <img
             src={work.thumbnail}
