@@ -64,7 +64,7 @@ const WorkDetail = () => {
               item.isBack ? (
                 <Link
                   key={item.id}
-                  to="/"
+                  to="/#selected-works"
                   className="clickable font-mono text-xs text-muted-foreground hover:text-foreground transition-colors py-1 flex items-center gap-1"
                 >
                   <ArrowLeft size={12} />
