@@ -36,7 +36,7 @@ const CustomCursor = () => {
       style={{
         width: size,
         height: size,
-        background: "#D42F2F",
+        background: "hsl(24, 95%, 58%)",
         transform: `translate(${pos.x - size / 2}px, ${pos.y - size / 2}px)`,
       }}
     />
