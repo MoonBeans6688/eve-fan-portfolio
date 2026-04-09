@@ -70,7 +70,7 @@ const WorksSection = () => {
   });
 
   return (
-    <section className="pb-24 px-6 md:px-12">
+    <section id="selected-works" className="pb-24 px-6 md:px-12">
       <div className="mb-10">
         <h2 className="font-display text-3xl md:text-4xl text-foreground">
           Selected Works
