@@ -28,7 +28,7 @@ const WORKS: WorkItem[] = [
     description: "Turning fragmented clinical tools into a coherent system that aligns teams and makes innovation visible.",
     date: "Client project 2026",
     tag: "",
-    thumbnail: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=1200&q=80",
+    thumbnail: "/images/penn-medicine-cover.jpg",
     span: "wide",
   },
   {
