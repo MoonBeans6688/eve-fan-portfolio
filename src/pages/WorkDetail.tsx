@@ -131,14 +131,14 @@ const WorkDetail = () => {
           {/* Summary Band */}
           <section id="overview" className="px-8 md:px-16 py-16 border-b border-border">
             <h1 className="font-display text-3xl md:text-5xl text-foreground mb-10 leading-tight">
-              A Mobile-First Experience For Figma
+              Insight AI: The E-commerce Image Factory
             </h1>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { label: "TIMELINE", value: "1 Week Sprint" },
+                { label: "TIMELINE", value: "APR 2025 - AUG 2025" },
                 { label: "ROLE", value: "Product Designer" },
-                { label: "TEAM", value: "Rachel Chen\nChristina Raganit\nAngelina Cao" },
-                { label: "TOOLS", value: "Figma\nProtopie\nLottielab" },
+                { label: "TEAM", value: "Insight AI design team\nMentor: Runshi Wang, Jiawei Hou" },
+                { label: "SKILLS", value: "Hi-Fi prototyping" },
               ].map((meta) => (
                 <div key={meta.label}>
                   <p className="font-mono text-xs text-primary uppercase tracking-wider mb-2 font-medium">
