@@ -1,21 +1,9 @@
 import { Link } from "react-router-dom";
 import { useRef, useState, useEffect } from "react";
-
-export interface WorkItem {
-  id: string;
-  title: string;
-  description: string;
-  date: string;
-  tag: string;
-  thumbnail: string;
-  video?: string;
-  poster?: string;
-  span: 'wide' | 'tall' | 'normal';
-  sticker?: string;
-}
+import type { Project } from "@/data/projects";
 
 interface WorkCardProps {
-  work: WorkItem;
+  work: Project;
   index: number;
 }
 
@@ -40,7 +28,6 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
     return () => observer.disconnect();
   }, []);
 
-  // Ensure video plays when it becomes visible
   useEffect(() => {
     if (inView && videoRef.current) {
       videoRef.current.play().catch(() => {});
@@ -49,7 +36,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
 
   return (
     <Link
-      to={`/work/${work.id}`}
+      to={`/work/${work.slug}`}
       className="clickable group block overflow-visible relative"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
@@ -101,7 +88,7 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
           {work.title}
         </h3>
         <p className="font-body text-muted-foreground leading-relaxed line-clamp-2 text-base">
-          {work.description}
+          {work.tagline}
         </p>
       </div>
     </Link>
