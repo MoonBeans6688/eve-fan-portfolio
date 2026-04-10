@@ -120,7 +120,7 @@ const WorkDetail = () => {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 min-w-0 max-w-[1200px]">
+        <main className="flex-1 min-w-0">
           {/* Hero */}
           <section className="w-full h-[65vh] bg-muted relative overflow-hidden">
             {project.heroVideo ? (
