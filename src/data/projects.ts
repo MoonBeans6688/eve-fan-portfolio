@@ -79,30 +79,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "penn-medicine",
-    title: "Penn Medicine Design System",
-    tagline:
-      "Turning fragmented clinical tools into a coherent system that aligns teams and makes innovation visible.",
-    date: "Client project 2026",
-    tag: "",
-    thumbnail: "/images/penn-medicine-cover.jpg",
-    span: "wide",
-    heroImage: "/images/penn-medicine-cover.jpg",
-    meta: [
-      { label: "TIMELINE", value: "2026" },
-      { label: "ROLE", value: "Product Designer" },
-      { label: "TEAM", value: "Penn Medicine" },
-      { label: "SKILLS", value: "Design Systems" },
-    ],
-    sections: [
-      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", content: "Section content placeholder. Add your case study content here." },
-    ],
-  },
-  {
     slug: "dear-remains",
     title: "Dear Remains",
     tagline:
@@ -117,6 +93,30 @@ export const projects: Project[] = [
       { label: "ROLE", value: "Designer" },
       { label: "TEAM", value: "" },
       { label: "SKILLS", value: "" },
+    ],
+    sections: [
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "The Outcome", content: "Section content placeholder. Add your case study content here." },
+    ],
+  },
+  {
+    slug: "penn-medicine",
+    title: "Penn Medicine Design System",
+    tagline:
+      "Turning fragmented clinical tools into a coherent system that aligns teams and makes innovation visible.",
+    date: "Client project 2026",
+    tag: "",
+    thumbnail: "/images/penn-medicine-cover.jpg",
+    span: "wide",
+    heroImage: "/images/penn-medicine-cover.jpg",
+    meta: [
+      { label: "TIMELINE", value: "2026" },
+      { label: "ROLE", value: "Product Designer" },
+      { label: "TEAM", value: "Penn Medicine" },
+      { label: "SKILLS", value: "Design Systems" },
     ],
     sections: [
       { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
