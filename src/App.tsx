@@ -20,8 +20,8 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <CustomCursor />
-        <Navbar />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/work/:id" element={<WorkDetail />} />
