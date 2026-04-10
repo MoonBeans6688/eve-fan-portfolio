@@ -44,7 +44,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Hi-Fi prototyping" },
     ],
     sections: [
-      { id: "context", title: "Context", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Prototyping, Interaction Design" },
     ],
     sections: [
-      { id: "context", title: "Context", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
@@ -95,7 +95,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Design Systems" },
     ],
     sections: [
-      { id: "context", title: "Context", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
@@ -119,7 +119,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Dashboard Design" },
     ],
     sections: [
-      { id: "context", title: "Context", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
@@ -143,7 +143,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Creative Coding" },
     ],
     sections: [
-      { id: "context", title: "Context", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
@@ -167,7 +167,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Health UX" },
     ],
     sections: [
-      { id: "context", title: "Context", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
