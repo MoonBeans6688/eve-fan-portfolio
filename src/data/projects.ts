@@ -21,6 +21,7 @@ export interface Project {
   span: "wide" | "tall" | "normal";
   sticker?: string;
   heroImage?: string;
+  heroVideo?: string;
   meta: ProjectMeta[];
   sections: ProjectSection[];
 }
@@ -35,7 +36,7 @@ export const projects: Project[] = [
     tag: "",
     thumbnail: "/images/insight-ai.gif",
     span: "wide",
-    heroImage: "/images/insight-ai.gif",
+    heroVideo: "/videos/insight-ai-hero.mp4",
     meta: [
       { label: "TIMELINE", value: "APR 2025 - AUG 2025" },
       { label: "ROLE", value: "Product Designer" },

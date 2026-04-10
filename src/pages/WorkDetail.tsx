@@ -123,7 +123,16 @@ const WorkDetail = () => {
         <main className="flex-1 min-w-0 max-w-[1200px]">
           {/* Hero */}
           <section className="w-full h-[65vh] bg-muted relative overflow-hidden">
-            {project.heroImage ? (
+            {project.heroVideo ? (
+              <video
+                src={project.heroVideo}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            ) : project.heroImage ? (
               <img
                 src={project.heroImage}
                 alt={project.title}
