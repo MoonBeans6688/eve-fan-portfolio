@@ -173,7 +173,7 @@ const WorkDetail = () => {
                 i < project.sections.length - 1 ? "border-b border-border" : "pb-32"
               }`}
             >
-              <h2 className="font-display text-2xl md:text-3xl text-foreground mb-6">
+              <h2 className="text-2xl text-foreground mb-6 md:text-sm font-mono">
                 {section.title}
               </h2>
               <p className="font-body text-muted-foreground leading-relaxed max-w-[720px]">
