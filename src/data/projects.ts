@@ -21,6 +21,7 @@ export interface Project {
   span: "wide" | "tall" | "normal";
   sticker?: string;
   heroImage?: string;
+  heroVideo?: string;
   meta: ProjectMeta[];
   sections: ProjectSection[];
 }
