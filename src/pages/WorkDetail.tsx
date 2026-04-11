@@ -122,7 +122,7 @@ const WorkDetail = () => {
         {/* Main Content */}
         <main className="flex-1 min-w-0">
           {/* Hero */}
-          <section className="w-full h-[65vh] bg-muted relative overflow-hidden">
+          <section className="w-full bg-muted">
             {project.heroVideo ? (
               <video
                 src={project.heroVideo}
@@ -130,16 +130,16 @@ const WorkDetail = () => {
                 loop
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover object-right"
+                className="w-full h-auto block"
               />
             ) : project.heroImage ? (
               <img
                 src={project.heroImage}
                 alt={project.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="w-full h-auto block"
               />
             ) : (
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="h-[65vh] flex items-center justify-center">
                 <span className="font-mono text-sm text-muted-foreground">Hero cover image</span>
               </div>
             )}
