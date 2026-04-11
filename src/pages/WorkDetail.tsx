@@ -122,7 +122,7 @@ const WorkDetail = () => {
         {/* Main Content */}
         <main className="flex-1 min-w-0">
           {/* Hero */}
-          <section className="w-full bg-muted">
+          <section className="w-full bg-muted overflow-hidden">
             {project.heroVideo ? (
               <video
                 src={project.heroVideo}
@@ -130,7 +130,7 @@ const WorkDetail = () => {
                 loop
                 muted
                 playsInline
-                className="w-full h-auto block"
+                className="w-full h-auto block mb-[-4%]"
               />
             ) : project.heroImage ? (
               <img
