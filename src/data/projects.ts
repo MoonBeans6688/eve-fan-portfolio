@@ -66,8 +66,8 @@ export const projects: Project[] = [
     heroVideo: "/videos/the-jar-hero.mp4",
     meta: [
       { label: "TIMELINE", value: "2026" },
-      { label: "ROLE", value: "Designer & Developer" },
-      { label: "TEAM", value: "FigBuild 2026" },
+      { label: "ROLE", value: "Product Designer" },
+      { label: "TEAM", value: "Eve Fan\nJyotiraditya Ingawale" },
       { label: "SKILLS", value: "Prototyping, Interaction Design" },
     ],
     sections: [
