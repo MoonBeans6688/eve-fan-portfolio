@@ -63,7 +63,7 @@ export const projects: Project[] = [
     poster: "/videos/the-jar-poster.jpg",
     span: "tall",
     sticker: "/images/winner-sticker.png",
-    heroImage: "/videos/the-jar-poster.jpg",
+    heroVideo: "/videos/the-jar-hero.mp4",
     meta: [
       { label: "TIMELINE", value: "2026" },
       { label: "ROLE", value: "Designer & Developer" },
