@@ -151,7 +151,7 @@ const WorkDetail = () => {
               {project.title}
             </h1>
             {project.tagline && (
-              <p className="font-body text-base md:text-lg text-muted-foreground mb-10 max-w-[720px] leading-relaxed">
+              <p className="font-body text-base md:text-lg text-muted-foreground mb-10 leading-relaxed">
                 {project.tagline}
               </p>
             )}
@@ -189,7 +189,7 @@ const WorkDetail = () => {
                   {section.heading}
                 </h3>
               )}
-              <p className="font-body text-muted-foreground leading-relaxed max-w-[720px] text-lg">
+              <p className="font-body text-muted-foreground leading-relaxed text-lg">
                 {section.content}
               </p>
               {section.image ? (
