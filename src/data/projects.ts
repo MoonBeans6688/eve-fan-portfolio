@@ -22,6 +22,7 @@ export interface Project {
   sticker?: string;
   heroImage?: string;
   heroVideo?: string;
+  accentColor?: string;
   meta: ProjectMeta[];
   sections: ProjectSection[];
 }
