@@ -91,8 +91,8 @@ export const projects: Project[] = [
     meta: [
       { label: "TIMELINE", value: "2025" },
       { label: "ROLE", value: "Designer" },
-      { label: "TEAM", value: "" },
-      { label: "SKILLS", value: "" },
+      { label: "TEAM", value: "Eve Fan\nHongrui Jiang" },
+      { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
     ],
     sections: [
       { id: "brief", title: "BRIEF", content: "A digital memorial companion that helps bereaved people gently sort a loved one’s belongings and turn them into lasting, private memories." },
