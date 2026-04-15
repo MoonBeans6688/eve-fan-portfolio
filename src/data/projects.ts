@@ -88,6 +88,7 @@ export const projects: Project[] = [
     tag: "",
     thumbnail: "/images/dear-remains-cover.jpg",
     span: "normal",
+    accentColor: "#9b87f5",
     heroImage: "/images/dear-remains-cover.jpg",
     meta: [
       { label: "TIMELINE", value: "2025" },
