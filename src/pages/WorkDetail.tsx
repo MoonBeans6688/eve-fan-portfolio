@@ -173,8 +173,11 @@ const WorkDetail = () => {
                 i < project.sections.length - 1 ? "border-b border-border" : "pb-32"
               }`}
             >
-              <h2 className="text-2xl text-foreground mb-6 md:text-sm font-mono">
-                {section.title}
+              <h2
+                className={`font-mono text-xs uppercase tracking-wider mb-6 font-medium ${!project.accentColor ? 'text-primary' : ''}`}
+                style={project.accentColor ? { color: project.accentColor } : undefined}
+              >
+                {section.title.toUpperCase()}
               </h2>
               <p className="font-body text-muted-foreground leading-relaxed max-w-[720px]">
                 {section.content}

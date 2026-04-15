@@ -22,6 +22,7 @@ export interface Project {
   sticker?: string;
   heroImage?: string;
   heroVideo?: string;
+  accentColor?: string;
   meta: ProjectMeta[];
   sections: ProjectSection[];
 }
@@ -87,6 +88,7 @@ export const projects: Project[] = [
     tag: "",
     thumbnail: "/images/dear-remains-cover.jpg",
     span: "normal",
+    accentColor: "#9b87f5",
     heroImage: "/images/dear-remains-cover.jpg",
     meta: [
       { label: "TIMELINE", value: "2025" },
