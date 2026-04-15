@@ -147,9 +147,14 @@ const WorkDetail = () => {
 
           {/* Summary Band */}
           <section id="overview" className="px-8 md:px-16 py-16 border-b border-border">
-            <h1 className="font-display text-3xl md:text-5xl text-foreground mb-10 leading-tight">
+            <h1 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-tight">
               {project.title}
             </h1>
+            {project.tagline && (
+              <p className="font-body text-base md:text-lg text-muted-foreground mb-10 max-w-[720px] leading-relaxed">
+                {project.tagline}
+              </p>
+            )}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {project.meta.map((m) => (
                 <div key={m.label}>
