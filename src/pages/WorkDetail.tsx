@@ -184,9 +184,25 @@ const WorkDetail = () => {
               >
                 {section.title.toUpperCase()}
               </h2>
-              <p className="font-body text-muted-foreground leading-relaxed max-w-[720px]">
+              {section.heading && (
+                <h3 className="font-body text-[20px] text-foreground leading-snug mb-3">
+                  {section.heading}
+                </h3>
+              )}
+              <p className="font-body text-[14px] text-muted-foreground leading-relaxed max-w-[720px]">
                 {section.content}
               </p>
+              {section.image ? (
+                <img
+                  src={section.image}
+                  alt={section.title}
+                  className="w-full h-auto mt-8 rounded"
+                />
+              ) : (
+                <div className="w-full aspect-video bg-muted mt-8 rounded flex items-center justify-center">
+                  <span className="font-mono text-xs text-muted-foreground">Placeholder image</span>
+                </div>
+              )}
             </section>
           ))}
         </main>

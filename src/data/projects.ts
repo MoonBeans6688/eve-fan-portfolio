@@ -6,7 +6,9 @@ export interface ProjectMeta {
 export interface ProjectSection {
   id: string;
   title: string;
+  heading?: string;
   content: string;
+  image?: string;
 }
 
 export interface Project {
