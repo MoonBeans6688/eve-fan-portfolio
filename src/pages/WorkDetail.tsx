@@ -153,7 +153,7 @@ const WorkDetail = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {project.meta.map((m) => (
                 <div key={m.label}>
-                  <p className="font-mono text-xs text-primary uppercase tracking-wider mb-2 font-medium">
+                  <p className="font-mono text-xs uppercase tracking-wider mb-2 font-medium text-[#9d89f5]">
                     {m.label}
                   </p>
                   <p className="font-body text-sm text-foreground whitespace-pre-line leading-relaxed">
