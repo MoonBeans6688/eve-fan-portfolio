@@ -97,7 +97,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
     ],
     sections: [
-      { id: "brief", title: "BRIEF", content: "A digital memorial companion that helps bereaved people gently sort a loved one’s belongings and turn them into lasting, private memories." },
+      { id: "brief", title: "BRIEF", content: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?" },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
