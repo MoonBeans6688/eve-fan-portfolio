@@ -189,7 +189,7 @@ const WorkDetail = () => {
                   {section.heading}
                 </h3>
               )}
-              <p className="font-body text-[14px] text-muted-foreground leading-relaxed max-w-[720px]">
+              <p className="font-body text-muted-foreground leading-relaxed max-w-[720px] text-lg">
                 {section.content}
               </p>
               {section.image ? (
