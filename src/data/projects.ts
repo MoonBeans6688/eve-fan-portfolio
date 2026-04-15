@@ -95,7 +95,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "" },
     ],
     sections: [
-      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", content: "A digital memorial companion that helps bereaved people gently sort a loved one’s belongings and turn them into lasting, private memories." },
       { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
