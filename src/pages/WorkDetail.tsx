@@ -242,6 +242,11 @@ const WorkDetail = () => {
                   <span className="font-mono text-xs text-muted-foreground">Placeholder image</span>
                 </div>
               )}
+              {section.mediaCaption && (
+                <p className="font-display text-sm text-muted-foreground mt-3 italic">
+                  {section.mediaCaption}
+                </p>
+              )}
             </section>
           ))}
         </main>
