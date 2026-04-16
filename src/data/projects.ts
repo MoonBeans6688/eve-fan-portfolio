@@ -130,30 +130,6 @@ export const projects: Project[] = [
       { id: "the-outcome", title: "The Outcome", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
-  {
-    slug: "project-6",
-    title: "Pulse — Health Tracker",
-    tagline:
-      "Simplifying personal health data into actionable daily insights.",
-    date: "2022",
-    tag: "Hackathon",
-    thumbnail: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
-    span: "normal",
-    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
-    meta: [
-      { label: "TIMELINE", value: "2022" },
-      { label: "ROLE", value: "Designer" },
-      { label: "TEAM", value: "Hackathon Team" },
-      { label: "SKILLS", value: "Health UX" },
-    ],
-    sections: [
-      { id: "brief", title: "BRIEF", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-    ],
-  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
