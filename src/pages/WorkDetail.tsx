@@ -207,7 +207,16 @@ const WorkDetail = () => {
                   <p key={idx}>{para}</p>
                 ))}
               </div>
-              {section.image ? (
+              {section.sectionVideo ? (
+                <video
+                  src={section.sectionVideo}
+                  poster={section.videoPoster}
+                  controls
+                  preload="metadata"
+                  playsInline
+                  className="w-full h-auto mt-8 rounded bg-black"
+                />
+              ) : section.image ? (
                 <img
                   src={section.image}
                   alt={section.title}
