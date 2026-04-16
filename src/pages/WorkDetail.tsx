@@ -187,7 +187,7 @@ const WorkDetail = () => {
               {section.heading && (
                 <h3 className="font-body text-[20px] text-foreground leading-snug mb-3" dangerouslySetInnerHTML={{ __html: section.heading }} />
               )}
-              <p className="font-body text-muted-foreground leading-relaxed text-lg">
+              <p className="font-body text-muted-foreground leading-relaxed text-base">
                 {section.content}
               </p>
               {section.image ? (
