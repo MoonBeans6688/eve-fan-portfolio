@@ -9,6 +9,8 @@ export interface ProjectSection {
   heading?: string;
   content: string;
   image?: string;
+  sectionVideo?: string;
+  videoPoster?: string;
 }
 
 export interface Project {
