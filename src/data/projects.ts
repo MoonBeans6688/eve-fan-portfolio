@@ -11,6 +11,7 @@ export interface ProjectSection {
   image?: string;
   sectionVideo?: string;
   videoPoster?: string;
+  youtubeId?: string;
 }
 
 export interface Project {
