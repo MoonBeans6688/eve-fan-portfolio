@@ -11,7 +11,7 @@ const WorkDetail = () => {
   const tocItems = [
     { id: "home", label: "HOME", isBack: true },
     { id: "overview", label: "OVERVIEW" },
-    ...(project?.sections.map((s) => ({ id: s.id, label: s.title.toUpperCase() })) ?? []),
+    ...(project?.sections.map((s) => ({ id: s.id, label: s.title })) ?? []),
   ];
 
   const [activeSection, setActiveSection] = useState("overview");
