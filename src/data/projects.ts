@@ -72,7 +72,7 @@ export const projects: Project[] = [
       { label: "TIMELINE", value: "MAR 8 - MAR 10, 2026\n3 days design-a-thon" },
       { label: "ROLE", value: "Concept Development\nProduct Designer\nVisual Design" },
       { label: "TEAM", value: "Eve Fan\nMegan Winarta\nJyotiraditya Ingawale" },
-      { label: "SKILLS", value: "Concept Framing\nInteraction Design\nVisual Design\nHigh-Fidelity Prototyping\nUX Writing" },
+      { label: "SKILLS", value: "Concept Framing\nInteraction Design\nVisual Design\nHigh-Fidelity Prototyping\n*Video Narrative & Direction" },
     ],
     sections: [
       { id: "brief", title: "BRIEF", heading: "Welcome to The Jar", content: "A speculative tool that turns impulsive late-night messages into a moment of reflection, preserving emotional honesty while delaying consequence." },
