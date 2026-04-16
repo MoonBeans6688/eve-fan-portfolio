@@ -180,7 +180,7 @@ const WorkDetail = () => {
             >
               <h2
                 className="font-mono text-xs uppercase tracking-wider mb-6 font-medium"
-                style={{ color: '#1e3a5f' }}
+                style={{ color: '#4D4AFC' }}
               >
                 {section.title.toUpperCase()}
               </h2>
