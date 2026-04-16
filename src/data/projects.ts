@@ -48,10 +48,10 @@ export const projects: Project[] = [
     ],
     sections: [
       { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Key Insights", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "Design Strategy", content: "Section content placeholder. Add your case study content here." },
     ],
   },
   {
@@ -75,10 +75,10 @@ export const projects: Project[] = [
     ],
     sections: [
       { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Key Insights", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "Design Strategy", content: "Section content placeholder. Add your case study content here." },
     ],
   },
   {
@@ -100,10 +100,10 @@ export const projects: Project[] = [
     ],
     sections: [
       { id: "brief", title: "BRIEF", heading: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
   {
@@ -124,10 +124,10 @@ export const projects: Project[] = [
     ],
     sections: [
       { id: "brief", title: "BRIEF", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
 ];
