@@ -71,7 +71,7 @@ export const projects: Project[] = [
     meta: [
       { label: "TIMELINE", value: "MAR 8 - MAR 10\n3 days design-a-thon" },
       { label: "ROLE", value: "Product Designer" },
-      { label: "TEAM", value: "Eve Fan\nJyotiraditya Ingawale" },
+      { label: "TEAM", value: "Eve Fan\nMegan Winarta\nJyotiraditya Ingawale" },
       { label: "SKILLS", value: "Prototyping, Interaction Design" },
     ],
     sections: [
