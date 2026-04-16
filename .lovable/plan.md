@@ -1,42 +1,59 @@
 
-## Selected Works — Bento Layout Plan
 
-### Design
+## Goal
+在作品子页面（如 `/work/the-jar`）每个 section 的占位图位置，支持插入**带原生控件（可暂停、拖进度）的视频**，同时保留现有的图片和占位符模式。
 
-紧凑无间距的 Bento 网格，封面图下方显示文字信息，5-6 个作品。
+## Current State
+- `src/data/projects.ts` 中每个 section 目前只有 `image?: string` 字段
+- `src/pages/WorkDetail.tsx` 在 section 末尾根据 `section.image` 渲染 `<img>`，否则显示灰色占位符
+- 项目顶部 hero 已经有 `heroVideo` 的用法（autoplay + muted + loop，**没有控件**），不适合这里"可暂停拖进度"的需求
 
-布局采用 CSS Grid，桌面端 4 列，每行高度由内容决定：
+## Approach
+给每个 section 的媒体区域引入一个新的可选字段 `sectionVideo`（独立于 hero 那种自动播放视频），并在 `WorkDetail.tsx` 渲染逻辑里加一个分支，使用原生 `<video controls>` —— 这是最轻量、最稳的方案，浏览器自带暂停按钮、进度条、音量、全屏。
+
+### 数据结构变更（`src/data/projects.ts`）
+为 section 类型新增两个可选字段：
+```ts
+sectionVideo?: string;   // 视频文件 URL（mp4/webm）
+videoPoster?: string;    // 可选封面图，视频加载前显示
+```
+保留 `image?: string`，三种模式优先级：`sectionVideo` > `image` > 占位符。
+
+### 渲染逻辑（`src/pages/WorkDetail.tsx`）
+在每个 section 末尾，把当前的 `section.image ? <img> : <placeholder>` 换成三分支：
 
 ```text
-Row 1:  [ Project 1 — 横版 2col ][ Project 2 — 竖版 2col 跨2行 ]
-Row 2:  [ Project 3 — 横版 2col ][         (P2 continues)         ]
-Row 3:  [ Project 4 — 竖版 1col ][ Project 5 — 横版 2col ][ P6 1col ]
+if (section.sectionVideo)
+   → <video controls preload="metadata" poster={videoPoster} className="w-full h-auto mt-8 rounded" />
+else if (section.image)
+   → 原 <img>
+else
+   → 原灰色占位符
 ```
 
-每个作品卡片数据增加 `span` 字段（`wide` / `tall` / `normal`），控制占几列几行。
+关键属性：
+- `controls` —— 显示原生播放/暂停/进度条
+- 不加 `autoPlay` / `muted` / `loop` —— 用户主动播放
+- `preload="metadata"` —— 只预加载元数据（时长、尺寸），不浪费流量
+- `playsInline` —— iOS Safari 防止强制全屏
+- `poster` —— 可选封面图，提升首屏体验
 
-移动端退化为单列堆叠。
+### 视频文件存放位置
+推荐 `public/videos/`（直接 URL 引用，无需 import），data 里写 `/videos/jar-research.mp4`。也可以用外部 CDN URL（如 Cloudinary / Mux）。大于 ~20MB 的视频建议用外部 CDN，避免 bundle 体积过大。
 
-### Changes
+### 进阶可选（**这次不做，先确认需求**）
+- 自定义播放器样式（基于 `react-player` 或 `video.js`）
+- 鼠标悬停自动播放、移开暂停
+- 滚动到视野内自动播放（类似 hero）
+- 章节标记 / 字幕轨道
 
-**1. WorkItem 接口** — 新增 `span: 'wide' | 'tall' | 'normal'` 字段
+## Files to Change
+1. `src/data/projects.ts` —— Section 类型加 `sectionVideo?` 和 `videoPoster?` 字段
+2. `src/pages/WorkDetail.tsx` —— 渲染逻辑加视频分支
 
-**2. WorksSection.tsx** — 用 CSS Grid 替换 flex column：
-- `grid-cols-4`，`gap-0`（紧凑无间距）
-- 每个卡片根据 `span` 设置 `col-span-2` / `row-span-2` / 默认 1x1
-- 移动端 `grid-cols-1`
+## Open Questions
+1. 是否要原生控件就够了，还是希望自定义样式（更贴合你的极简风格）？
+2. 视频文件你打算放在项目 `public/videos/` 里还是用外部链接（Cloudinary / YouTube / Vimeo）？
 
-**3. WorkCard.tsx** — 调整卡片样式：
-- 去掉圆角和间距（紧凑风格）
-- 图片 `aspect-ratio` 根据 span 动态调整（wide: 16/9, tall: 9/16, normal: 1/1）
-- 文字区保持在图片下方：标题、描述、date + tag
-- Hover 效果：图片微缩 + overlay
+如果你只是想"先能播起来、能拖进度"，直接采用上面方案 1（原生 `<video controls>`）即可，几分钟就能跑通。等你给我具体的视频文件/URL，我就把对应 section 的字段填上。
 
-**4. WORKS 数据** — 增加到 5-6 个项目，每个指定 span 和适合的封面方向
-
-### Technical notes
-
-- Grid 使用 `grid-auto-rows: auto` 让内容自然撑开
-- `tall` 卡片用 `row-span-2` + `aspect-[3/4]`
-- `wide` 卡片用 `col-span-2` + `aspect-[16/9]`
-- 无间距通过 `gap-0` + 卡片无 margin/padding/border-radius 实现
