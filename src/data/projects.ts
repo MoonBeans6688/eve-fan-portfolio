@@ -75,11 +75,11 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Concept Framing\nInteraction Design\nVisual Design\nHigh-Fidelity Prototyping\nUX Writing" },
     ],
     sections: [
-      { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Problem", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "Research", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Key Insights", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "Design Strategy", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
   {
