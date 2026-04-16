@@ -74,7 +74,7 @@ const WorkDetail = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={`clickable font-mono text-xs text-left py-1 transition-colors ${
+                  className={`clickable font-mono text-xs text-left py-1 uppercase transition-colors ${
                     activeSection === item.id
                       ? "text-foreground font-medium"
                       : "text-muted-foreground hover:text-foreground"
@@ -106,7 +106,7 @@ const WorkDetail = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollTo(item.id)}
-                  className={`clickable font-mono text-xs text-left py-1.5 tracking-wider transition-colors duration-200 ${
+                  className={`clickable font-mono text-xs text-left py-1.5 tracking-wider uppercase transition-colors duration-200 ${
                     activeSection === item.id
                       ? "text-foreground font-medium"
                       : "text-muted-foreground hover:text-foreground"
@@ -179,7 +179,7 @@ const WorkDetail = () => {
               }`}
             >
               <h2
-                className="font-mono text-xs tracking-wider mb-6 font-medium"
+                className="font-mono text-xs tracking-wider uppercase mb-6 font-medium"
                 style={{ color: '#4D4AFC' }}
               >
                 {section.title}
