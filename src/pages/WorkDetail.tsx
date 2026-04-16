@@ -185,9 +185,7 @@ const WorkDetail = () => {
                 {section.title.toUpperCase()}
               </h2>
               {section.heading && (
-                <h3 className="font-body text-[20px] text-foreground leading-snug mb-3">
-                  {section.heading}
-                </h3>
+                <h3 className="font-body text-[20px] text-foreground leading-snug mb-3" dangerouslySetInnerHTML={{ __html: section.heading }} />
               )}
               <p className="font-body text-muted-foreground leading-relaxed text-lg">
                 {section.content}
