@@ -57,8 +57,7 @@ export const projects: Project[] = [
   {
     slug: "the-jar",
     title: "The Jar",
-    tagline:
-      "The Jar seals your risky late-night messages before they're sent—so you can choose with a clear head and learn what you were really feeling.",
+    tagline: "An anti-drunk-texting app",
     date: "FigBuild 2026 Winner",
     tag: "Most Creative",
     thumbnail: "/videos/the-jar-poster.jpg",
