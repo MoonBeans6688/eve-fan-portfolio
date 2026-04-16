@@ -131,6 +131,11 @@ const WorkDetail = () => {
                 muted
                 playsInline
                 className="w-full h-auto block mb-[-4%]"
+                style={
+                  project.slug === "the-jar"
+                    ? { clipPath: "inset(8% 0 0 0)", marginTop: "-8%" }
+                    : undefined
+                }
               />
             ) : project.heroImage ? (
               <img
