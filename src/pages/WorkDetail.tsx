@@ -207,6 +207,11 @@ const WorkDetail = () => {
                   <p key={idx}>{para}</p>
                 ))}
               </div>
+              {section.caption && (
+                <p className="font-display text-xs text-muted-foreground mt-3 italic">
+                  {section.caption}
+                </p>
+              )}
               {section.youtubeId ? (
                 <div className="w-full aspect-video mt-8 rounded overflow-hidden bg-black">
                   <iframe
