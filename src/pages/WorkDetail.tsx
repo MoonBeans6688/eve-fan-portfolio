@@ -207,7 +207,17 @@ const WorkDetail = () => {
                   <p key={idx}>{para}</p>
                 ))}
               </div>
-              {section.sectionVideo ? (
+              {section.youtubeId ? (
+                <div className="w-full aspect-video mt-8 rounded overflow-hidden bg-black">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${section.youtubeId}?rel=0`}
+                    title={section.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                </div>
+              ) : section.sectionVideo ? (
                 <video
                   src={section.sectionVideo}
                   poster={section.videoPoster}
