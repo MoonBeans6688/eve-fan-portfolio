@@ -85,7 +85,7 @@ export const projects: Project[] = [
     slug: "dear-remains",
     title: "Dear Remains",
     tagline:
-      "A digital memorial companion that helps bereaved people 3D-scan a loved one's belongings and turn them into lasting digital memories.",
+      "A digital memorial companion for grief, memory, and letting go",
     date: "2025 UXDA AWARDED PROJECT",
     tag: "",
     thumbnail: "/images/dear-remains-cover.jpg",
@@ -99,9 +99,9 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
     ],
     sections: [
-      { id: "brief", title: "BRIEF", heading: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?", content: "Section content placeholder. Add your case study content here." },
+      { id: "brief", title: "BRIEF", heading: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?", content: "Dear Remains is a digital memorial companion that helps bereaved people 3D-scan a loved one's belongings and turn them into lasting digital memories." },
       { id: "insights", title: "Problem", heading: "Sorting belongings is practical, but grief is <span class=\"font-display italic\">emotional.</span>", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", heading: "Understanding people behind bereavement decluttering", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
       { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
