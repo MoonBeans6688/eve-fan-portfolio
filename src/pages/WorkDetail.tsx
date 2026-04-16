@@ -187,9 +187,11 @@ const WorkDetail = () => {
               {section.heading && (
                 <h3 className="font-body text-[20px] text-foreground leading-snug mb-3" dangerouslySetInnerHTML={{ __html: section.heading }} />
               )}
-              <p className="font-body text-muted-foreground leading-relaxed text-base">
-                {section.content}
-              </p>
+              <div className="font-body text-muted-foreground leading-relaxed text-base space-y-4">
+                {section.content.split("\n\n").map((para, idx) => (
+                  <p key={idx}>{para}</p>
+                ))}
+              </div>
               {section.image ? (
                 <img
                   src={section.image}
