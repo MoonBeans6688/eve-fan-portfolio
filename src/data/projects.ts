@@ -131,30 +131,6 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "project-5",
-    title: "Mosaic — Generative Art Tool",
-    tagline:
-      "A browser-based tool for creating algorithmic art with intuitive visual controls.",
-    date: "2023",
-    tag: "Side Project",
-    thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
-    span: "wide",
-    heroImage: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=1200&q=80",
-    meta: [
-      { label: "TIMELINE", value: "2023" },
-      { label: "ROLE", value: "Designer & Developer" },
-      { label: "TEAM", value: "Solo" },
-      { label: "SKILLS", value: "Creative Coding" },
-    ],
-    sections: [
-      { id: "brief", title: "BRIEF", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "The Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Solution", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "The Outcome", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-    ],
-  },
-  {
     slug: "project-6",
     title: "Pulse — Health Tracker",
     tagline:
