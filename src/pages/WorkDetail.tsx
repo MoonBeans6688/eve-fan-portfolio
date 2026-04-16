@@ -167,7 +167,17 @@ const WorkDetail = () => {
                     {m.label}
                   </p>
                   <p className="font-body text-sm text-foreground whitespace-pre-line leading-relaxed">
-                    {m.value}
+                    {m.label === "TIMELINE" && m.value.includes("\n") ? (
+                      <>
+                        {m.value.split("\n")[0]}
+                        {"\n"}
+                        <span className="text-xs text-muted-foreground">
+                          {m.value.split("\n").slice(1).join("\n")}
+                        </span>
+                      </>
+                    ) : (
+                      m.value
+                    )}
                   </p>
                 </div>
               ))}
