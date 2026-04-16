@@ -208,7 +208,7 @@ const WorkDetail = () => {
                 ))}
               </div>
               {section.caption && (
-                <p className="font-display text-sm text-muted-foreground mt-3 italic">
+                <p className="font-display text-muted-foreground mt-3 italic text-sm">
                   {section.caption}
                 </p>
               )}
