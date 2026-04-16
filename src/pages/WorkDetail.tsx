@@ -179,8 +179,8 @@ const WorkDetail = () => {
               }`}
             >
               <h2
-                className={`font-mono text-xs uppercase tracking-wider mb-6 font-medium ${!project.accentColor ? 'text-primary' : ''}`}
-                style={project.accentColor ? { color: project.accentColor } : undefined}
+                className="font-mono text-xs uppercase tracking-wider mb-6 font-medium"
+                style={{ color: '#1e3a5f' }}
               >
                 {section.title.toUpperCase()}
               </h2>
