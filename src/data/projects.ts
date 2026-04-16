@@ -69,7 +69,7 @@ export const projects: Project[] = [
     sticker: "/images/winner-sticker.png",
     heroVideo: "/videos/the-jar-hero.mp4",
     meta: [
-      { label: "TIMELINE", value: "MAR 8 - MAR 10\n3 days design-a-thon" },
+      { label: "TIMELINE", value: "MAR 8 - MAR 10, 2026\n3 days design-a-thon" },
       { label: "ROLE", value: "Concept Development\nProduct Designer\nVisual Design" },
       { label: "TEAM", value: "Eve Fan\nMegan Winarta\nJyotiraditya Ingawale" },
       { label: "SKILLS", value: "Concept Framing\nInteraction Design\nVisual Design\nHigh-Fidelity Prototyping\nUX Writing" },
