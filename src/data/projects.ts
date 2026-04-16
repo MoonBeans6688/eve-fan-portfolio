@@ -84,7 +84,7 @@ export const projects: Project[] = [
     slug: "dear-remains",
     title: "Dear Remains",
     tagline:
-      "A digital memorial companion for grief, memory, and letting go",
+      "Turning belongings into lasting digital memories",
     date: "2025 UXDA AWARDED PROJECT",
     tag: "",
     thumbnail: "/images/dear-remains-cover.jpg",
