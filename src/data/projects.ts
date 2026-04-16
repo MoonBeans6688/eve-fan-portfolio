@@ -100,7 +100,7 @@ export const projects: Project[] = [
     ],
     sections: [
       { id: "brief", title: "BRIEF", heading: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", heading: "Sorting belongings is practical, but grief is emotional", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
       { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
