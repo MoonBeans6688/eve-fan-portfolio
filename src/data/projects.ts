@@ -78,7 +78,7 @@ export const projects: Project[] = [
       { label: "SKILLS", value: "Concept Framing\nInteraction Design\nVisual Design\nHigh-Fidelity Prototyping\n*Video Narrative & Direction" },
     ],
     sections: [
-      { id: "brief", title: "BRIEF", heading: "Welcome to The Jar", content: "A speculative tool that turns impulsive late-night messages into a moment of reflection, preserving emotional honesty while delaying consequence." },
+      { id: "brief", title: "BRIEF", heading: "Welcome to The Jar", content: "A speculative tool that turns impulsive late-night messages into a moment of reflection, preserving emotional honesty while delaying consequence.", youtubeId: "ccryJIu-OKw" },
       { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
       { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
       { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
