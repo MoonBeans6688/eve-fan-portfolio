@@ -15,6 +15,7 @@ export interface Project {
   slug: string;
   title: string;
   tagline: string;
+  overviewTagline?: string;
   date: string;
   tag: string;
   thumbnail: string;
@@ -58,6 +59,7 @@ export const projects: Project[] = [
     slug: "the-jar",
     title: "The Jar",
     tagline: "An anti-drunk-texting app",
+    overviewTagline: "Seal now. Decide later. Understand yourself deeper.",
     date: "FigBuild 2026 Winner",
     tag: "Most Creative",
     thumbnail: "/videos/the-jar-poster.jpg",

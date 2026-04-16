@@ -155,9 +155,9 @@ const WorkDetail = () => {
             <h1 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-tight">
               {project.title}
             </h1>
-            {project.tagline && (
+            {(project.overviewTagline || project.tagline) && (
               <p className="font-body text-base md:text-lg text-muted-foreground mb-10 leading-relaxed">
-                {project.tagline}
+                {project.overviewTagline || project.tagline}
               </p>
             )}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
