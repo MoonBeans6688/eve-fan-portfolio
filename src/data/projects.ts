@@ -70,9 +70,9 @@ export const projects: Project[] = [
     heroVideo: "/videos/the-jar-hero.mp4",
     meta: [
       { label: "TIMELINE", value: "MAR 8 - MAR 10\n3 days design-a-thon" },
-      { label: "ROLE", value: "Product Designer" },
+      { label: "ROLE", value: "Concept Development\nProduct Designer\nVisual Design" },
       { label: "TEAM", value: "Eve Fan\nMegan Winarta\nJyotiraditya Ingawale" },
-      { label: "SKILLS", value: "Prototyping, Interaction Design" },
+      { label: "SKILLS", value: "Concept Framing\nInteraction Design\nVisual Design\nHigh-Fidelity Prototyping\nUX Writing" },
     ],
     sections: [
       { id: "brief", title: "BRIEF", content: "Section content placeholder. Add your case study content here." },
