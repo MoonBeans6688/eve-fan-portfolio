@@ -79,7 +79,7 @@ const WorkCard = ({ work, index, fullWidth = false }: WorkCardProps) => {
         )}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
       </div>
-      <div className={`pt-4 pb-8 ${fullWidth ? 'px-6 md:px-12' : ''}`}>
+      <div className="pt-4 pb-8">
         {work.date && (
           <span className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase block mb-1.5">
             {work.date}{work.tag ? ` · ${work.tag}` : ''}

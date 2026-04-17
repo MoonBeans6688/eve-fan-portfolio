@@ -14,7 +14,7 @@ const WorksSection = () => {
         </h2>
       </div>
       {featured && (
-        <div className="mb-6">
+        <div className="mb-6 px-6 md:px-12">
           <WorkCard work={featured} index={0} fullWidth />
         </div>
       )}
