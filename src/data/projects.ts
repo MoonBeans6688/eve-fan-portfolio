@@ -84,6 +84,8 @@ export const projects: Project[] = [
       { id: "insights", title: "Problem", heading: "What if late-night honesty didn't have to have negative consequences?", content: "Most people don’t regret having feelings. They regret hitting send too soon. A drunk text is rarely just a typo problem. It’s a timing problem, a judgment problem, and sometimes a truth problem." },
       { id: "the-problem", title: "CONCEPT", heading: "A New Sense of Clarity", content: "We saw drunk texting as more than a bad decision. It revealed a gap between emotional honesty and sound judgment—and The Jar was designed to hold space between the two." },
       { id: "solution", title: "SOLUTION", heading: "1. Seal the message", content: "When Sealing Mode is on, messages with a high risk of regret are intercepted before they leave the phone and stored in the Jar. Rather than deleting the impulse, the product preserves it—treating the message as something worth revisiting, not something to be ashamed of." },
+      { id: "solution-2", title: "SOLUTION", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution-3", title: "SOLUTION", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
       { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
