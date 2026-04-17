@@ -6,9 +6,10 @@ interface WorkCardProps {
   work: Project;
   index: number;
   fullWidth?: boolean;
+  fixedPlaceholder?: boolean;
 }
 
-const WorkCard = ({ work, index, fullWidth = false }: WorkCardProps) => {
+const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: WorkCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
@@ -50,7 +51,12 @@ const WorkCard = ({ work, index, fullWidth = false }: WorkCardProps) => {
         />
       )}
       <div ref={ref} className="relative overflow-hidden">
-        {work.video ? (
+        {fixedPlaceholder ? (
+          <div
+            className="w-full bg-muted"
+            style={{ aspectRatio: '1015 / 700' }}
+          />
+        ) : work.video ? (
           inView ? (
             <video
               ref={videoRef}
