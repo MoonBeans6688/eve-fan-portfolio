@@ -69,7 +69,7 @@ export const projects: Project[] = [
     date: "FigBuild 2026 Winner",
     tag: "Most Creative",
     thumbnail: "/videos/the-jar-poster.jpg",
-    video: "/videos/the-jar-preview.mp4",
+    video: "/videos/the-jar-home.mp4",
     poster: "/videos/the-jar-poster.jpg",
     span: "tall",
     sticker: "/images/winner-sticker.png",
