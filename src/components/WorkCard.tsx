@@ -6,9 +6,10 @@ interface WorkCardProps {
   work: Project;
   index: number;
   fullWidth?: boolean;
+  fixedPlaceholder?: boolean;
 }
 
-const WorkCard = ({ work, index, fullWidth = false }: WorkCardProps) => {
+const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: WorkCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
