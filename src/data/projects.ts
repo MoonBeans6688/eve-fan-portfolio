@@ -98,6 +98,7 @@ export const projects: Project[] = [
     date: "2025 UXDA AWARDED PROJECT",
     tag: "",
     thumbnail: "/images/dear-remains-cover.jpg",
+    video: "/videos/dear-remains-home.mp4",
     span: "normal",
     accentColor: "#9b87f5",
     heroImage: "/images/dear-remains-cover.jpg",
