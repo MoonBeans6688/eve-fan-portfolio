@@ -13,22 +13,10 @@ const WorksSection = () => {
           Selected Works
         </h2>
       </div>
-      {featured && (
-        <div className="mb-6 px-6 md:px-12">
-          <WorkCard work={featured} index={0} fullWidth />
-        </div>
-      )}
-      <div className="flex flex-col md:flex-row gap-6 px-6 md:px-12">
-        <div className="flex-1 flex flex-col gap-6">
-          {leftCol.map((work, i) => (
-            <WorkCard key={work.slug} work={work} index={i * 2 + 1} />
-          ))}
-        </div>
-        <div className="flex-1 flex flex-col gap-6">
-          {rightCol.map((work, i) => (
-            <WorkCard key={work.slug} work={work} index={i * 2 + 2} />
-          ))}
-        </div>
+      <div className="flex flex-col gap-6 px-6 md:px-12">
+        {projects.map((work, i) => (
+          <WorkCard key={work.slug} work={work} index={i} fullWidth fixedPlaceholder={i !== 0} />
+        ))}
       </div>
     </section>
   );
