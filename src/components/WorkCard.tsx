@@ -54,7 +54,7 @@ const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: 
         {fixedPlaceholder ? (
           <div
             className="w-full bg-muted"
-            style={{ aspectRatio: '1015 / 700' }}
+            style={{ aspectRatio: '1015 / 480' }}
           />
         ) : work.video ? (
           inView ? (
