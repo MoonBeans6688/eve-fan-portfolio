@@ -5,9 +5,10 @@ import type { Project } from "@/data/projects";
 interface WorkCardProps {
   work: Project;
   index: number;
+  fullWidth?: boolean;
 }
 
-const WorkCard = ({ work, index }: WorkCardProps) => {
+const WorkCard = ({ work, index, fullWidth = false }: WorkCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
@@ -60,25 +61,25 @@ const WorkCard = ({ work, index }: WorkCardProps) => {
               muted
               playsInline
               preload="metadata"
-              className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+              className={`w-full ${fullWidth ? 'h-[80vh] object-cover' : 'h-auto object-cover'} transition-transform duration-500 group-hover:scale-105`}
             />
           ) : (
             work.poster ? (
-              <img src={work.poster} alt={work.title} className="w-full h-auto object-cover" />
+              <img src={work.poster} alt={work.title} className={`w-full ${fullWidth ? 'h-[80vh] object-cover' : 'h-auto object-cover'}`} />
             ) : (
-              <div className="w-full aspect-video bg-muted" />
+              <div className={`w-full ${fullWidth ? 'h-[80vh]' : 'aspect-video'} bg-muted`} />
             )
           )
         ) : (
           <img
             src={work.thumbnail}
             alt={work.title}
-            className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+            className={`w-full ${fullWidth ? 'h-[80vh] object-cover' : 'h-auto object-cover'} transition-transform duration-500 group-hover:scale-105`}
           />
         )}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
       </div>
-      <div className="pt-4 pb-8">
+      <div className={`pt-4 pb-8 ${fullWidth ? 'px-6 md:px-12' : ''}`}>
         {work.date && (
           <span className="font-mono text-[11px] tracking-wider text-muted-foreground uppercase block mb-1.5">
             {work.date}{work.tag ? ` · ${work.tag}` : ''}

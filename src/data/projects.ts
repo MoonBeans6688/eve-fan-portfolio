@@ -44,6 +44,7 @@ export const projects: Project[] = [
     date: "INTERN 2025",
     tag: "",
     thumbnail: "/images/insight-ai.gif",
+    video: "/videos/insight-ai-home.mp4",
     span: "wide",
     heroVideo: "/videos/insight-ai-hero.mp4",
     meta: [
