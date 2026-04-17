@@ -53,9 +53,23 @@ const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: 
       <div ref={ref} className="relative overflow-hidden">
         {fixedPlaceholder ? (
           <div
-            className="w-full bg-muted"
+            className="w-full bg-muted overflow-hidden"
             style={{ aspectRatio: '1015 / 450' }}
-          />
+          >
+            {work.video && inView && (
+              <video
+                ref={videoRef}
+                src={work.video}
+                poster={work.poster}
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            )}
+          </div>
         ) : work.video ? (
           inView ? (
             <video
