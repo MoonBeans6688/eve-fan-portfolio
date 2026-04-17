@@ -61,20 +61,20 @@ const WorkCard = ({ work, index, fullWidth = false }: WorkCardProps) => {
               muted
               playsInline
               preload="metadata"
-              className={`w-full ${fullWidth ? 'h-[80vh] object-cover' : 'h-auto object-cover'} transition-transform duration-500 group-hover:scale-105`}
+              className={`w-full h-auto ${fullWidth ? '' : 'object-cover'} transition-transform duration-500 group-hover:scale-105`}
             />
           ) : (
             work.poster ? (
-              <img src={work.poster} alt={work.title} className={`w-full ${fullWidth ? 'h-[80vh] object-cover' : 'h-auto object-cover'}`} />
+              <img src={work.poster} alt={work.title} className={`w-full h-auto ${fullWidth ? '' : 'object-cover'}`} />
             ) : (
-              <div className={`w-full ${fullWidth ? 'h-[80vh]' : 'aspect-video'} bg-muted`} />
+              <div className={`w-full ${fullWidth ? 'aspect-video' : 'aspect-video'} bg-muted`} />
             )
           )
         ) : (
           <img
             src={work.thumbnail}
             alt={work.title}
-            className={`w-full ${fullWidth ? 'h-[80vh] object-cover' : 'h-auto object-cover'} transition-transform duration-500 group-hover:scale-105`}
+            className={`w-full h-auto ${fullWidth ? '' : 'object-cover'} transition-transform duration-500 group-hover:scale-105`}
           />
         )}
         <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/5 transition-colors duration-300" />
