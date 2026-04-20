@@ -3,6 +3,12 @@ export interface ProjectMeta {
   value: string;
 }
 
+export interface SectionExtra {
+  heading?: string;
+  content?: string;
+  image?: string;
+}
+
 export interface ProjectSection {
   id: string;
   title: string;
@@ -15,6 +21,7 @@ export interface ProjectSection {
   videoPoster?: string;
   youtubeId?: string;
   vimeoId?: string;
+  extras?: SectionExtra[];
 }
 
 export interface Project {
