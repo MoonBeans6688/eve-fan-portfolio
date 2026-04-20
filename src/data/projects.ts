@@ -129,6 +129,7 @@ export const projects: Project[] = [
     date: "Client project 2026",
     tag: "",
     thumbnail: "/images/penn-medicine-cover.jpg",
+    video: "/videos/penn-medicine-home.mp4",
     span: "wide",
     heroImage: "/images/penn-medicine-cover.jpg",
     meta: [
