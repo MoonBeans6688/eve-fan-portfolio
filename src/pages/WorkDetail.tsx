@@ -257,6 +257,29 @@ const WorkDetail = () => {
                   {section.mediaCaption}
                 </p>
               )}
+              {section.extras?.map((extra, ei) => (
+                <div key={ei} className="mt-16">
+                  {extra.heading && (
+                    <h3 className="font-body text-[20px] text-foreground leading-snug mb-3">
+                      {extra.heading}
+                    </h3>
+                  )}
+                  {extra.content && (
+                    <div className="font-body text-muted-foreground leading-relaxed text-base space-y-4">
+                      {extra.content.split("\n\n").map((para, idx) => (
+                        <p key={idx}>{para}</p>
+                      ))}
+                    </div>
+                  )}
+                  {extra.image ? (
+                    <img src={extra.image} alt={extra.heading || ""} className="w-full h-auto mt-8 rounded" />
+                  ) : (
+                    <div className="w-full aspect-video bg-muted mt-8 rounded flex items-center justify-center">
+                      <span className="font-mono text-xs text-muted-foreground">Placeholder image</span>
+                    </div>
+                  )}
+                </div>
+              ))}
             </section>
           ))}
         </main>
