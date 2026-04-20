@@ -31,7 +31,6 @@ export interface Project {
   sticker?: string;
   heroImage?: string;
   heroVideo?: string;
-  heroVimeoId?: string;
   accentColor?: string;
   meta: ProjectMeta[];
   sections: ProjectSection[];
@@ -103,7 +102,7 @@ export const projects: Project[] = [
     video: "/videos/dear-remains-home.mp4",
     span: "normal",
     accentColor: "#9b87f5",
-    heroVimeoId: "1184683166",
+    heroImage: "/images/dear-remains-cover.jpg",
     meta: [
       { label: "TIMELINE", value: "2025" },
       { label: "ROLE", value: "Designer" },

@@ -123,16 +123,7 @@ const WorkDetail = () => {
         <main className="flex-1 min-w-0">
           {/* Hero */}
           <section className="w-full overflow-hidden pt-[72px]">
-            {project.heroVimeoId ? (
-              <div className="w-full aspect-video">
-                <iframe
-                  src={`https://player.vimeo.com/video/${project.heroVimeoId}?autoplay=1&loop=1&muted=1&background=1&title=0&byline=0&portrait=0`}
-                  allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
-                  allowFullScreen
-                  className="w-full h-full border-0 block"
-                />
-              </div>
-            ) : project.heroVideo ? (
+            {project.heroVideo ? (
               <video
                 src={project.heroVideo}
                 autoPlay
