@@ -31,6 +31,7 @@ export interface Project {
   sticker?: string;
   heroImage?: string;
   heroVideo?: string;
+  heroVimeoId?: string;
   accentColor?: string;
   meta: ProjectMeta[];
   sections: ProjectSection[];
