@@ -212,7 +212,17 @@ const WorkDetail = () => {
                   {section.caption}
                 </p>
               )}
-              {section.youtubeId ? (
+              {section.vimeoId ? (
+                <div className="w-full aspect-video mt-8 rounded overflow-hidden bg-black">
+                  <iframe
+                    src={`https://player.vimeo.com/video/${section.vimeoId}?title=0&byline=0&portrait=0`}
+                    title={section.title}
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                </div>
+              ) : section.youtubeId ? (
                 <div className="w-full aspect-video mt-8 rounded overflow-hidden bg-black">
                   <iframe
                     src={`https://www.youtube.com/embed/${section.youtubeId}?rel=0`}
