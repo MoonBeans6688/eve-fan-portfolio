@@ -116,10 +116,10 @@ const HeroSection = () => {
   const PAPER_LEFT = 571;
   const PAPER_TOP = 412;
 
-  const NAME_W = 682 * 0.85;
-  const NAME_H = 540 * 0.85;
+  const NAME_W = 682 * 0.85 * 1.2;
+  const NAME_H = 540 * 0.85 * 1.2;
   const NAME_LEFT = 1897;
-  const NAME_TOP = 376;
+  const NAME_TOP = 366;
 
   return (
     <section
