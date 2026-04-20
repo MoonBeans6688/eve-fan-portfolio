@@ -119,7 +119,7 @@ const HeroSection = () => {
   const NAME_W = 682 * 0.85 * 1.2;
   const NAME_H = 540 * 0.85 * 1.2;
   const NAME_LEFT = 1897;
-  const NAME_TOP = 366;
+  const NAME_TOP = 356;
 
   return (
     <section
@@ -238,7 +238,7 @@ const HeroSection = () => {
         {/* ===== Name paper "Eve Fan" (ON TOP of big paper) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...dragStyle("torn", 0, 6) }}
+          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...dragStyle("torn", 6, 12) }}
           {...makeDraggable("torn")}
         >
           <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
