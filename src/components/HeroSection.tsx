@@ -278,6 +278,23 @@ const HeroSection = () => {
           <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
         </div>
 
+        {/* ===== Hint: "Drag, click, doodle. Explore." with up arrow ===== */}
+        <div
+          className="absolute pointer-events-none select-none flex flex-col items-center"
+          style={{ left: 1278, top: 1900, width: 600, zIndex: 8 }}
+        >
+          <svg width="28" height="90" viewBox="0 0 28 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <polygon points="4,20 14,0 24,20" fill="hsl(var(--foreground))" opacity="0.55" />
+            <line x1="14" y1="16" x2="14" y2="90" stroke="hsl(var(--foreground))" strokeOpacity="0.55" strokeWidth="3" />
+          </svg>
+          <span
+            className="font-display italic text-foreground/60 mt-3"
+            style={{ fontSize: 40 }}
+          >
+            Drag, click, doodle. Explore.
+          </span>
+        </div>
+
       </div>
     </section>
   );
