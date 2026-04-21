@@ -237,8 +237,11 @@ const WorkDetail = () => {
                   src={section.sectionVideo}
                   poster={section.videoPoster}
                   controls
-                  preload="metadata"
+                  autoPlay
+                  loop
+                  muted
                   playsInline
+                  preload="metadata"
                   className="w-full h-auto mt-8 rounded bg-black"
                 />
               ) : section.image ? (
@@ -276,8 +279,11 @@ const WorkDetail = () => {
                       src={extra.sectionVideo}
                       poster={extra.videoPoster}
                       controls
-                      preload="metadata"
+                      autoPlay
+                      loop
+                      muted
                       playsInline
+                      preload="metadata"
                       className="w-full h-auto mt-8 rounded bg-black"
                     />
                   ) : extra.image ? (
