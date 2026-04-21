@@ -25,8 +25,8 @@ const experience = [
 
 const education = [
   { org: "University of Pennsylvania", role: "M: IPD", date: "2025–2027" },
-  { org: "", role: "Accelerator Program", date: "2025" },
-  { org: "", role: "​", date: "\n" },
+  { org: "South China University of Tech.", role: "M.Des", date: "2023–2025" },
+  { org: "Huazhong University of Sci. & Tech.", role: "Bachelor of Fine Arts", date: "2018–2022" },
 ];
 
 const Contact = () => {
