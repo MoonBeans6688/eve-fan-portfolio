@@ -121,7 +121,7 @@ export const projects: Project[] = [
     accentColor: "#9b87f5",
     heroImage: "/images/dear-remains-cover.jpg",
     meta: [
-      { label: "TIMELINE", value: "2025" },
+      { label: "TIMELINE", value: "JUN 2025 - AUG 2025" },
       { label: "ROLE", value: "Designer" },
       { label: "TEAM", value: "Eve Fan\nHongrui Jiang" },
       { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
