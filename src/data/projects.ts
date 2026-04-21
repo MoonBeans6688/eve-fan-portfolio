@@ -92,7 +92,7 @@ export const projects: Project[] = [
     ],
     sections: [
       { id: "brief", title: "BRIEF", heading: "Welcome to The Jar", content: "A speculative tool that turns impulsive late-night messages into a moment of reflection, preserving emotional honesty while delaying consequence.", caption: "Enjoy our concept video! ↓", vimeoId: "1184660263", mediaCaption: "Written, Directed, and Filmed by Eve Fan" },
-      { id: "insights", title: "Problem", heading: "What if late-night honesty didn't have to have negative consequences?", content: "Most people don’t regret having feelings. They regret hitting send too soon. A drunk text is rarely just a typo problem, it’s a timing problem, a judgment problem, and sometimes a truth problem." },
+      { id: "insights", title: "Problem", heading: "What if late-night honesty didn't have to have negative consequences?", content: "Most people don’t regret having feelings. They regret hitting send too soon. A drunk text is rarely just a typo problem, it’s a timing problem, a judgment problem, and sometimes a truth problem.", image: "/images/the-jar-problem.png" },
       { id: "the-problem", title: "CONCEPT", heading: "A New Sense of Clarity", content: "We saw drunk texting as more than a bad decision. It revealed a gap between emotional honesty and sound judgment—and The Jar was designed to hold space between the two.", image: "/images/the-jar-clarity.png" },
       { 
         id: "solution", 
