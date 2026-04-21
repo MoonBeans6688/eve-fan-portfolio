@@ -9,8 +9,10 @@ const navItems = [
 const Navbar = () => {
   const location = useLocation();
 
+  const isJarDark = location.pathname === "/work/the-jar";
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-5 bg-background/80 backdrop-blur-md">
+    <nav className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-5 bg-background/80 backdrop-blur-md ${isJarDark ? "the-jar-dark" : ""}`}>
       <Link
         to="/"
         className="font-mono text-sm font-medium tracking-wide text-foreground clickable hover:text-primary transition-colors duration-200"
