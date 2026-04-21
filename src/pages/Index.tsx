@@ -1,6 +1,5 @@
 import HeroSection from "@/components/HeroSection";
 import WorksSection from "@/components/WorksSection";
-import Footer from "@/components/Footer";
 
 const Index = () => {
 
@@ -8,7 +7,6 @@ const Index = () => {
     <main>
       <HeroSection />
       <WorksSection />
-      <Footer />
     </main>
   );
 };
