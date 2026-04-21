@@ -35,7 +35,7 @@ const initDrag = (): DraggableState => ({
 const HeroSection = () => {
   const [pairIndex, setPairIndex] = useState(0);
   const [scale, setScale] = useState(1);
-  
+  const scaleRef = useRef(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -46,7 +46,9 @@ const HeroSection = () => {
 
   useEffect(() => {
     const update = () => {
-      setScale(Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H));
+      const s = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
+      scaleRef.current = s;
+      setScale(s);
     };
     update();
     window.addEventListener("resize", update);
@@ -55,8 +57,11 @@ const HeroSection = () => {
 
   const [adj1, adj2] = WORD_PAIRS[pairIndex];
 
-  // Draggable sticker states
-  const [drags, setDrags] = useState<Record<string, DraggableState>>({
+  // Draggable sticker states - use refs for instant DOM updates (no React re-render lag)
+  const STICKER_IDS = ["orange", "torn", "clip", "yellow", "blue", "purple"] as const;
+  type StickerId = typeof STICKER_IDS[number];
+
+  const dragRefs = useRef<Record<StickerId, DraggableState>>({
     orange: initDrag(),
     torn: initDrag(),
     clip: initDrag(),
@@ -64,52 +69,81 @@ const HeroSection = () => {
     blue: initDrag(),
     purple: initDrag(),
   });
-  const [hovers, setHovers] = useState<Record<string, boolean>>({});
-  const draggingRef = useRef<string | null>(null);
+  const elRefs = useRef<Record<StickerId, HTMLDivElement | null>>({
+    orange: null, torn: null, clip: null, yellow: null, blue: null, purple: null,
+  });
+  const rotations = useRef<Record<StickerId, { base: number; hover: number }>>({
+    orange: { base: 0, hover: -6 },
+    torn: { base: 6, hover: 12 },
+    clip: { base: 0, hover: 0 },
+    yellow: { base: 0, hover: 8 },
+    blue: { base: 0, hover: -6 },
+    purple: { base: -6.73, hover: -12 },
+  });
+  const hoverRefs = useRef<Record<StickerId, boolean>>({
+    orange: false, torn: false, clip: false, yellow: false, blue: false, purple: false,
+  });
+  const draggingRef = useRef<StickerId | null>(null);
 
-  const handleMouseDown = useCallback((e: React.MouseEvent, id: string) => {
+  const applyTransform = (id: StickerId) => {
+    const el = elRefs.current[id];
+    if (!el) return;
+    const drag = dragRefs.current[id];
+    const isHover = hoverRefs.current[id] && !drag.isDragging;
+    const rot = isHover ? rotations.current[id].hover : rotations.current[id].base;
+    el.style.transform = `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`;
+    el.style.transition = drag.isDragging ? "none" : "transform 0.3s ease";
+    el.style.cursor = drag.isDragging ? "grabbing" : "grab";
+  };
+
+  const handleMouseDown = useCallback((e: React.MouseEvent, id: StickerId) => {
     e.preventDefault();
     e.stopPropagation();
     draggingRef.current = id;
-    setDrags((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], isDragging: true, offsetX: e.clientX - prev[id].x, offsetY: e.clientY - prev[id].y },
-    }));
+    const drag = dragRefs.current[id];
+    const s = scaleRef.current || 1;
+    drag.isDragging = true;
+    drag.offsetX = e.clientX / s - drag.x;
+    drag.offsetY = e.clientY / s - drag.y;
+    applyTransform(id);
   }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const id = draggingRef.current;
     if (!id) return;
-    setDrags((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], x: e.clientX - prev[id].offsetX, y: e.clientY - prev[id].offsetY },
-    }));
+    const drag = dragRefs.current[id];
+    const s = scaleRef.current || 1;
+    drag.x = e.clientX / s - drag.offsetX;
+    drag.y = e.clientY / s - drag.offsetY;
+    applyTransform(id);
   }, []);
 
   const handleMouseUp = useCallback(() => {
     const id = draggingRef.current;
     if (!id) return;
     draggingRef.current = null;
-    setDrags((prev) => ({ ...prev, [id]: { ...prev[id], isDragging: false } }));
+    dragRefs.current[id].isDragging = false;
+    applyTransform(id);
   }, []);
 
-  const makeDraggable = (id: string) => ({
+  const setHover = (id: StickerId, val: boolean) => {
+    hoverRefs.current[id] = val;
+    applyTransform(id);
+  };
+
+  const makeDraggable = (id: StickerId) => ({
+    ref: (el: HTMLDivElement | null) => { elRefs.current[id] = el; },
     onMouseDown: (e: React.MouseEvent) => handleMouseDown(e, id),
-    onMouseEnter: () => setHovers((p) => ({ ...p, [id]: true })),
-    onMouseLeave: () => setHovers((p) => ({ ...p, [id]: false })),
+    onMouseEnter: () => setHover(id, true),
+    onMouseLeave: () => setHover(id, false),
   });
 
-  const dragStyle = (id: string, baseRotate: number, hoverRotate: number): React.CSSProperties => {
-    const drag = drags[id];
-    const isHover = hovers[id] && !drag.isDragging;
-    const rot = isHover ? hoverRotate : baseRotate;
-    return {
-      transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
-      transition: drag.isDragging ? "none" : "transform 0.3s ease",
-      cursor: drag.isDragging ? "grabbing" : "grab",
-      filter: "drop-shadow(4px 6px 10px rgba(0,0,0,0.13))",
-    };
-  };
+  const baseStickerStyle = (baseRotate: number): React.CSSProperties => ({
+    transform: `rotate(${baseRotate}deg)`,
+    transition: "transform 0.3s ease",
+    cursor: "grab",
+    filter: "drop-shadow(4px 6px 10px rgba(0,0,0,0.13))",
+  });
 
   const PAPER_W = 2015;
   const PAPER_H = 1456;
@@ -202,7 +236,7 @@ const HeroSection = () => {
         {/* ===== Orange "PRODUCT DESIGNER" sticker ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 784, top: 249, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
+          style={{ left: 784, top: 249, width: 482, height: 441, zIndex: 6, ...baseStickerStyle(0) }}
           {...makeDraggable("orange")}
         >
           <img src={stickerOrange} alt="Product Designer sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -211,7 +245,7 @@ const HeroSection = () => {
         {/* ===== Yellow star (bottom-left) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 230, top: 1406, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
+          style={{ left: 230, top: 1406, width: 635, height: 668, zIndex: 5, ...baseStickerStyle(0) }}
           {...makeDraggable("yellow")}
         >
           <img src={stickerYellow} alt="Yellow sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -220,7 +254,7 @@ const HeroSection = () => {
         {/* ===== Blue blob (bottom-right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 1930, top: 1618, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
+          style={{ left: 1930, top: 1618, width: 493, height: 473, zIndex: 5, ...baseStickerStyle(0) }}
           {...makeDraggable("blue")}
         >
           <img src={stickerBlue} alt="Blue sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -229,7 +263,7 @@ const HeroSection = () => {
         {/* ===== Purple double-blob (right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2393, top: 1140, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
+          style={{ left: 2393, top: 1140, width: 489, height: 322, zIndex: 5, ...baseStickerStyle(-6.73) }}
           {...makeDraggable("purple")}
         >
           <img src={stickerPurple} alt="Purple sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -238,7 +272,7 @@ const HeroSection = () => {
         {/* ===== Name paper "Eve Fan" (ON TOP of big paper) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...dragStyle("torn", 6, 12) }}
+          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...baseStickerStyle(6) }}
           {...makeDraggable("torn")}
         >
           <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
