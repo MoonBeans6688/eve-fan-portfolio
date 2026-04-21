@@ -151,7 +151,23 @@ const WorkDetail = () => {
           </section>
 
           {/* Summary Band */}
-          <section id="overview" className="px-8 md:px-16 py-16 border-b border-border">
+          <section id="overview" className="relative px-8 md:px-16 py-16 border-b border-border">
+            {project.slug === "the-jar" && (
+              <img
+                src="/images/winner-sticker-figbuild.png"
+                alt="FigBuild 2026 Winner — Most Creative"
+                className="hidden md:block absolute pointer-events-none select-none"
+                style={{
+                  top: "2.5rem",
+                  right: "3rem",
+                  width: "min(280px, 22vw)",
+                  transform: "rotate(8deg)",
+                  filter: "drop-shadow(4px 8px 14px rgba(0,0,0,0.18))",
+                  zIndex: 10,
+                }}
+                draggable={false}
+              />
+            )}
             <h1 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-tight">
               {project.title}
             </h1>
