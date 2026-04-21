@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 const navItems = [
   { label: "WORKS", path: "/" },
   { label: "PLAYGROUND", path: "/playground" },
-  { label: "CONTACT", path: "/contact" },
+  { label: "ABOUT", path: "/contact" },
 ];
 
 const Navbar = () => {
