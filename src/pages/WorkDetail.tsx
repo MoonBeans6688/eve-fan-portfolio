@@ -272,8 +272,10 @@ const WorkDetail = () => {
                   {section.mediaCaption}
                 </p>
               )}
-              {section.extras?.map((extra, ei) => (
-                <div key={ei} className="mt-16">
+              {section.extras?.map((extra, ei) => {
+                const imageOnly = !extra.heading && !extra.content && !extra.sectionVideo && extra.image;
+                return (
+                <div key={ei} className={imageOnly ? "mt-4" : "mt-16"}>
                   {extra.heading && (
                     <h3 className="font-body text-[20px] text-foreground leading-snug mb-3">
                       {extra.heading}
@@ -299,14 +301,15 @@ const WorkDetail = () => {
                       className="w-full h-auto mt-8 rounded bg-black"
                     />
                   ) : extra.image ? (
-                    <img src={extra.image} alt={extra.heading || ""} className="w-full h-auto mt-8 rounded" />
+                    <img src={extra.image} alt={extra.heading || ""} className={`w-full h-auto rounded ${imageOnly ? "" : "mt-8"}`} />
                   ) : (
                     <div className="w-full aspect-video bg-muted mt-8 rounded flex items-center justify-center">
                       <span className="font-mono text-xs text-muted-foreground">Placeholder image</span>
                     </div>
                   )}
                 </div>
-              ))}
+                );
+              })}
             </section>
           ))}
         </main>
