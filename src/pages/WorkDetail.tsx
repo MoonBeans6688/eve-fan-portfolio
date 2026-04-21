@@ -48,7 +48,7 @@ const WorkDetail = () => {
   if (!project) return <NotFound />;
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background ${project.slug === "the-jar" ? "the-jar-dark" : ""}`}>
       {/* Mobile TOC */}
       <div className="md:hidden sticky top-0 z-40 bg-background/90 backdrop-blur-sm border-b border-border px-4 py-3">
         <button
