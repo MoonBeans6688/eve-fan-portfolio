@@ -105,7 +105,6 @@ export const projects: Project[] = [
           { heading: "3. Understand what was underneath", content: "Beyond storing the message, The Jar also helps users reflect on what may have been driving it. Through Underneath, AI-generated prompts surface possible emotions, motivations, and tensions behind the text—not to define the truth for the user, but to support a more honest review later.", sectionVideo: "/videos/jar-understand.mp4" },
         ],
       },
-      { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
   {
