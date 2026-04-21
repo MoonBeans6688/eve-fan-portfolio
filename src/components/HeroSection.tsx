@@ -55,8 +55,11 @@ const HeroSection = () => {
 
   const [adj1, adj2] = WORD_PAIRS[pairIndex];
 
-  // Draggable sticker states
-  const [drags, setDrags] = useState<Record<string, DraggableState>>({
+  // Draggable sticker states - use refs for instant DOM updates (no React re-render lag)
+  const STICKER_IDS = ["orange", "torn", "clip", "yellow", "blue", "purple"] as const;
+  type StickerId = typeof STICKER_IDS[number];
+
+  const dragRefs = useRef<Record<StickerId, DraggableState>>({
     orange: initDrag(),
     torn: initDrag(),
     clip: initDrag(),
@@ -64,52 +67,79 @@ const HeroSection = () => {
     blue: initDrag(),
     purple: initDrag(),
   });
-  const [hovers, setHovers] = useState<Record<string, boolean>>({});
-  const draggingRef = useRef<string | null>(null);
+  const elRefs = useRef<Record<StickerId, HTMLDivElement | null>>({
+    orange: null, torn: null, clip: null, yellow: null, blue: null, purple: null,
+  });
+  const rotations = useRef<Record<StickerId, { base: number; hover: number }>>({
+    orange: { base: 0, hover: -6 },
+    torn: { base: 6, hover: 12 },
+    clip: { base: 0, hover: 0 },
+    yellow: { base: 0, hover: 8 },
+    blue: { base: 0, hover: -6 },
+    purple: { base: -6.73, hover: -12 },
+  });
+  const hoverRefs = useRef<Record<StickerId, boolean>>({
+    orange: false, torn: false, clip: false, yellow: false, blue: false, purple: false,
+  });
+  const draggingRef = useRef<StickerId | null>(null);
 
-  const handleMouseDown = useCallback((e: React.MouseEvent, id: string) => {
+  const applyTransform = (id: StickerId) => {
+    const el = elRefs.current[id];
+    if (!el) return;
+    const drag = dragRefs.current[id];
+    const isHover = hoverRefs.current[id] && !drag.isDragging;
+    const rot = isHover ? rotations.current[id].hover : rotations.current[id].base;
+    el.style.transform = `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`;
+    el.style.transition = drag.isDragging ? "none" : "transform 0.3s ease";
+    el.style.cursor = drag.isDragging ? "grabbing" : "grab";
+  };
+
+  const handleMouseDown = useCallback((e: React.MouseEvent, id: StickerId) => {
     e.preventDefault();
     e.stopPropagation();
     draggingRef.current = id;
-    setDrags((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], isDragging: true, offsetX: e.clientX - prev[id].x, offsetY: e.clientY - prev[id].y },
-    }));
+    const drag = dragRefs.current[id];
+    drag.isDragging = true;
+    drag.offsetX = e.clientX - drag.x;
+    drag.offsetY = e.clientY - drag.y;
+    applyTransform(id);
   }, []);
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     const id = draggingRef.current;
     if (!id) return;
-    setDrags((prev) => ({
-      ...prev,
-      [id]: { ...prev[id], x: e.clientX - prev[id].offsetX, y: e.clientY - prev[id].offsetY },
-    }));
+    const drag = dragRefs.current[id];
+    drag.x = e.clientX - drag.offsetX;
+    drag.y = e.clientY - drag.offsetY;
+    applyTransform(id);
   }, []);
 
   const handleMouseUp = useCallback(() => {
     const id = draggingRef.current;
     if (!id) return;
     draggingRef.current = null;
-    setDrags((prev) => ({ ...prev, [id]: { ...prev[id], isDragging: false } }));
+    dragRefs.current[id].isDragging = false;
+    applyTransform(id);
   }, []);
 
-  const makeDraggable = (id: string) => ({
+  const setHover = (id: StickerId, val: boolean) => {
+    hoverRefs.current[id] = val;
+    applyTransform(id);
+  };
+
+  const makeDraggable = (id: StickerId) => ({
+    ref: (el: HTMLDivElement | null) => { elRefs.current[id] = el; },
     onMouseDown: (e: React.MouseEvent) => handleMouseDown(e, id),
-    onMouseEnter: () => setHovers((p) => ({ ...p, [id]: true })),
-    onMouseLeave: () => setHovers((p) => ({ ...p, [id]: false })),
+    onMouseEnter: () => setHover(id, true),
+    onMouseLeave: () => setHover(id, false),
   });
 
-  const dragStyle = (id: string, baseRotate: number, hoverRotate: number): React.CSSProperties => {
-    const drag = drags[id];
-    const isHover = hovers[id] && !drag.isDragging;
-    const rot = isHover ? hoverRotate : baseRotate;
-    return {
-      transform: `translate(${drag.x}px, ${drag.y}px) rotate(${rot}deg)${isHover ? " scale(1.04)" : ""}`,
-      transition: drag.isDragging ? "none" : "transform 0.3s ease",
-      cursor: drag.isDragging ? "grabbing" : "grab",
-      filter: "drop-shadow(4px 6px 10px rgba(0,0,0,0.13))",
-    };
-  };
+  const baseStickerStyle = (baseRotate: number): React.CSSProperties => ({
+    transform: `rotate(${baseRotate}deg)`,
+    transition: "transform 0.3s ease",
+    cursor: "grab",
+    filter: "drop-shadow(4px 6px 10px rgba(0,0,0,0.13))",
+  });
 
   const PAPER_W = 2015;
   const PAPER_H = 1456;
