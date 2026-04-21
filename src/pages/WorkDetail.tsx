@@ -168,24 +168,30 @@ const WorkDetail = () => {
                 draggable={false}
               />
             )}
-            {project.slug === "dear-remains" && (
-              <img
-                src="/images/uxda-nominated-2026.png"
-                alt="UX Design Awards 2026 — Nominated"
-                className="hidden md:block absolute pointer-events-none select-none"
-                style={{
-                  top: "2.5rem",
-                  right: "3rem",
-                  width: "min(160px, 13vw)",
-                  filter: "drop-shadow(4px 8px 14px rgba(0,0,0,0.12))",
-                  zIndex: 10,
-                }}
-                draggable={false}
-              />
-            )}
-            <h1 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-tight">
-              {project.title}
-            </h1>
+            <div className="relative">
+              {project.slug === "dear-remains" && (
+                <img
+                  src="/images/uxda-nominated-2026.png"
+                  alt="UX Design Awards 2026 — Nominated"
+                  className="hidden md:block absolute pointer-events-none select-none"
+                  style={{
+                    top: 0,
+                    bottom: "1rem",
+                    right: "0",
+                    height: "auto",
+                    maxHeight: "100%",
+                    width: "auto",
+                    objectFit: "contain",
+                    filter: "drop-shadow(4px 8px 14px rgba(0,0,0,0.12))",
+                    zIndex: 10,
+                  }}
+                  draggable={false}
+                />
+              )}
+              <h1 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-tight">
+                {project.title}
+              </h1>
+            </div>
             {(project.overviewTagline || project.tagline) && (
               <p className="font-body text-base md:text-lg text-muted-foreground mb-10 leading-relaxed">
                 {project.overviewTagline || project.tagline}
