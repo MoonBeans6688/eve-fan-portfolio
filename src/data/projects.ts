@@ -7,6 +7,8 @@ export interface SectionExtra {
   heading?: string;
   content?: string;
   image?: string;
+  sectionVideo?: string;
+  videoPoster?: string;
 }
 
 export interface ProjectSection {
@@ -97,9 +99,10 @@ export const projects: Project[] = [
         title: "SOLUTION", 
         heading: "1. Seal the message", 
         content: "When Sealing Mode is on, messages with a high risk of regret are intercepted before they leave the phone and stored in the Jar. Rather than deleting the impulse, the product preserves it—treating the message as something worth revisiting, not something to be ashamed of.",
+        sectionVideo: "/videos/jar-seal.mp4",
         extras: [
-          { heading: "2. Return to it later", content: "Later, in Sober Review, users can revisit what they wrote with more distance and better judgment. They can send the message as-is, revise it with clearer intent, or simply let the moment pass—turning reaction into reflection." },
-          { heading: "3. Understand what was underneath", content: "Beyond storing the message, The Jar also helps users reflect on what may have been driving it. Through Underneath, AI-generated prompts surface possible emotions, motivations, and tensions behind the text—not to define the truth for the user, but to support a more honest review later." },
+          { heading: "2. Return to it later", content: "Later, in Sober Review, users can revisit what they wrote with more distance and better judgment. They can send the message as-is, revise it with clearer intent, or simply let the moment pass—turning reaction into reflection.", sectionVideo: "/videos/jar-return.mp4" },
+          { heading: "3. Understand what was underneath", content: "Beyond storing the message, The Jar also helps users reflect on what may have been driving it. Through Underneath, AI-generated prompts surface possible emotions, motivations, and tensions behind the text—not to define the truth for the user, but to support a more honest review later.", sectionVideo: "/videos/jar-understand.mp4" },
         ],
       },
       { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },

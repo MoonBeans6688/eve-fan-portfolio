@@ -271,7 +271,16 @@ const WorkDetail = () => {
                       ))}
                     </div>
                   )}
-                  {extra.image ? (
+                  {extra.sectionVideo ? (
+                    <video
+                      src={extra.sectionVideo}
+                      poster={extra.videoPoster}
+                      controls
+                      preload="metadata"
+                      playsInline
+                      className="w-full h-auto mt-8 rounded bg-black"
+                    />
+                  ) : extra.image ? (
                     <img src={extra.image} alt={extra.heading || ""} className="w-full h-auto mt-8 rounded" />
                   ) : (
                     <div className="w-full aspect-video bg-muted mt-8 rounded flex items-center justify-center">
