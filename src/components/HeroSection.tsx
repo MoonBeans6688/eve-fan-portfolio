@@ -236,7 +236,7 @@ const HeroSection = () => {
         {/* ===== Orange "PRODUCT DESIGNER" sticker ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 784, top: 249, width: 482, height: 441, zIndex: 6, ...dragStyle("orange", 0, -6) }}
+          style={{ left: 784, top: 249, width: 482, height: 441, zIndex: 6, ...baseStickerStyle(0) }}
           {...makeDraggable("orange")}
         >
           <img src={stickerOrange} alt="Product Designer sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -245,7 +245,7 @@ const HeroSection = () => {
         {/* ===== Yellow star (bottom-left) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 230, top: 1406, width: 635, height: 668, zIndex: 5, ...dragStyle("yellow", 0, 8) }}
+          style={{ left: 230, top: 1406, width: 635, height: 668, zIndex: 5, ...baseStickerStyle(0) }}
           {...makeDraggable("yellow")}
         >
           <img src={stickerYellow} alt="Yellow sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -254,7 +254,7 @@ const HeroSection = () => {
         {/* ===== Blue blob (bottom-right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 1930, top: 1618, width: 493, height: 473, zIndex: 5, ...dragStyle("blue", 0, -6) }}
+          style={{ left: 1930, top: 1618, width: 493, height: 473, zIndex: 5, ...baseStickerStyle(0) }}
           {...makeDraggable("blue")}
         >
           <img src={stickerBlue} alt="Blue sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -263,7 +263,7 @@ const HeroSection = () => {
         {/* ===== Purple double-blob (right) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: 2393, top: 1140, width: 489, height: 322, zIndex: 5, ...dragStyle("purple", -6.73, -12) }}
+          style={{ left: 2393, top: 1140, width: 489, height: 322, zIndex: 5, ...baseStickerStyle(-6.73) }}
           {...makeDraggable("purple")}
         >
           <img src={stickerPurple} alt="Purple sticker" className="w-full h-full pointer-events-none object-contain" draggable={false} />
@@ -272,7 +272,7 @@ const HeroSection = () => {
         {/* ===== Name paper "Eve Fan" (ON TOP of big paper) ===== */}
         <div
           className="absolute select-none"
-          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...dragStyle("torn", 6, 12) }}
+          style={{ left: NAME_LEFT, top: NAME_TOP, width: NAME_W, height: NAME_H, zIndex: 7, ...baseStickerStyle(6) }}
           {...makeDraggable("torn")}
         >
           <img src={stickerTorn} alt="Eve Fan" className="w-full h-full pointer-events-none object-contain" draggable={false} />
