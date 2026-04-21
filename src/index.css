@@ -82,10 +82,7 @@
 
     --border: 220 10% 22%;
     --input: 220 10% 22%;
-  }
-
-  .dear-remains-bg {
-    --background: 250 100% 98%;
+    --ring: 24 95% 58%;
   }
 }
 
