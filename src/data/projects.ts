@@ -122,7 +122,7 @@ export const projects: Project[] = [
     heroImage: "/images/dear-remains-cover.jpg",
     meta: [
       { label: "TIMELINE", value: "JUN 2025 - AUG 2025" },
-      { label: "ROLE", value: "Designer" },
+      { label: "ROLE", value: "Product Designer" },
       { label: "TEAM", value: "Eve Fan\nHongrui Jiang" },
       { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
     ],
