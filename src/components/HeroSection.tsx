@@ -46,7 +46,9 @@ const HeroSection = () => {
 
   useEffect(() => {
     const update = () => {
-      setScale(Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H));
+      const s = Math.min(window.innerWidth / DESIGN_W, window.innerHeight / DESIGN_H);
+      scaleRef.current = s;
+      setScale(s);
     };
     update();
     window.addEventListener("resize", update);
