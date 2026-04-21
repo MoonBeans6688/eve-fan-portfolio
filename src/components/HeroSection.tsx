@@ -101,9 +101,10 @@ const HeroSection = () => {
     e.stopPropagation();
     draggingRef.current = id;
     const drag = dragRefs.current[id];
+    const s = scaleRef.current || 1;
     drag.isDragging = true;
-    drag.offsetX = e.clientX - drag.x;
-    drag.offsetY = e.clientY - drag.y;
+    drag.offsetX = e.clientX / s - drag.x;
+    drag.offsetY = e.clientY / s - drag.y;
     applyTransform(id);
   }, []);
 
@@ -111,8 +112,9 @@ const HeroSection = () => {
     const id = draggingRef.current;
     if (!id) return;
     const drag = dragRefs.current[id];
-    drag.x = e.clientX - drag.offsetX;
-    drag.y = e.clientY - drag.offsetY;
+    const s = scaleRef.current || 1;
+    drag.x = e.clientX / s - drag.offsetX;
+    drag.y = e.clientY / s - drag.offsetY;
     applyTransform(id);
   }, []);
 
