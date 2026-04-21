@@ -78,7 +78,7 @@ const Contact = () => {
             </a>
             . Say hello at emmiwu[at]sas.upenn.edu or via{" "}
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/evefan-upenn"
               target="_blank"
               rel="noopener noreferrer"
               className="clickable underline underline-offset-2 hover:text-primary transition-colors"
