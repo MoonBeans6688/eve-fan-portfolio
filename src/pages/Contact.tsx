@@ -39,23 +39,14 @@ const Contact = () => {
             Hi there, I'm Eve.
           </h1>
           <p className="font-body text-base text-foreground/80 leading-relaxed mb-6 max-w-xl">
-            I'm an interdisciplinary designer with a love for prototyping, storytelling, and visual craft. I study design and consumer psychology at Penn. I'm currently on a gap semester to design at{" "}
-            <a
-              href="https://perplexity.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="clickable underline underline-offset-2 hover:text-primary transition-colors"
-            >
-              InsightAI
-            </a>
-            .
+            I’m a product designer who cares about craft—how things look, feel, and behave. I like building prototypes fast, then slowing down to make the details precise. I’m curious about how AI is rewriting interaction—what we notice, what we trust, and how we connect.
           </p>
           <p className="font-body text-base text-foreground/80 mb-2">Outside of design I'm:</p>
           <ul className="font-body text-base text-foreground/80 space-y-1 mb-6 list-disc list-inside">
-            <li>Doodling on my iPad</li>
-            <li>Painting gouache plein airs</li>
-            <li>Building houses in the Sims 4</li>
-            <li>Cafe hopping in pursuit of tasty matcha</li>
+            <li>collecting small “good texture” moments (paper, stickers, interfaces)</li>
+            <li>making things that don’t need to exist (but feel better when they do)</li>
+            <li>growing up and figuring things out</li>
+            <li>always listening to music (lately: Black Country New Road, Yussef Dayes, and PinkPantheress)</li>
           </ul>
           <p className="font-body text-base text-foreground/80">
             I post my work on{" "}
