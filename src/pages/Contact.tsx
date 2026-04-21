@@ -1,18 +1,18 @@
 const photos = [
   {
-    src: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=800&q=80",
+    src: "/photos/photo1.jpg",
     label: "HI!",
   },
   {
-    src: "https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=800&q=80",
+    src: "/photos/photo2.jpg",
     label: "spring blooms",
   },
   {
-    src: "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?w=800&q=80",
+    src: "/photos/photo3.jpg",
     label: "balloon festival",
   },
   {
-    src: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?w=800&q=80",
+    src: "/photos/photo4.jpg",
     label: "studio time",
   },
 ];
