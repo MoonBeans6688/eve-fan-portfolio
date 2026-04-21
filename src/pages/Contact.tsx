@@ -18,15 +18,15 @@ const photos = [
 ];
 
 const experience = [
-  { org: "Perplexity", role: "Product Design Intern", date: "SPRING 2026" },
-  { org: "Chronicle", role: "Design Intern", date: "FALL 2025" },
-  { org: "T-Mobile (Vistar Media)", role: "Product Design Intern", date: "SUMMER 2025" },
+  { org: "InsightAI", role: "Product Design Intern", date: "SUMMER 2025" },
+  { org: "Xiaomi", role: "UX Design Intern", date: "SUMMER 2023" },
+  { org: "Zhihu", role: "Visual Design Intern", date: "SUMMER 2021" },
 ];
 
 const education = [
-  { org: "University of Pennsylvania", role: "B.A. Design", date: "2023–2027" },
-  { org: "Silicon Valley School of Design", role: "Accelerator Program", date: "2025" },
-  { org: "RISD", role: "Summer Program", date: "2022" },
+  { org: "University of Pennsylvania", role: "M: IPD", date: "2025–2027" },
+  { org: "", role: "Accelerator Program", date: "2025" },
+  { org: "", role: "​", date: "\n" },
 ];
 
 const Contact = () => {
@@ -46,7 +46,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="clickable underline underline-offset-2 hover:text-primary transition-colors"
             >
-              Perplexity
+              InsightAI
             </a>
             .
           </p>
