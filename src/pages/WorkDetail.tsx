@@ -266,11 +266,7 @@ const WorkDetail = () => {
                   alt={section.title}
                   className="w-full h-auto mt-8 rounded"
                 />
-              ) : (
-                <div className="w-full aspect-video bg-muted mt-8 rounded flex items-center justify-center">
-                  <span className="font-mono text-xs text-muted-foreground">Placeholder image</span>
-                </div>
-              )}
+              ) : null}
               {section.mediaCaption && (
                 <p className="font-display text-sm text-muted-foreground mt-3 italic">
                   {section.mediaCaption}
