@@ -49,25 +49,7 @@ const Contact = () => {
             <li>always listening to music (lately: Black Country New Road, Yussef Dayes, and PinkPantheress)</li>
           </ul>
           <p className="font-body text-base text-foreground/80">
-            I post my work on{" "}
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="clickable underline underline-offset-2 hover:text-primary transition-colors"
-            >
-              Twitter
-            </a>{" "}
-            and{" "}
-            <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="clickable underline underline-offset-2 hover:text-primary transition-colors"
-            >
-              Instagram
-            </a>
-            . Say hello at emmiwu[at]sas.upenn.edu or via{" "}
+            Say hello at evefan.design@gmail.com or via{" "}
             <a
               href="https://www.linkedin.com/in/evefan-upenn"
               target="_blank"
