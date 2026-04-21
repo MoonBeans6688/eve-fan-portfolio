@@ -36,7 +36,7 @@ const Contact = () => {
         {/* Left: Intro */}
         <div>
           <h1 className="font-display text-5xl md:text-6xl text-foreground mb-6 leading-tight">
-            Hi there, I'm Emmi.
+            Hi there, I'm Eve.
           </h1>
           <p className="font-body text-base text-foreground/80 leading-relaxed mb-6 max-w-xl">
             I'm an interdisciplinary designer with a love for prototyping, storytelling, and visual craft. I study design and consumer psychology at Penn. I'm currently on a gap semester to design at{" "}
