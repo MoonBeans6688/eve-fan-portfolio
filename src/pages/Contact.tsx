@@ -5,15 +5,15 @@ const photos = [
   },
   {
     src: "/photos/photo2.jpg",
-    label: "spring blooms",
+    label: "band gig",
   },
   {
     src: "/photos/photo3.jpg",
-    label: "balloon festival",
+    label: "bicycle touring",
   },
   {
     src: "/photos/photo4.jpg",
-    label: "studio time",
+    label: "skiing @SLC",
   },
 ];
 
