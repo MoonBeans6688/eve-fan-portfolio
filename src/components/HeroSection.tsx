@@ -35,7 +35,7 @@ const initDrag = (): DraggableState => ({
 const HeroSection = () => {
   const [pairIndex, setPairIndex] = useState(0);
   const [scale, setScale] = useState(1);
-  
+  const scaleRef = useRef(1);
 
   useEffect(() => {
     const interval = setInterval(() => {
