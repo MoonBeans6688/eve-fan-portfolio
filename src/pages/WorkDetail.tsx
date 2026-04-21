@@ -176,10 +176,9 @@ const WorkDetail = () => {
                   className="hidden md:block absolute pointer-events-none select-none"
                   style={{
                     top: 0,
-                    bottom: "1rem",
+                    bottom: 0,
                     right: "0",
-                    height: "auto",
-                    maxHeight: "100%",
+                    height: "100%",
                     width: "auto",
                     objectFit: "contain",
                     filter: "drop-shadow(4px 8px 14px rgba(0,0,0,0.12))",
@@ -191,12 +190,12 @@ const WorkDetail = () => {
               <h1 className="font-display text-3xl md:text-5xl text-foreground mb-4 leading-tight">
                 {project.title}
               </h1>
+              {(project.overviewTagline || project.tagline) && (
+                <p className="font-body text-base md:text-lg text-muted-foreground mb-10 leading-relaxed">
+                  {project.overviewTagline || project.tagline}
+                </p>
+              )}
             </div>
-            {(project.overviewTagline || project.tagline) && (
-              <p className="font-body text-base md:text-lg text-muted-foreground mb-10 leading-relaxed">
-                {project.overviewTagline || project.tagline}
-              </p>
-            )}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {project.meta.map((m) => (
                 <div key={m.label}>
