@@ -23,6 +23,7 @@ export interface ProjectSection {
   videoPoster?: string;
   youtubeId?: string;
   vimeoId?: string;
+  headerVimeoId?: string;
   extras?: SectionExtra[];
 }
 
