@@ -1,3 +1,5 @@
+import nameSticker from "@/assets/name-sticker.png";
+
 const photos = [
   {
     src: "/photos/photo1.jpg",
@@ -35,8 +37,13 @@ const Contact = () => {
       <div className="px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 mb-16">
         {/* Left: Intro */}
         <div>
-          <h1 className="font-display text-5xl md:text-6xl text-foreground mb-6 leading-tight">
-            Hi there, I'm Eve.
+          <h1 className="font-display text-5xl md:text-6xl text-foreground mb-6 leading-tight flex items-center flex-wrap gap-4">
+            <span>Hi there, I'm Eve.</span>
+            <img
+              src={nameSticker}
+              alt="樊一衡 Fán Yī Héng"
+              className="h-16 md:h-20 w-auto inline-block -rotate-6"
+            />
           </h1>
           <p className="font-body text-base text-foreground/80 leading-relaxed mb-6 max-w-xl">
             I’m a product designer who cares about craft—how things look, feel, and behave. I like building prototypes fast, then slowing down to make the details precise. I’m curious about how AI is rewriting interaction—what we notice, what we trust, and how we connect.
