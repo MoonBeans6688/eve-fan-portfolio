@@ -15,7 +15,14 @@ const WorksSection = () => {
       </div>
       <div className="flex flex-col gap-6 px-6 md:px-12">
         {projects.map((work, i) => (
-          <WorkCard key={work.slug} work={work} index={i} fullWidth fixedPlaceholder />
+          <WorkCard
+            key={work.slug}
+            work={work}
+            index={i}
+            fullWidth
+            fixedPlaceholder
+            comingSoon={work.slug === "insight-ai" || work.slug === "penn-medicine"}
+          />
         ))}
       </div>
     </section>
