@@ -250,9 +250,15 @@ const WorkDetail = () => {
                 <h3 className="font-body text-[20px] text-foreground leading-snug mb-3" dangerouslySetInnerHTML={{ __html: section.heading }} />
               )}
               <div className="font-body text-muted-foreground leading-relaxed text-base space-y-4">
-                {section.content.split("\n\n").map((para, idx) => (
-                  <p key={idx}>{para}</p>
-                ))}
+                {section.content.split("\n\n").map((para, idx) =>
+                  para.startsWith("### ") ? (
+                    <h3 key={idx} className="font-body text-[20px] text-foreground leading-snug pt-2">
+                      {para.slice(4)}
+                    </h3>
+                  ) : (
+                    <p key={idx}>{para}</p>
+                  )
+                )}
               </div>
               {section.caption && (
                 <p className="font-display text-muted-foreground mt-3 italic text-sm">
