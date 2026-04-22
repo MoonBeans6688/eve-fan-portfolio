@@ -39,7 +39,9 @@ const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false, co
 
   return (
     <Link
-      to={`/work/${work.slug}`}
+      to={comingSoon ? "#" : `/work/${work.slug}`}
+      onClick={comingSoon ? (e) => e.preventDefault() : undefined}
+      data-cursor-label={comingSoon ? "COMING SOON!" : undefined}
       className="clickable group block overflow-visible relative"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
