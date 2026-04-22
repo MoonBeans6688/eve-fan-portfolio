@@ -144,7 +144,7 @@ export const projects: Project[] = [
           { heading: "Flow 3: Kin Galaxy", content: "Kin Galaxy is a digital family graveyard reimagined as a gentle, living sky. Each star represents a late family member or shared memory, where relatives can gather and remember together.", image: "/images/dear-remains-kin-galaxy.jpg" },
         ],
       },
-      { id: "validation", title: "Validation & Reflection", heading: "Emotional design also needs clarity", content: "User testing indicates that while participants recognize the value of 3D scanning and memory cards, they also highlighted a high barrier to entry, blurred boundaries between community and private spaces, and a strong preference for manual agency over AI-automated categorization.\n\nBased on these insights, I will further strengthen the onboarding experience, prioritize the 'Memory Box' as the primary entry point, reduce community complexity, and introduce manual categorization and batch upload capabilities." },
+      { id: "validation", title: "Validation & Reflection", heading: "What testing validated", content: "Users responded positively to the emotional value of 3D scanning, personalized memory cards, and the idea of a gentle digital memorial space. The concept resonated most when it helped users preserve memories without adding emotional pressure.\n\nThe testing also showed that designing memorial products is not only about emotion, but about clarity and control. In sensitive contexts, AI can support expression, but it should never replace the user in making sense of loss." },
     ],
   },
   {
