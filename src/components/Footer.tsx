@@ -57,7 +57,7 @@ const Footer = () => {
               {emailState === "copied" ? "EMAIL COPIED!" : "EMAIL"}
             </button>
             <a
-              href="https://drive.google.com/file/d/1R6RM3dlaGySM3fgaBileMor0WhzEPhHu/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1w6oww6QF6538PTvxRMee5T4YXAtOvx9h/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm opacity-70 hover:opacity-100 transition-opacity"
