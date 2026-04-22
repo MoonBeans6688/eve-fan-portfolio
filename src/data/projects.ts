@@ -137,7 +137,7 @@ export const projects: Project[] = [
         title: "solution", 
         heading: "Flow 1: Memory Box", 
         content: "Memory Box lets you explore digitized keepsakes and the stories attached to them — photos, voice notes, and written memories that turn everyday objects into small, private memorials you can revisit anytime.", 
-        vimeoId: "1185410960",
+        headerVimeoId: "1185410960",
         image: "/images/dear-remains-memory-box.jpg",
         extras: [
           { heading: "Flow 2: 3D Scan", content: "Use your phone to 3D-scan meaningful items and upload them as \"digital relics.\" Each scan can be enriched with text, images, and audio so the object carries its full story forward, even when the physical item fades, breaks, or is lost.", image: "/images/dear-remains-3d-scan.jpg" },
