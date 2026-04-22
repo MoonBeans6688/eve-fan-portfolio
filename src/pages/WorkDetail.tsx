@@ -235,6 +235,17 @@ const WorkDetail = () => {
               >
                 {section.title}
               </h2>
+              {section.headerVimeoId && (
+                <div className="w-full aspect-video mb-8 rounded overflow-hidden bg-black">
+                  <iframe
+                    src={`https://player.vimeo.com/video/${section.headerVimeoId}?title=0&byline=0&portrait=0&autoplay=1&muted=1`}
+                    title={section.title}
+                    allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                </div>
+              )}
               {section.heading && (
                 <h3 className="font-body text-[20px] text-foreground leading-snug mb-3" dangerouslySetInnerHTML={{ __html: section.heading }} />
               )}
