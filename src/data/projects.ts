@@ -51,7 +51,7 @@ export const projects: Project[] = [
     slug: "insight-ai",
     title: "Insight AI",
     tagline:
-      "An AI-powered e-commerce image generator that turns product shots into studio-quality visuals.",
+      "From one-way generation to infinite-canvas workflows for scalable e-commerce image creation.",
     date: "INTERN 2025",
     tag: "",
     thumbnail: "/images/insight-ai.gif",
