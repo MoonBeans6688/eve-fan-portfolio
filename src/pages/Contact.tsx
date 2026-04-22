@@ -1,3 +1,5 @@
+import nameSticker from "@/assets/name-sticker.png";
+
 const photos = [
   {
     src: "/photos/photo1.jpg",
@@ -28,8 +30,6 @@ const education = [
   { org: "South China University of Tech.", role: "M.Des", date: "2023–2025" },
   { org: "Huazhong University of Sci. & Tech.", role: "Bachelor of Fine Arts", date: "2018–2022" },
 ];
-
-import nameSticker from "@/assets/name-sticker.png";
 
 const Contact = () => {
   return (
