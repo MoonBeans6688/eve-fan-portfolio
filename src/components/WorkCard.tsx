@@ -7,9 +7,10 @@ interface WorkCardProps {
   index: number;
   fullWidth?: boolean;
   fixedPlaceholder?: boolean;
+  comingSoon?: boolean;
 }
 
-const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: WorkCardProps) => {
+const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false, comingSoon = false }: WorkCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
