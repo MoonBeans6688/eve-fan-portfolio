@@ -19,7 +19,7 @@ const Navbar = () => {
       >
         EVE FAN
       </Link>
-      <div className="flex gap-8">
+      <div className="flex items-center gap-8">
         {navItems.map((item) => (
           <Link
             key={item.path}
@@ -33,6 +33,14 @@ const Navbar = () => {
             {item.label}
           </Link>
         ))}
+        <a
+          href="https://drive.google.com/file/d/1w6oww6QF6538PTvxRMee5T4YXAtOvx9h/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-mono text-xs tracking-widest clickable px-3 py-1.5 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors duration-200 rounded-full"
+        >
+          RESUME
+        </a>
       </div>
     </nav>
   );
