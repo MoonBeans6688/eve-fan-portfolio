@@ -7,9 +7,10 @@ interface WorkCardProps {
   index: number;
   fullWidth?: boolean;
   fixedPlaceholder?: boolean;
+  comingSoon?: boolean;
 }
 
-const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: WorkCardProps) => {
+const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false, comingSoon = false }: WorkCardProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [inView, setInView] = useState(false);
@@ -38,7 +39,9 @@ const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: 
 
   return (
     <Link
-      to={`/work/${work.slug}`}
+      to={comingSoon ? "#" : `/work/${work.slug}`}
+      onClick={comingSoon ? (e) => e.preventDefault() : undefined}
+      data-cursor-label={comingSoon ? "COMING SOON!" : undefined}
       className="clickable group block overflow-visible relative"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
