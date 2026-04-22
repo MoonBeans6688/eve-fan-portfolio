@@ -251,7 +251,7 @@ const WorkDetail = () => {
               {section.vimeoId ? (
                 <div className="w-full aspect-video mt-8 rounded overflow-hidden bg-black">
                   <iframe
-                    src={`https://player.vimeo.com/video/${section.vimeoId}?title=0&byline=0&portrait=0`}
+                    src={`https://player.vimeo.com/video/${section.vimeoId}?title=0&byline=0&portrait=0&autoplay=1&muted=1`}
                     title={section.title}
                     allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
                     allowFullScreen
