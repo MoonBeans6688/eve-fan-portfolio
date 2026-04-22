@@ -56,19 +56,27 @@ const WorkCard = ({ work, index, fullWidth = false, fixedPlaceholder = false }: 
             className="w-full bg-muted overflow-hidden"
             style={{ aspectRatio: '1015 / 450' }}
           >
-            {work.video && inView && (
-              <video
-                ref={videoRef}
-                src={work.video}
-                poster={work.poster}
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
+            {work.video ? (
+              inView && (
+                <video
+                  ref={videoRef}
+                  src={work.video}
+                  poster={work.poster}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )
+            ) : work.thumbnail ? (
+              <img
+                src={work.thumbnail}
+                alt={work.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
-            )}
+            ) : null}
           </div>
         ) : work.video ? (
           inView ? (
