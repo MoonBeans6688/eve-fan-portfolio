@@ -171,6 +171,29 @@ export const projects: Project[] = [
       { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
     ],
   },
+  {
+    slug: "tiktok",
+    title: "TikTok",
+    tagline:
+      "Rethinking Effect House from node-based workflows to an AI-native creation experience.",
+    date: "INTERN 2026",
+    tag: "",
+    thumbnail: "/__l5e/assets-v1/514581e8-99c1-4cd3-9c63-9800ecdb35ee/tiktok-cover.png",
+    span: "wide",
+    meta: [
+      { label: "TIMELINE", value: "2026" },
+      { label: "ROLE", value: "Product Designer" },
+      { label: "TEAM", value: "TikTok" },
+      { label: "SKILLS", value: "Product Design" },
+    ],
+    sections: [
+      { id: "brief", title: "BRIEF", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+    ],
+  },
 ];
 
 export function getProjectBySlug(slug: string): Project | undefined {
