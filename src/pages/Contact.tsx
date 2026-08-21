@@ -20,6 +20,7 @@ const photos = [
 ];
 
 const experience = [
+  { org: "TikTok", role: "AI Product Design Intern", date: "SUMMER 2026" },
   { org: "InsightAI", role: "Product Design Intern", date: "SUMMER 2025" },
   { org: "Xiaomi", role: "UX Design Intern", date: "SUMMER 2023" },
   { org: "Zhihu", role: "Visual Design Intern", date: "SUMMER 2021" },
