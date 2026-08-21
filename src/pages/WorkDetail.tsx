@@ -265,7 +265,34 @@ const WorkDetail = () => {
                   {section.caption}
                 </p>
               )}
-              {section.vimeoId ? (
+              {section.embedUrl ? (
+                <div className="mt-8">
+                  <div
+                    className="w-full rounded border border-border overflow-hidden bg-white"
+                    style={{ height: section.embedHeight ?? 700 }}
+                  >
+                    <iframe
+                      src={section.embedUrl}
+                      title={section.embedLabel || section.title}
+                      className="w-full h-full border-0"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between mt-2">
+                    <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                      {section.embedLabel || "Live prototype"}
+                    </p>
+                    <a
+                      href={section.embedUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="clickable font-mono text-xs text-[#4D4AFC] hover:underline"
+                    >
+                      Open fullscreen ↗
+                    </a>
+                  </div>
+                </div>
+              ) : section.vimeoId ? (
                 <div className="w-full aspect-video mt-8 rounded overflow-hidden bg-black">
                   <iframe
                     src={`https://player.vimeo.com/video/${section.vimeoId}?title=0&byline=0&portrait=0&autoplay=1&muted=1`}
@@ -325,7 +352,34 @@ const WorkDetail = () => {
                       ))}
                     </div>
                   )}
-                  {extra.sectionVideo ? (
+                  {extra.embedUrl ? (
+                    <div className="mt-8">
+                      <div
+                        className="w-full rounded border border-border overflow-hidden bg-white"
+                        style={{ height: extra.embedHeight ?? 700 }}
+                      >
+                        <iframe
+                          src={extra.embedUrl}
+                          title={extra.embedLabel || extra.heading || "Embedded prototype"}
+                          className="w-full h-full border-0"
+                          loading="lazy"
+                        />
+                      </div>
+                      <div className="flex items-center justify-between mt-2">
+                        <p className="font-mono text-xs text-muted-foreground uppercase tracking-wider">
+                          {extra.embedLabel || "Live prototype"}
+                        </p>
+                        <a
+                          href={extra.embedUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="clickable font-mono text-xs text-[#4D4AFC] hover:underline"
+                        >
+                          Open fullscreen ↗
+                        </a>
+                      </div>
+                    </div>
+                  ) : extra.sectionVideo ? (
                     <video
                       src={extra.sectionVideo}
                       poster={extra.videoPoster}
