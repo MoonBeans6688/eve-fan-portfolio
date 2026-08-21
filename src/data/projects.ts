@@ -212,45 +212,7 @@ export const projects: Project[] = [
       { id: "the-outcome", title: "work without ai", heading: "On control, craft, and AI", content: "Working on The Jar made me think more critically about where AI fits into design practice. Tools like Figma Make are compelling because they promise speed, especially in early prototyping. But in my experience, speed is not the same as control. When a project depends on a specific aesthetic language, subtle interaction pacing, and a strong emotional atmosphere, current AI tools can flatten the very qualities that make the work feel intentional.\n\nWe experimented with Figma Make, but the complexity of our file and the specificity of our visual system made the results difficult to use. Rather than letting the tool reinterpret the design for us, we chose to build the prototype manually. In a hackathon setting, that was a tradeoff: we gave up some efficiency in order to preserve coherence.\n\nWhat I took away from that decision is not that AI has no place in design, but that its value is highly dependent on where it enters the workflow. I find it most useful as a collaborator around the margins—supporting synthesis, iteration, or selective production tasks—while the core concept, structure, and aesthetic judgment still need to come from the designer." },
     ],
   },
-  {
-    slug: "dear-remains",
-    title: "Dear Remains",
-    tagline:
-      "Turning belongings into lasting digital memories",
-    date: "2025 UXDA AWARDED PROJECT",
-    tag: "",
-    thumbnail: "/images/dear-remains-cover.jpg",
-    video: "/videos/dear-remains-home.mp4",
-    span: "normal",
-    accentColor: "#9b87f5",
-    heroImage: "/images/dear-remains-cover.jpg",
-    meta: [
-      { label: "TIMELINE", value: "JUN 2025 - AUG 2025" },
-      { label: "ROLE", value: "Product Designer" },
-      { label: "TEAM", value: "Eve Fan\nHongrui Jiang" },
-      { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
-    ],
-    sections: [
-      { id: "brief", title: "BRIEF", heading: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?", content: "Dear Remains is a digital memorial companion that helps bereaved people 3D-scan a loved one's belongings and turn them into lasting digital memories.", vimeoId: "1184683166" },
-      { id: "insights", title: "Problem", heading: "Sorting belongings is practical, but grief is <span class=\"font-display italic\">emotional.</span>", content: "", image: "/images/dear-remains-insights.jpg" },
-      { id: "the-problem", title: "Research", heading: "Understanding people behind bereavement decluttering", content: "By interviewing people with real experience in sorting through the belongings of the deceased, we sought to understand their behaviors, emotions, and stress before, during, and after the organizing process.\n\nThe research also revealed to me that direct organizers and their companions face different responsibilities, forms of expression, and emotional burdens.", extras: [{ image: "/images/dear-remains-research-1.png" }, { image: "/images/dear-remains-research-2.png" }] },
-      { id: "solution", title: "Key Insights", heading: "Grief support needs gentleness, control, and continuity", content: "Research showed that bereavement decluttering needs a gentle start, emotional breathing room during sorting, and private rituals that can continue over time. In response, Dear Remains translates these needs into a memorial system built around 3D object digitization, AI-assisted storytelling, and a private family space for lasting remembrance.", image: "/images/dear-remains-insights-diagram.png" },
-      { 
-        id: "the-outcome", 
-        title: "solution", 
-        heading: "Flow 1: Memory Box", 
-        content: "Memory Box lets you explore digitized keepsakes and the stories attached to them — photos, voice notes, and written memories that turn everyday objects into small, private memorials you can revisit anytime.", 
-        headerVimeoId: "1185410960",
-        image: "/images/dear-remains-memory-box.jpg",
-        extras: [
-          { heading: "Flow 2: 3D Scan", content: "Use your phone to 3D-scan meaningful items and upload them as \"digital relics.\" Each scan can be enriched with text, images, and audio so the object carries its full story forward, even when the physical item fades, breaks, or is lost.", image: "/images/dear-remains-3d-scan.jpg" },
-          { heading: "Flow 3: Kin Galaxy", content: "Kin Galaxy is a digital family graveyard reimagined as a gentle, living sky. Each star represents a late family member or shared memory, where relatives can gather and remember together.", image: "/images/dear-remains-kin-galaxy.jpg" },
-        ],
-      },
-      { id: "validation", title: "Validation & Reflection", heading: "What testing validated", content: "Users responded positively to the emotional value of 3D scanning, personalized memory cards, and the idea of a gentle digital memorial space. The concept resonated most when it helped users preserve memories without adding emotional pressure.\n\n### What I learned\n\nThe testing also showed that designing memorial products is not only about emotion, but about clarity and control. In sensitive contexts, AI can support expression, but it should never replace the user in making sense of loss." },
-    ],
-  },
-  {
+   {
     slug: "penn-medicine",
     title: "Penn Medicine Design System",
     tagline:
@@ -370,6 +332,44 @@ export const projects: Project[] = [
         heading: "Designing for AI-Native Collaboration",
         content: "Healthcare — Healthcare is a highly complex field where team members often come from diverse backgrounds; therefore, establishing a mature workflow is essential to optimizing team collaboration.\n\nAI Usage — AI only truly enhances collaborative efficiency when it is embedded within a well-defined workflow.\n\nAI Results — Output quality depends on input structure. In an era of effortless generation, the real value lies in framing the problem and setting the boundaries.\n\nAI Purpose — AI serves as \"participation infrastructure,\" driving the democratization of collaboration across the organization.",
       },
+    ],
+  },
+ {
+    slug: "dear-remains",
+    title: "Dear Remains",
+    tagline:
+      "Turning belongings into lasting digital memories",
+    date: "2025 UXDA AWARDED PROJECT",
+    tag: "",
+    thumbnail: "/images/dear-remains-cover.jpg",
+    video: "/videos/dear-remains-home.mp4",
+    span: "normal",
+    accentColor: "#9b87f5",
+    heroImage: "/images/dear-remains-cover.jpg",
+    meta: [
+      { label: "TIMELINE", value: "JUN 2025 - AUG 2025" },
+      { label: "ROLE", value: "Product Designer" },
+      { label: "TEAM", value: "Eve Fan\nHongrui Jiang" },
+      { label: "SKILLS", value: "Problem framing\nQualitative research\nSystems thinking\nInteraction design\nVisual design" },
+    ],
+    sections: [
+      { id: "brief", title: "BRIEF", heading: "How might digital tools help bereaved people move from painful decluttering to sustainable remembrance?", content: "Dear Remains is a digital memorial companion that helps bereaved people 3D-scan a loved one's belongings and turn them into lasting digital memories.", vimeoId: "1184683166" },
+      { id: "insights", title: "Problem", heading: "Sorting belongings is practical, but grief is <span class=\"font-display italic\">emotional.</span>", content: "", image: "/images/dear-remains-insights.jpg" },
+      { id: "the-problem", title: "Research", heading: "Understanding people behind bereavement decluttering", content: "By interviewing people with real experience in sorting through the belongings of the deceased, we sought to understand their behaviors, emotions, and stress before, during, and after the organizing process.\n\nThe research also revealed to me that direct organizers and their companions face different responsibilities, forms of expression, and emotional burdens.", extras: [{ image: "/images/dear-remains-research-1.png" }, { image: "/images/dear-remains-research-2.png" }] },
+      { id: "solution", title: "Key Insights", heading: "Grief support needs gentleness, control, and continuity", content: "Research showed that bereavement decluttering needs a gentle start, emotional breathing room during sorting, and private rituals that can continue over time. In response, Dear Remains translates these needs into a memorial system built around 3D object digitization, AI-assisted storytelling, and a private family space for lasting remembrance.", image: "/images/dear-remains-insights-diagram.png" },
+      { 
+        id: "the-outcome", 
+        title: "solution", 
+        heading: "Flow 1: Memory Box", 
+        content: "Memory Box lets you explore digitized keepsakes and the stories attached to them — photos, voice notes, and written memories that turn everyday objects into small, private memorials you can revisit anytime.", 
+        headerVimeoId: "1185410960",
+        image: "/images/dear-remains-memory-box.jpg",
+        extras: [
+          { heading: "Flow 2: 3D Scan", content: "Use your phone to 3D-scan meaningful items and upload them as \"digital relics.\" Each scan can be enriched with text, images, and audio so the object carries its full story forward, even when the physical item fades, breaks, or is lost.", image: "/images/dear-remains-3d-scan.jpg" },
+          { heading: "Flow 3: Kin Galaxy", content: "Kin Galaxy is a digital family graveyard reimagined as a gentle, living sky. Each star represents a late family member or shared memory, where relatives can gather and remember together.", image: "/images/dear-remains-kin-galaxy.jpg" },
+        ],
+      },
+      { id: "validation", title: "Validation & Reflection", heading: "What testing validated", content: "Users responded positively to the emotional value of 3D scanning, personalized memory cards, and the idea of a gentle digital memorial space. The concept resonated most when it helped users preserve memories without adding emotional pressure.\n\n### What I learned\n\nThe testing also showed that designing memorial products is not only about emotion, but about clarity and control. In sensitive contexts, AI can support expression, but it should never replace the user in making sense of loss." },
     ],
   },
 ];
