@@ -272,8 +272,19 @@ export const projects: Project[] = [
         id: "brief",
         title: "PROJECT OVERVIEW",
         heading: "Penn Medicine: Rebuilding Alignment",
-        content: "Penn Medicine's Center for Health Care Transformation & Innovation (CHTI) builds a portfolio of internal digital products—Coordn8, Switchboard, Hero, PickIt, and Fulfill—used across clinical, operations, and administrative teams. As the portfolio grew, so did visual and structural inconsistency between apps.\n\nWe were brought in to address this fragmentation, but the real problem turned out to run deeper than surface-level visuals. The solution combined two parts: an alignment process for how the team works together, and an AI-assisted design system for how the apps look and feel cohesive.",
-        image: "/images/penn-medicine/slide-02.jpg",
+        content: "Penn Medicine's Center for Health Care Transformation & Innovation (CHTI) builds a portfolio of internal digital products—Coordn8, Switchboard, Hero, PickIt, and Fulfill—used across clinical, operations, and administrative teams. As the portfolio grew, so did visual and structural inconsistency between apps.\n\nWe were brought in to address this fragmentation, but the real problem turned out to run deeper than surface-level visuals. The solution combined two parts: an alignment process for how the team works together, and an AI-assisted design system for how the apps look and feel cohesive. Both are live and in use today—explore them below before diving into how we got there.",
+        embedUrl: "/prototypes/pickit.html",
+        embedLabel: "PickIt — live production interface, built on the CHTI design system",
+        embedHeight: 760,
+        extras: [
+          {
+            heading: "The Alignment Process Playbook",
+            content: "The second deliverable: a six-step alignment playbook CHTI teams now use to move from idea to buildable product concept. Every step defines who leads, why it matters, and who needs to be aligned. Click through the steps below.",
+            embedUrl: "/prototypes/chti-playbook.html",
+            embedLabel: "CHTI App Design Playbook — interactive guide",
+            embedHeight: 760,
+          },
+        ],
       },
       {
         id: "problem",
@@ -333,7 +344,7 @@ export const projects: Project[] = [
         id: "solution-design-system",
         title: "SOLUTION: DESIGN SYSTEM",
         heading: "The design system provides a shared visual language for every CHTI product.",
-        content: "The CHTI design system defines typography (IBM Plex Serif and IBM Plex Sans), a shared color palette, an icon system, and reusable components—cards, navigation, status indicators, buttons—so every app draws from the same visual vocabulary instead of reinventing it.",
+        content: "The CHTI design system defines typography (IBM Plex Serif and IBM Plex Sans), a shared color palette, an icon system, and reusable components—cards, navigation, status indicators, buttons—so every app draws from the same visual vocabulary instead of reinventing it. (See PickIt, built on this system, in the live demo at the top of this case study.)",
         image: "/images/penn-medicine/slide-12.jpg",
         extras: [
           {
@@ -350,13 +361,6 @@ export const projects: Project[] = [
             heading: "",
             content: "",
             image: "/images/penn-medicine/slide-15.jpg",
-          },
-          {
-            heading: "Shipped: PickIt, rebuilt on the CHTI design system",
-            content: "PickIt is CHTI's live supply-ordering and fulfillment platform for Penn Medicine units. This is the real, deployed interface—rebuilt using the design system above and currently in use by clinical, materials management, QA, and admin roles across facilities. Explore it below: switch roles and modules using the interactive controls to see how the same design system adapts across different workflows.",
-            embedUrl: "/prototypes/pickit.html",
-            embedLabel: "PickIt — live production interface",
-            embedHeight: 760,
           },
         ],
       },
