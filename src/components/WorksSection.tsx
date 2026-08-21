@@ -21,7 +21,7 @@ const WorksSection = () => {
             index={i}
             fullWidth
             fixedPlaceholder
-            comingSoon={work.slug === "penn-medicine" || work.slug === "tiktok"}
+            comingSoon={work.slug === "tiktok"}
           />
         ))}
       </div>
