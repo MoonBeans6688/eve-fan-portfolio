@@ -9,6 +9,9 @@ export interface SectionExtra {
   image?: string;
   sectionVideo?: string;
   videoPoster?: string;
+  embedUrl?: string;
+  embedLabel?: string;
+  embedHeight?: number;
 }
 
 export interface ProjectSection {
@@ -24,6 +27,9 @@ export interface ProjectSection {
   youtubeId?: string;
   vimeoId?: string;
   headerVimeoId?: string;
+  embedUrl?: string;
+  embedLabel?: string;
+  embedHeight?: number;
   extras?: SectionExtra[];
 }
 
@@ -249,6 +255,7 @@ export const projects: Project[] = [
     title: "Penn Medicine Design System",
     tagline:
       "Turning fragmented clinical tools into a coherent system that aligns teams and makes innovation visible.",
+    overviewTagline: "An AI-native workflow and design system for cross-functional product collaboration.",
     date: "Client project 2026",
     tag: "",
     thumbnail: "/images/penn-medicine-cover.jpg",
@@ -257,15 +264,108 @@ export const projects: Project[] = [
     meta: [
       { label: "TIMELINE", value: "2026" },
       { label: "ROLE", value: "Product Designer" },
-      { label: "TEAM", value: "Penn Medicine" },
-      { label: "SKILLS", value: "Design Systems" },
+      { label: "TEAM", value: "Penn Medicine Center for Health Care\nTransformation & Innovation (CHTI)" },
+      { label: "SKILLS", value: "Design Systems\nWorkflow Design\nStakeholder Alignment\nAI-Assisted Prototyping" },
     ],
     sections: [
-      { id: "brief", title: "BRIEF", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "insights", title: "Problem", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-problem", title: "Research", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "solution", title: "Key Insights", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
-      { id: "the-outcome", title: "Design Strategy", heading: "Heading placeholder", content: "Section content placeholder. Add your case study content here." },
+      {
+        id: "brief",
+        title: "PROJECT OVERVIEW",
+        heading: "Penn Medicine: Rebuilding Alignment",
+        content: "Penn Medicine's Center for Health Care Transformation & Innovation (CHTI) builds a portfolio of internal digital products—Coordn8, Switchboard, Hero, PickIt, and Fulfill—used across clinical, operations, and administrative teams. As the portfolio grew, so did visual and structural inconsistency between apps.\n\nWe were brought in to address this fragmentation, but the real problem turned out to run deeper than surface-level visuals. The solution combined two parts: an alignment process for how the team works together, and an AI-assisted design system for how the apps look and feel cohesive.",
+        image: "/images/penn-medicine/slide-02.jpg",
+      },
+      {
+        id: "problem",
+        title: "PROBLEM",
+        heading: "How might we create a unified, recognizable experience across CHTI's digital products that signals quality and trust?",
+        content: "This was the brief we were initially asked to address. On the surface, it looked like a visual design problem: five different apps, five different visual languages, no shared sense that they came from the same team.",
+      },
+      {
+        id: "research-insights",
+        title: "RESEARCH INSIGHTS",
+        heading: "Conversations with stakeholders surfaced three root causes behind CHTI's fragmentation.",
+        content: "Mindset — Perceiving CHTI products as temporary creates a barrier to internal iteration.\n\nWorkflow — The absence of a standardized framework has created a structural void, forcing individuals to develop their own standards that compete and generate friction.\n\nAwareness — CHTI is experiencing a visibility gap that is capping its potential for impact.",
+        image: "/images/penn-medicine/slide-04.jpg",
+      },
+      {
+        id: "workflow-analysis",
+        title: "WORKFLOW ANALYSIS",
+        heading: "The workflow you'd imagine vs. the current messy reality",
+        content: "The imagined workflow is clean: product managers define the vision, designers make buildable prototypes, developers build, stakeholders review, feedback loops close the circle.\n\nThe actual workflow looked nothing like that. Transformation managers and designers faced unstructured iteration, unclear feedback, and stakeholders jumping in at early stages without shared context. AI tools were sometimes making decisions without oversight, developers had to keep re-explaining context, and feedback from stakeholders often arrived too late to be useful.",
+        image: "/images/penn-medicine/slide-05.jpg",
+      },
+      {
+        id: "reframing",
+        title: "PROBLEM REFRAMING",
+        heading: "Fixing the visuals without fixing the alignment challenges would only be a bandage—not a long-lasting solution.",
+        content: "We were asked to address visual inconsistency: create visual consistency across CHTI's portfolio of apps.\n\nWhat we discovered was that there is no visible consistency because there are internal alignment issues stopping the teams from working together well. Visual fragmentation was a symptom, not the disease.\n\n### New HMW Question\n\nHow might we create a shared way of working that helps CHTI teams align earlier, collaborate across roles, and turn ideas into buildable product concepts?",
+      },
+      {
+        id: "solution",
+        title: "SOLUTION",
+        heading: "To leverage the team's expertise, CHTI needs to drive alignment and create consistency.",
+        content: "The solution has two halves that reinforce each other: an Alignment Process for how individuals work together, and an AI-Assisted Design System for how apps look cohesive.",
+        image: "/images/penn-medicine/slide-08.jpg",
+        extras: [
+          {
+            heading: "This solution ensures that each role can add its value and leads to more efficient collaboration.",
+            content: "No clear process → Structured 6-step alignment flow\n\nUnclear role & constant stepping on toes → Ownership defined at every stage\n\nNo shared frame of reference → Single source of truth that captures all research and decisions\n\nStakeholders not consulted often enough → Structured check-ins that re-involve stakeholders at every step\n\nAI overstepping → Humans lead decision making, AI executes\n\nEvery app looks different → One unified CHTI design system",
+            image: "/images/penn-medicine/slide-09.jpg",
+          },
+        ],
+      },
+      {
+        id: "solution-alignment-process",
+        title: "SOLUTION: ALIGNMENT PROCESS",
+        heading: "Every step defines who leads, why it matters, and who needs to be aligned.",
+        content: "The alignment process is a six-step playbook, built to foster productive collaboration between transformation managers and software development. Humans lead and make the decisions—AI is a powerful tool to help execute.\n\n1. Storyboarding — Understand the user's journey before designing anything.\n2. Page Planning — Define what the app needs to do, page by page.\n3. Layouts & Interactions — Sketch the structure of each page before anything is built.\n4. High-Fidelity Wireframing with AI — Turn sketches into polished, branded screens.\n5. Usability Testing & Iteration — Bring end users in early to shape the final product.\n6. Handoff — Set software up for success before the full build begins.",
+        image: "/images/penn-medicine/slide-10.jpg",
+        extras: [
+          {
+            heading: "Step 1 of 6: Storyboarding",
+            content: "Led by: Transformation Managers\n\nWhy this step matters: Storyboarding forces you to genuinely understand the person who will use your app—what they do, in what order, and what they're thinking at each stage. It's the difference between an app that fits naturally into someone's day and one they have to work around.\n\nWhat you'll produce: a current-state storyboard for each type of user, and a future-state storyboard showing how your solution fits into their flow.\n\nHow to check your work — Software: talk through the solution to understand how it will be delivered. Clients: share your storyboards and revise based on what you hear.",
+            image: "/images/penn-medicine/slide-11.jpg",
+          },
+        ],
+      },
+      {
+        id: "solution-design-system",
+        title: "SOLUTION: DESIGN SYSTEM",
+        heading: "The design system provides a shared visual language for every CHTI product.",
+        content: "The CHTI design system defines typography (IBM Plex Serif and IBM Plex Sans), a shared color palette, an icon system, and reusable components—cards, navigation, status indicators, buttons—so every app draws from the same visual vocabulary instead of reinventing it.",
+        image: "/images/penn-medicine/slide-12.jpg",
+        extras: [
+          {
+            heading: "AI builders like Claude know our design system.",
+            content: "We built a workflow where Claude Design reads the CHTI Figma design system file (.fig) and understands its components, spacing, type scale, and color rules. Claude then generates a machine-readable version of the design system that can be reused across future projects—so every new AI-assisted build starts from the same foundation instead of drifting from it.",
+            image: "/images/penn-medicine/slide-13.jpg",
+          },
+          {
+            heading: "Claude can translate any plans into CHTI-branded outputs.",
+            content: "Two examples from the Coordn8 platform: the existing app screen (left) versus the same screen rebuilt using the CHTI design system (right)—in one case redesigned by our team, and in the other, built directly by Claude using the design system as its guide.",
+            image: "/images/penn-medicine/slide-14.jpg",
+          },
+          {
+            heading: "",
+            content: "",
+            image: "/images/penn-medicine/slide-15.jpg",
+          },
+          {
+            heading: "Shipped: PickIt, rebuilt on the CHTI design system",
+            content: "PickIt is CHTI's live supply-ordering and fulfillment platform for Penn Medicine units. This is the real, deployed interface—rebuilt using the design system above and currently in use by clinical, materials management, QA, and admin roles across facilities. Explore it below: switch roles and modules using the interactive controls to see how the same design system adapts across different workflows.",
+            embedUrl: "/prototypes/pickit.html",
+            embedLabel: "PickIt — live production interface",
+            embedHeight: 760,
+          },
+        ],
+      },
+      {
+        id: "reflection",
+        title: "REFLECTION",
+        heading: "Designing for AI-Native Collaboration",
+        content: "Healthcare — Healthcare is a highly complex field where team members often come from diverse backgrounds; therefore, establishing a mature workflow is essential to optimizing team collaboration.\n\nAI Usage — AI only truly enhances collaborative efficiency when it is embedded within a well-defined workflow.\n\nAI Results — Output quality depends on input structure. In an era of effortless generation, the real value lies in framing the problem and setting the boundaries.\n\nAI Purpose — AI serves as \"participation infrastructure,\" driving the democratization of collaboration across the organization.",
+      },
     ],
   },
 ];
